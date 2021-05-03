@@ -1,9 +1,9 @@
 "use strict";
 
-const get_ulelement = document.getElementsByTagName("ul");
+const ul = document.getElementsByTagName("ul");
 
-const create_li = document.createElement("li");
+const li = document.createElement("li");
 
-get_ulelement[0].appendChild(create_li);
+ul[0].appendChild(li);
 
-create_li.textContent = "これです。";
+li.textContent = "これです。";
