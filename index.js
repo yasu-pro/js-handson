@@ -1,3 +1,5 @@
+"use strict";
+
 const get_ulelement = document.getElementsByTagName("ul");
 
 const create_li = document.createElement("li");
