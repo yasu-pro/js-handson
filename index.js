@@ -4,6 +4,20 @@ const ul = document.getElementById("js-list");
 
 const li = document.createElement("li");
 
-li.textContent = "これです。";
+const a = document.createElement("a");
+
+const img = document.createElement("img");
+
+a.textContent = "これです。";
+
+a.setAttribute("href", "1.html");
+
+img.setAttribute("src", "bookmark.png");
+
+img.setAttribute("alt", "ブックマーク");
 
 ul.appendChild(li);
+
+li.appendChild(a);
+
+a.prepend(img);
