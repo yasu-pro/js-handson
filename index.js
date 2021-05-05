@@ -10,6 +10,4 @@ a.setAttribute("href", "1.html");
 img.setAttribute("src", "bookmark.png");
 img.setAttribute("alt", "ブックマーク");
 
-ul.appendChild(li);
-li.appendChild(a);
-a.prepend(img);
+ul.appendChild(li).appendChild(a).prepend(img);
