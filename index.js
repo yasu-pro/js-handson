@@ -2,6 +2,7 @@
 
 const ul = document.getElementById("js-list");
 const length = 2;
+const fragment = document.createDocumentFragment();
 
 function createTag() {
   const li = document.createElement("li");
@@ -19,5 +20,7 @@ for (let i = 1; i <= length; i++) {
   array[2].setAttribute("src", "bookmark.png");
   array[2].setAttribute("alt", "ブックマーク");
 
-  ul.appendChild(array[0]).appendChild(array[1]).prepend(array[2]);
+  fragment.appendChild(array[0]).appendChild(array[1]).prepend(array[2]);
 }
+
+ul.appendChild(fragment);
