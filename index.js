@@ -4,23 +4,17 @@ const ul = document.getElementById("js-list");
 const length = 2;
 const fragment = document.createDocumentFragment();
 
-function createTag() {
+for (let i = 1; i <= length; i++) {
   const li = document.createElement("li");
   const a = document.createElement("a");
   const img = document.createElement("img");
 
-  return [li, a, img];
-}
+  a.textContent = `a${i}`;
+  a.setAttribute("href", `${i}.html`);
+  img.setAttribute("src", "bookmark.png");
+  img.setAttribute("alt", "ブックマーク");
 
-for (let i = 1; i <= length; i++) {
-  const array = createTag();
-
-  array[1].textContent = `a${i}`;
-  array[1].setAttribute("href", `${i}.html`);
-  array[2].setAttribute("src", "bookmark.png");
-  array[2].setAttribute("alt", "ブックマーク");
-
-  fragment.appendChild(array[0]).appendChild(array[1]).prepend(array[2]);
+  fragment.appendChild(li).appendChild(a).prepend(img);
 }
 
 ul.appendChild(fragment);
