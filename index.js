@@ -1,6 +1,7 @@
 "use strict";
 
 const ul = document.getElementById("js-list");
+const lenght = 2;
 
 function createTag() {
   const li = document.createElement("li");
@@ -10,7 +11,7 @@ function createTag() {
   return [li, a, img];
 }
 
-for (let i = 1; i <= 2; i++) {
+for (let i = 1; i <= length; i++) {
   const array = createTag();
   console.log(createTag());
   array[0].textContent = `a${i}`;
