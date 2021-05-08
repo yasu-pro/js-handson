@@ -1,7 +1,7 @@
 "use strict";
 
 const ul = document.getElementById("js-list");
-const lenght = 2;
+const length = 2;
 
 function createTag() {
   const li = document.createElement("li");
@@ -13,9 +13,9 @@ function createTag() {
 
 for (let i = 1; i <= length; i++) {
   const array = createTag();
-  console.log(createTag());
-  array[0].textContent = `a${i}`;
-  array[0].setAttribute("href", `${i}.html`);
+
+  array[1].textContent = `a${i}`;
+  array[1].setAttribute("href", `${i}.html`);
   array[2].setAttribute("src", "bookmark.png");
   array[2].setAttribute("alt", "ブックマーク");
 
