@@ -2,27 +2,21 @@
 
 const ul = document.getElementById("js-list");
 
-let li = "";
-let a = "";
-let img = "";
-
 function createTag() {
-  li = document.createElement("li");
-  a = document.createElement("a");
-  img = document.createElement("img");
-}
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  const img = document.createElement("img");
 
-function insertElement() {
-  ul.appendChild(li).appendChild(a).prepend(img);
+  return [li, a, img];
 }
 
 for (let i = 1; i <= 2; i++) {
-  createTag();
+  const array = createTag();
+  console.log(createTag());
+  array[0].textContent = `a${i}`;
+  array[0].setAttribute("href", `${i}.html`);
+  array[2].setAttribute("src", "bookmark.png");
+  array[2].setAttribute("alt", "ブックマーク");
 
-  a.textContent = `a${i}`;
-  a.setAttribute("href", `${i}.html`);
-  img.setAttribute("src", "bookmark.png");
-  img.setAttribute("alt", "ブックマーク");
-
-  insertElement();
+  ul.appendChild(array[0]).appendChild(array[1]).prepend(array[2]);
 }
