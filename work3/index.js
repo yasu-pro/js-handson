@@ -1,20 +1,23 @@
 "use strict";
 
 const ul = document.getElementById("js-list");
-const length = 2;
 const fragment = document.createDocumentFragment();
+const items = [
+  { to: "bookmark.html", img: "1.png", alt: "画像1", text: "ブックマーク" },
+  { to: "message.html", img: "2.png", alt: "画像2", text: "メッセージ" },
+];
 
-for (let i = 1; i <= length; i++) {
+items.forEach((item) => {
   const li = document.createElement("li");
   const a = document.createElement("a");
   const img = document.createElement("img");
 
-  a.textContent = `a${i}`;
-  a.href = `${i}.html`;
-  img.src = "bookmark.png";
-  img.alt = "ブックマーク";
+  a.href = item.to;
+  a.textContent = item.text;
+  img.src = item.img;
+  img.alt = item.alt;
 
   fragment.appendChild(li).appendChild(a).prepend(img);
-}
+});
 
 ul.appendChild(fragment);
