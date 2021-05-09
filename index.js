@@ -10,7 +10,6 @@ for (let i = 1; i <= length; i++) {
   const img = document.createElement("img");
 
   a.textContent = `a${i}`;
-  //   a.setAttribute("href", `${i}.html`);
   a.href = `${i}.html`;
   img.src = "bookmark.png";
   img.alt = "ブックマーク";
