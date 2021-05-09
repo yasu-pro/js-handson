@@ -11,7 +11,6 @@ items.forEach((item) => {
   const li = document.createElement("li");
   const a = document.createElement("a");
   const img = document.createElement("img");
-  console.log(item);
 
   a.href = item.to;
   a.textContent = item.text;
