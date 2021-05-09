@@ -10,9 +10,10 @@ for (let i = 1; i <= length; i++) {
   const img = document.createElement("img");
 
   a.textContent = `a${i}`;
-  a.setAttribute("href", `${i}.html`);
-  img.setAttribute("src", "bookmark.png");
-  img.setAttribute("alt", "ブックマーク");
+  //   a.setAttribute("href", `${i}.html`);
+  a.href = `${i}.html`;
+  img.src = "bookmark.png";
+  img.alt = "ブックマーク";
 
   fragment.appendChild(li).appendChild(a).prepend(img);
 }
