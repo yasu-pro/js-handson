@@ -1,13 +1,20 @@
 "use strict";
 
 const ul = document.getElementById("js-list");
-const li = document.createElement("li");
-const a = document.createElement("a");
-const img = document.createElement("img");
+const length = 2;
+const fragment = document.createDocumentFragment();
 
-a.textContent = "これです。";
-a.setAttribute("href", "1.html");
-img.setAttribute("src", "bookmark.png");
-img.setAttribute("alt", "ブックマーク");
+for (let i = 1; i <= length; i++) {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  const img = document.createElement("img");
 
-ul.appendChild(li).appendChild(a).prepend(img);
+  a.textContent = `a${i}`;
+  a.href = `${i}.html`;
+  img.src = "bookmark.png";
+  img.alt = "ブックマーク";
+
+  fragment.appendChild(li).appendChild(a).prepend(img);
+}
+
+ul.appendChild(fragment);
