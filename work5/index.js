@@ -2,19 +2,20 @@
 
 const ul = document.getElementById("js-list");
 const fragment = document.createDocumentFragment();
+const listContents = [
+  {
+    to: "bookmark.html",
+    img: "1.png",
+    alt: "画像1",
+    text: "ブックマーク",
+  },
+  { to: "message.html", img: "2.png", alt: "画像2", text: "メッセージ" },
+];
 
 //ver1
 function getObj() {
   return new Promise((resolve, reject) => {
-    resolve([
-      {
-        to: "bookmark.html",
-        img: "1.png",
-        alt: "画像1",
-        text: "ブックマーク",
-      },
-      { to: "message.html", img: "2.png", alt: "画像2", text: "メッセージ" },
-    ]);
+    resolve(listContents);
   });
 }
 
@@ -37,15 +38,7 @@ getObj().then((items) => {
 
 //ver2
 const promise = new Promise((resolve, reject) => {
-  resolve([
-    {
-      to: "bookmark.html",
-      img: "1.png",
-      alt: "画像1",
-      text: "ブックマーク",
-    },
-    { to: "message.html", img: "2.png", alt: "画像2", text: "メッセージ" },
-  ]);
+  resolve(listContents);
 });
 
 promise.then((items) => {
