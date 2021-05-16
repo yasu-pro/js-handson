@@ -1,7 +1,4 @@
 "use strict";
-
-const ul = document.getElementById("js-list");
-
 function getObj() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -19,6 +16,7 @@ function getObj() {
 }
 
 getObj().then((items) => {
+  const ul = document.getElementById("js-list");
   const fragment = document.createDocumentFragment();
   items.forEach((item) => {
     const li = document.createElement("li");
