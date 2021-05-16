@@ -1,7 +1,6 @@
 "use strict";
 
 const ul = document.getElementById("js-list");
-const fragment = document.createDocumentFragment();
 
 function getObj() {
   return new Promise((resolve, reject) => {
@@ -20,6 +19,7 @@ function getObj() {
 }
 
 getObj().then((items) => {
+  const fragment = document.createDocumentFragment();
   items.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
