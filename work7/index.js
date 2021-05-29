@@ -23,7 +23,6 @@ function getObj() {
 getObj().then((items) => {
   const ul = document.getElementById("js-list");
   const fragment = document.createDocumentFragment();
-  const body = document.getElementById("js-loding");
   items.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
@@ -36,7 +35,7 @@ getObj().then((items) => {
 
     fragment.appendChild(li).appendChild(a).prepend(img);
   });
-  body.style.backgroundImage = "none";
+  ul.style.backgroundImage = "none";
 
 
   ul.appendChild(fragment);
