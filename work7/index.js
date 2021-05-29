@@ -9,7 +9,12 @@ function getObj() {
           alt: "画像1",
           text: "ブックマーク",
         },
-        { to: "message.html", img: "2.png", alt: "画像2", text: "メッセージ" },
+        {
+          to: "message.html",
+          img: "2.png",
+          alt: "画像2",
+          text: "メッセージ"
+        },
       ]);
     }, 3000);
   });
@@ -18,11 +23,11 @@ function getObj() {
 getObj().then((items) => {
   const ul = document.getElementById("js-list");
   const fragment = document.createDocumentFragment();
+  const body = document.getElementById("js-loding");
   items.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     const img = document.createElement("img");
-    const body = document.getElementById("js-loding");
 
     a.href = item.to;
     a.textContent = item.text;
@@ -30,8 +35,9 @@ getObj().then((items) => {
     img.alt = item.alt;
 
     fragment.appendChild(li).appendChild(a).prepend(img);
-    body.style.backgroundImage = "none";
   });
+  body.style.backgroundImage = "none";
+
 
   ul.appendChild(fragment);
 });
