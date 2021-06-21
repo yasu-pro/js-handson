@@ -4,25 +4,25 @@ const is_false = false;
 function getObj() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (is_false === false) {
-        reject("Error");
-      }
-      else {
-        resolve([
-          {
-            to: "bookmark.html",
-            img: "1.png",
-            alt: "画像1",
-            text: "ブックマーク",
-          },
-          {
-            to: "message.html",
-            img: "2.png",
-            alt: "画像2",
-            text: "メッセージ"
-          },
-        ]);
-      }
+
+      reject("Error");
+
+
+      resolve([
+        {
+          to: "bookmark.html",
+          img: "1.png",
+          alt: "画像1",
+          text: "ブックマーク",
+        },
+        {
+          to: "message.html",
+          img: "2.png",
+          alt: "画像2",
+          text: "メッセージ"
+        },
+      ]);
+
     }, 3000);
   });
 }
