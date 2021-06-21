@@ -1,5 +1,4 @@
 "use strict";
-const is_false = false;
 
 function getObj() {
   return new Promise((resolve, reject) => {
