@@ -46,5 +46,5 @@ getObj().then((items) => {
   ul.appendChild(fragment);
 })
   .catch((error) => {
-    console.log(error)
+    console.error(error);
   })
