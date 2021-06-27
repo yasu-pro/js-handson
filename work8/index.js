@@ -1,22 +1,15 @@
 "use strict";
 
-function getObj() {
+loading();
+
+function loading() {
     const ul = document.getElementById("js-list");
     ul.style.backgroundImage = "url(./img/loading-circle.gif)";
     ul.style.backgroundRepeat = "no-repeat";
     ul.style.height = "100px";
-
-    return new Promise((resolve, reject) => {
-
-        setTimeout(() => {
-
-            reject(new Error("エラー"));
-
-        }, 3000);
-    });
 }
 
-getObj().then((items) => {
+function createElement(items) {
     const ul = document.getElementById("js-list");
     const fragment = document.createDocumentFragment();
     items.forEach((item) => {
@@ -32,6 +25,18 @@ getObj().then((items) => {
         fragment.appendChild(li).appendChild(a).prepend(img);
     });
     ul.appendChild(fragment);
+}
+
+function getObj() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject(new Error("エラー"));
+        }, 3000);
+    });
+}
+
+getObj().then((items) => {
+    createElement(items);
 })
     .catch((error) => {
         console.error(error);
