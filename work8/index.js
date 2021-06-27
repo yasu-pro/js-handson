@@ -1,6 +1,11 @@
 "use strict";
 
 function getObj() {
+  const ul = document.getElementById("js-list");
+  ul.style.backgroundImage = "url(./img/loading-circle.gif)";
+  ul.style.backgroundRepeat = "no-repeat";
+  ul.style.height = "100px";
+  
   return new Promise((resolve, reject) => {
     setTimeout(() => {
 
