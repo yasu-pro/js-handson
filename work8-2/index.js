@@ -10,20 +10,20 @@ function loading() {
 function createElement(items) {
   const ul = document.getElementById("js-list");
   const fragment = document.createDocumentFragment();
-  ul.style.backgroundImage = "none",
+  ul.style.backgroundImage = "none";
 
-    items.forEach((item) => {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      const img = document.createElement("img");
+  items.forEach((item) => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    const img = document.createElement("img");
 
-      a.href = item.to;
-      a.textContent = item.text;
-      img.src = item.img;
-      img.alt = item.alt;
+    a.href = item.to;
+    a.textContent = item.text;
+    img.src = item.img;
+    img.alt = item.alt;
 
-      fragment.appendChild(li).appendChild(a).prepend(img);
-    });
+    fragment.appendChild(li).appendChild(a).prepend(img);
+  });
   ul.appendChild(fragment);
 }
 
