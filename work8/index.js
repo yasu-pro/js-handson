@@ -5,11 +5,12 @@ function getObj() {
   ul.style.backgroundImage = "url(./img/loading-circle.gif)";
   ul.style.backgroundRepeat = "no-repeat";
   ul.style.height = "100px";
-  
+
   return new Promise((resolve, reject) => {
+
     setTimeout(() => {
 
-      reject("Error");
+      return reject(new Error("エラー"));
 
 
       resolve([
@@ -25,7 +26,9 @@ function getObj() {
           alt: "画像2",
           text: "メッセージ"
         },
-      ]);
+      ],
+        ul.style.backgroundImage = "none",
+      );
 
     }, 3000);
   });
@@ -46,7 +49,6 @@ getObj().then((items) => {
 
     fragment.appendChild(li).appendChild(a).prepend(img);
   });
-  ul.style.backgroundImage = "none";
   ul.appendChild(fragment);
 })
   .catch((error) => {
