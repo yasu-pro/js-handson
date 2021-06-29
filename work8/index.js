@@ -1,16 +1,8 @@
 "use strict";
 
-loading();
-
-function loading() {
-    const ul = document.getElementById("js-list");
-    ul.style.backgroundImage = "url(./img/loading-circle.gif)";
-    ul.style.backgroundRepeat = "no-repeat";
-    ul.style.height = "100px";
-}
+const ul = document.getElementById("js-list");
 
 function createElement(items) {
-    const ul = document.getElementById("js-list");
     const fragment = document.createDocumentFragment();
     items.forEach((item) => {
         const li = document.createElement("li");
@@ -41,3 +33,11 @@ getObj().then((items) => {
     .catch((error) => {
         console.error(error);
     })
+
+function loading() {
+    ul.style.backgroundImage = "url(./img/loading-circle.gif)";
+    ul.style.backgroundRepeat = "no-repeat";
+    ul.style.height = "100px";
+}
+
+loading();
