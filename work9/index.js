@@ -17,6 +17,7 @@ const obj = [{
 
 function createElement(items) {
   const fragment = document.createDocumentFragment();
+  ul.style.backgroundImage = "none";
   items.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
@@ -32,22 +33,16 @@ function createElement(items) {
   ul.appendChild(fragment);
 }
 
-function getObj() {
-  return new Promise((resolve, reject) => {
+async function getObj() {
+  await new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(obj);
-
-
-      reject(new Error("エラー"));
-
+      resolve(obj)
     }, 3000);
   })
+  createElement(obj);
 }
 
-getObj().then((items) => {
-  createElement(items);
-  ul.style.backgroundImage = "none";
-})
+getObj()
   .catch((error) => {
     console.error(error);
   });
