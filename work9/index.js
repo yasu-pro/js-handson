@@ -15,10 +15,26 @@ const obj = [{
 },
 ]
 
-function createElement(items) {
+function getObject() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(obj);
+
+      reject(new Error("エラー"));
+
+    }, 3000);
+  })
+}
+
+async function createElement() {
   const fragment = document.createDocumentFragment();
+
+  const getObj = await getObject();
+  console.log(getObj);
+
   ul.style.backgroundImage = "none";
-  items.forEach((item) => {
+
+  getObj.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     const img = document.createElement("img");
@@ -33,19 +49,7 @@ function createElement(items) {
   ul.appendChild(fragment);
 }
 
-async function getObj() {
-  await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(obj)
-    }, 3000);
-  })
-  createElement(obj);
-}
-
-getObj()
-  .catch((error) => {
-    console.error(error);
-  });
+createElement();
 
 function loading() {
   ul.style.backgroundImage = "url(./img/loading-circle.gif)";
