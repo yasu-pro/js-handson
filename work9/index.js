@@ -30,7 +30,6 @@ async function createElement() {
   const fragment = document.createDocumentFragment();
 
   const getObj = await getObject();
-  console.log(getObj);
 
   ul.style.backgroundImage = "none";
 
