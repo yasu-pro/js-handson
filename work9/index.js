@@ -48,7 +48,6 @@ async function createElement() {
   ul.appendChild(fragment);
 }
 
-createElement();
 
 function loading() {
   ul.style.backgroundImage = "url(./img/loading-circle.gif)";
@@ -57,3 +56,5 @@ function loading() {
 }
 
 loading();
+
+createElement();
