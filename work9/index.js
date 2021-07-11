@@ -1,7 +1,7 @@
 "use strict";
 
 const ul = document.getElementById("js-list");
-const obj = [{
+const data = [{
   to: "bookmark.html",
   img: "1.png",
   alt: "画像1",
@@ -15,10 +15,10 @@ const obj = [{
 },
 ]
 
-function getObject() {
+function getData() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(obj);
+      resolve(data);
 
       reject(new Error("エラー"));
 
@@ -29,7 +29,7 @@ function getObject() {
 async function createElement() {
   const fragment = document.createDocumentFragment();
 
-  const getObj = await getObject();
+  const getObj = await getData();
 
   ul.style.backgroundImage = "none";
 
