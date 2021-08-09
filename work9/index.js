@@ -13,25 +13,30 @@ const data = [{
   alt: "画像2",
   text: "メッセージ"
 },
-]
+];
 
 function getData() {
-  return new Promise((resolve, reject) => {
+  const result = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
 
     }, 3000);
   })
+  return result;
 }
 
-async function createElement() {
-  const fragment = document.createDocumentFragment();
-
+async function asynchronous() {
   const imgArray = await getData();
+  createElement(imgArray);
+
+}
+
+function createElement(img) {
+  const fragment = document.createDocumentFragment();
 
   ul.style.backgroundImage = "none";
 
-  imgArray.forEach((item) => {
+  img.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     const img = document.createElement("img");
@@ -46,7 +51,6 @@ async function createElement() {
   ul.appendChild(fragment);
 }
 
-
 function loading() {
   ul.style.backgroundImage = "url(./img/loading-circle.gif)";
   ul.style.backgroundRepeat = "no-repeat";
@@ -55,4 +59,4 @@ function loading() {
 
 loading();
 
-createElement();
+asynchronous()
