@@ -25,7 +25,7 @@ function getData() {
   return result;
 }
 
-async function asynchronous() {
+async function promise() {
   const imgArray = await getData();
   createElement(imgArray);
 
@@ -59,4 +59,4 @@ function loading() {
 
 loading();
 
-asynchronous()
+promise()
