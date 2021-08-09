@@ -20,8 +20,6 @@ function getData() {
     setTimeout(() => {
       resolve(data);
 
-      reject(new Error("エラー"));
-
     }, 3000);
   })
 }
