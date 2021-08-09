@@ -27,11 +27,11 @@ function getData() {
 async function createElement() {
   const fragment = document.createDocumentFragment();
 
-  const getObj = await getData();
+  const imgArray = await getData();
 
   ul.style.backgroundImage = "none";
 
-  getObj.forEach((item) => {
+  imgArray.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     const img = document.createElement("img");
