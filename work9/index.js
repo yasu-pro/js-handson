@@ -26,17 +26,16 @@ function getData() {
 }
 
 async function getImgArray() {
-  const imgArray = await getData();
-  createElement(imgArray);
-
+  const arrayData = await getData();
+  createElement(arrayData);
 }
 
-function createElement(img) {
+function createElement(imgArray) {
   const fragment = document.createDocumentFragment();
 
   ul.style.backgroundImage = "none";
 
-  img.forEach((item) => {
+  imgArray.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     const img = document.createElement("img");
