@@ -25,15 +25,16 @@ function getData() {
   return result;
 }
 
-async function getImgArray() {
-  const arrayData = await getData();
-  createElement(arrayData);
+async function execute() {
+  await createElement();
+  hideLoading();
 }
 
-function createElement(imgArray) {
+async function createElement() {
   const fragment = document.createDocumentFragment();
+  const imgArray = await getData();
 
-  ul.style.backgroundImage = "none";
+  console.log(imgArray);
 
   imgArray.forEach((item) => {
     const li = document.createElement("li");
@@ -56,6 +57,10 @@ function loading() {
   ul.style.height = "100px";
 }
 
+function hideLoading() {
+  ul.style.backgroundImage = "none";
+}
+
 loading();
 
-getImgArray();
+execute();
