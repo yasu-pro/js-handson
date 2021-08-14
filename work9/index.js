@@ -31,7 +31,7 @@ async function outputFunction() {
   hideLoading();
 }
 
-async function hideLoading() {
+function hideLoading() {
   ul.style.backgroundImage = "none";
 }
 
