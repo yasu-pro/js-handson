@@ -60,7 +60,6 @@ function loading() {
 }
 
 
-
 loading();
 
 outputFunction();
