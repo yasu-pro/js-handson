@@ -26,6 +26,8 @@ function getData() {
 }
 
 async function displayView() {
+  loading();
+
   const arrayData = await getData();
   createElement(arrayData);
   hideLoading();
@@ -61,6 +63,5 @@ function loading() {
 
 
 
-loading();
 
 displayView();
