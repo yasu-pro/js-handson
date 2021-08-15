@@ -1,5 +1,5 @@
 "use strict";
-
+const div = document.querySelector(".wrap")
 const ul = document.getElementById("js-list");
 const data = [{
   to: "bookmark.html",
@@ -18,7 +18,7 @@ const data = [{
 function getData() {
   const result = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(data);
+      reject(new Error('エラーだよ！！！'));
 
     }, 3000);
   })
@@ -28,9 +28,17 @@ function getData() {
 async function displayView() {
   loading();
 
-  const arrayData = await getData();
-  createElement(arrayData);
-  hideLoading();
+  let arrayData;
+  try {
+    arrayData = await getData();
+    createElement(arrayData);
+  } catch (e) {
+    console.log(e.message);
+    div.textContent = e.message;
+  } finally {
+    hideLoading();
+  }
+
 }
 
 function hideLoading() {
