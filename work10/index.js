@@ -28,9 +28,8 @@ function getData() {
 async function displayView() {
   loading();
 
-  let arrayData;
   try {
-    arrayData = await getData();
+    const arrayData = await getData();
     createElement(arrayData);
   } catch (e) {
     console.log(e.message);
