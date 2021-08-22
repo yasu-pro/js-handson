@@ -1,27 +1,21 @@
 "use strict";
 const div = document.querySelector(".wrap")
 const ul = document.getElementById("js-list");
-const data = [{
-  to: "bookmark.html",
-  img: "1.png",
-  alt: "画像1",
-  text: "ブックマーク",
-},
-{
-  to: "message.html",
-  img: "2.png",
-  alt: "画像2",
-  text: "メッセージ"
-},
-];
+const url = "https://jsondata.okiba.me/v1/json/d4ex5210822124352"
 
 function getData() {
   const result = new Promise((resolve, reject) => {
     setTimeout(() => {
-      reject(new Error('エラーだよ！！！'));
+      resolve(
+        async function a() {
+          const response = (await fetch(url)).json();
+          return response
+        }()
+      )
 
     }, 3000);
   })
+  console.log(result)
   return result;
 }
 
@@ -30,6 +24,7 @@ async function displayView() {
 
   try {
     const arrayData = await getData();
+    console.log(arrayData)
     createElement(arrayData);
   } catch (e) {
     console.log(e.message);
@@ -52,7 +47,7 @@ function createElement(imgArray) {
     const a = document.createElement("a");
     const img = document.createElement("img");
 
-    a.href = item.to;
+    a.href = item.a;
     a.textContent = item.text;
     img.src = item.img;
     img.alt = item.alt;
