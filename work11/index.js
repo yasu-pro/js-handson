@@ -15,7 +15,6 @@ function getData() {
 
     }, 3000);
   })
-  console.log(result)
   return result;
 }
 
@@ -24,10 +23,8 @@ async function displayView() {
 
   try {
     const arrayData = await getData();
-    console.log(arrayData)
     createElement(arrayData);
   } catch (e) {
-    console.log(e.message);
     div.textContent = e.message;
   } finally {
     hideLoading();
@@ -42,18 +39,23 @@ function hideLoading() {
 function createElement(imgArray) {
   const fragment = document.createDocumentFragment();
 
-  imgArray.forEach((item) => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    const img = document.createElement("img");
+  Object.keys(imgArray).forEach(key => {
 
-    a.href = item.a;
-    a.textContent = item.text;
-    img.src = item.img;
-    img.alt = item.alt;
+    Object.keys(imgArray[key]).forEach(keyIndex => {
 
-    fragment.appendChild(li).appendChild(a).prepend(img);
-  });
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      const img = document.createElement("img");
+
+      a.href = imgArray[key][keyIndex].a;
+      a.textContent = imgArray[key][keyIndex].text;
+      img.src = imgArray[key][keyIndex].img;
+      img.alt = imgArray[key][keyIndex].alt;
+
+      fragment.appendChild(li).appendChild(a).prepend(img);
+    });
+    ul.appendChild(fragment);
+  })
   ul.appendChild(fragment);
 }
 
