@@ -7,7 +7,7 @@ function getData() {
   const result = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(
-        async function a() {
+        async function () {
           const response = (await fetch(url)).json();
           return response
         }()
