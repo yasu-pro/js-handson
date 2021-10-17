@@ -54,7 +54,6 @@ function createElement(imgArray) {
 
       fragment.appendChild(li).appendChild(a).prepend(img);
     });
-    ul.appendChild(fragment);
   })
   ul.appendChild(fragment);
 }
