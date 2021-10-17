@@ -1,5 +1,5 @@
 "use strict";
-const div = document.querySelector(".wrap")
+const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
 const url = "https://jsondata.okiba.me/v1/json/d4ex5210822124352"
 
@@ -25,7 +25,7 @@ async function displayView() {
     const arrayData = await getData();
     createElement(arrayData);
   } catch (e) {
-    div.textContent = e.message;
+    wrap.textContent = e.message;
   } finally {
     hideLoading();
   }
