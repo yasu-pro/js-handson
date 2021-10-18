@@ -29,7 +29,6 @@ async function displayView() {
   } finally {
     hideLoading();
   }
-
 }
 
 function hideLoading() {
@@ -41,17 +40,16 @@ function createElement(imgArray) {
 
   Object.keys(imgArray).forEach(key => {
 
-    Object.keys(imgArray[key]).forEach(keyIndex => {
+    imgArray[key].forEach(keyIndex => {
 
       const li = document.createElement("li");
       const a = document.createElement("a");
       const img = document.createElement("img");
 
-      a.href = imgArray[key][keyIndex].a;
-      a.textContent = imgArray[key][keyIndex].text;
-      img.src = imgArray[key][keyIndex].img;
-      img.alt = imgArray[key][keyIndex].alt;
-
+      a.href = keyIndex.a;
+      a.textContent = keyIndex.text;
+      img.src = keyIndex.img;
+      img.alt = keyIndex.alt;
       fragment.appendChild(li).appendChild(a).prepend(img);
     });
   })
@@ -63,7 +61,6 @@ function loading() {
   ul.style.backgroundRepeat = "no-repeat";
   ul.style.height = "100px";
 }
-
 
 
 
