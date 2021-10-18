@@ -5,15 +5,12 @@ const url = "https://jsondata.okiba.me/v1/json/d4ex5210822124352"
 
 function getData() {
   const result = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(
-        async function () {
-          const response = (await fetch(url)).json();
-          return response
-        }()
-      )
-
-    }, 3000);
+    resolve(
+      async function () {
+        const response = (await fetch(url)).json();
+        return response
+      }()
+    )
   })
   return result;
 }
