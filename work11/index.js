@@ -15,7 +15,7 @@ function getData() {
   return result;
 }
 
-async function displayView() {
+async function getJSON() {
   try {
     const arrayData = await getData();
     createElement(arrayData);
@@ -59,4 +59,4 @@ function loading() {
 
 
 loading();
-displayView();
+getJSON();
