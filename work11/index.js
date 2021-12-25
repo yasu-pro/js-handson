@@ -17,8 +17,8 @@ function getData() {
 
 async function getJSON() {
   try {
-    const arrayData = await getData();
-    createElement(arrayData);
+    const jsonData = await getData();
+    createElement(jsonData);
   } catch (e) {
     wrap.textContent = e.message;
   } finally {
@@ -30,24 +30,21 @@ function hideLoading() {
   ul.style.backgroundImage = "none";
 }
 
-function createElement(imgArray) {
+function createElement({ data }) {
   const fragment = document.createDocumentFragment();
 
-  Object.keys(imgArray).forEach(key => {
+  data.forEach((value) => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    const img = document.createElement("img");
 
-    imgArray[key].forEach(keyIndex => {
+    a.href = value.a;
+    a.textContent = value.text;
+    img.src = value.img;
+    img.alt = value.alt;
+    fragment.appendChild(li).appendChild(a).prepend(img);
+  });
 
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      const img = document.createElement("img");
-
-      a.href = keyIndex.a;
-      a.textContent = keyIndex.text;
-      img.src = keyIndex.img;
-      img.alt = keyIndex.alt;
-      fragment.appendChild(li).appendChild(a).prepend(img);
-    });
-  })
   ul.appendChild(fragment);
 }
 
