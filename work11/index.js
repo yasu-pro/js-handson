@@ -3,22 +3,11 @@ const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
 const url = "http://myjson.dit.upm.es/api/bins/ajy3"
 
-function getData() {
-  const result = new Promise((resolve, reject) => {
-    resolve(
-      async function () {
-        const response = (await fetch(url)).json();
-        return response
-      }()
-    )
-  })
-  return result;
-}
-
-async function getJSON() {
+async function getData() {
+  loading();
   try {
-    const jsonData = await getData();
-    createElement(jsonData);
+    const response = (await fetch(url)).json();
+    return response
   } catch (e) {
     wrap.textContent = e.message;
   } finally {
@@ -26,9 +15,13 @@ async function getJSON() {
   }
 }
 
+getData().then((value) => {
+  createElement(value);
+})
+
 function hideLoading() {
   ul.style.backgroundImage = "none";
-}
+
 
 function createElement({ data }) {
   const fragment = document.createDocumentFragment();
@@ -54,6 +47,3 @@ function loading() {
   ul.style.height = "100px";
 }
 
-
-loading();
-getJSON();
