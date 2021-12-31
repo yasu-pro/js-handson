@@ -35,6 +35,9 @@ function createElement({ data }) {
     a.textContent = value.text;
     img.src = value.img;
     img.alt = value.alt;
+    img.style.width = "30px";
+    img.style.verticalAlign = "middle"
+
     fragment.appendChild(li).appendChild(a).prepend(img);
   });
 
