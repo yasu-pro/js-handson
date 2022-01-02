@@ -6,8 +6,9 @@ const url = "https://myjson.dit.upm.es/api/bins/ajy3"
 async function getData() {
   loading();
   try {
-    const response = (await fetch(url)).json();
-    return response
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
   } catch (e) {
     wrap.textContent = e.message;
   } finally {
@@ -49,4 +50,5 @@ function loading() {
   ul.style.backgroundRepeat = "no-repeat";
   ul.style.height = "100px";
 }
+
 
