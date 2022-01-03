@@ -1,14 +1,21 @@
 "use strict";
 const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
+// const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
+// const url = "https://myjson.dit.upm.es/api/bins/bu5z";
 const url = "https://myjson.dit.upm.es/api/bins/ajy3"
+
 
 async function getData() {
   loading();
   try {
     const response = await fetch(url);
-    const data = await response.json();
-    return data;
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      throw alert("apiデータが取得できません")
+    }
   } catch (e) {
     wrap.textContent = e.message;
   } finally {
@@ -17,6 +24,11 @@ async function getData() {
 }
 
 getData().then((value) => {
+  console.log({ value })
+  console.log(value.data)
+  if (!value.data.length) {
+    throw alert("配列空です。")
+  }
   createElement(value);
 })
 
