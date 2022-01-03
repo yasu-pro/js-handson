@@ -1,9 +1,9 @@
 "use strict";
 const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
-// const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
+const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/bu5z";
-const url = "https://myjson.dit.upm.es/api/bins/ajy3"
+// const url = "https://myjson.dit.upm.es/api/bins/ajy3"
 
 
 async function getData() {
@@ -14,7 +14,7 @@ async function getData() {
       const data = await response.json();
       return data;
     } else {
-      throw alert("apiデータが取得できません")
+      throw Error(response.statusText);
     }
   } catch (e) {
     wrap.textContent = e.message;
