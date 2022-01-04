@@ -24,8 +24,6 @@ async function getData() {
 }
 
 getData().then((value) => {
-  console.log({ value })
-  console.log(value.data)
   if (!value.data.length) {
     throw alert("配列空です。")
   }
