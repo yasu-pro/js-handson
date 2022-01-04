@@ -14,7 +14,7 @@ async function getData() {
       const data = await response.json();
       return data;
     } else {
-      throw Error(response.statusText);
+      wrap.textContent = "データーを取得できませんでした。"
     }
   } catch (e) {
     wrap.textContent = e.message;
@@ -25,7 +25,7 @@ async function getData() {
 
 getData().then((value) => {
   if (!value.data.length) {
-    throw alert("配列空です。")
+    wrap.textContent = "配列が空です。"
   }
   createElement(value);
 })
