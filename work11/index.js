@@ -13,8 +13,6 @@ async function getData() {
     return data;
   } catch (e) {
     throw new Error(e);
-  } finally {
-    hideLoading();
   }
 }
 
