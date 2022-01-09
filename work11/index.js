@@ -3,7 +3,7 @@ const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
 const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/bu5z";
-// const url = "https://myjson.dit.upm.es/api/bins/ajy3"
+// const url = "http://myjson.dit.upm.es/api/bins/2hj3";
 
 
 async function getData() {
@@ -23,17 +23,19 @@ async function getListData() {
   let listData;
   try {
     listData = await getData();
-    console.log(listData);
+    console.log(JSON.stringify(listData.status));
     if (listData.status !== 200) {
       throw new Error(`status:${listData.status}, message:${listData.message}`);
     }
   } catch (e) {
+    console.log(JSON.stringify(e));
     wrap.textContent = `エラー内容:${e.message}`;
   } finally {
     hideLoading();
   }
-  if (listData.data.length) {
+  if (listData.data.length === 0) {
     wrap.textContent = "data is empty";
+    return
   }
   createElement(listData);
 }
