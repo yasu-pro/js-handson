@@ -1,18 +1,21 @@
 "use strict";
 const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
-// const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
+const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/bu5z";
-const url = "https://myjson.dit.upm.es/api/bins/2hj3";
+// const url = "https://myjson.dit.upm.es/api/bins/2hj3";
 
 
 async function getData() {
   try {
     const response = await fetch(url);
-    const data = await response.json();
-    return data;
+    if (response.ok) {
+      const json = await response.json();
+      return json;
+    }
+    throw new Error(response.statusText);
   } catch (e) {
-    throw new Error(e);
+    throw new Error(e + 'getData()');
   }
 }
 
@@ -21,19 +24,15 @@ async function getListData() {
   let listData;
   try {
     listData = await getData();
-    console.log(JSON.stringify(listData.status));
-    if (listData.status !== 200) {
-      throw new Error(`status:${listData.status}, message:${listData.message}`);
-    }
   } catch (e) {
-    console.log(JSON.stringify(e));
+    console.log(e);
     wrap.textContent = `エラー内容:${e.message}`;
   } finally {
     hideLoading();
   }
   if (listData.data.length === 0) {
     wrap.textContent = "data is empty";
-    return
+    return;
   }
   createElement(listData);
 }
