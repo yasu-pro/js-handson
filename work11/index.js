@@ -7,28 +7,36 @@ const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 
 
 async function getData() {
-  loading();
   try {
     const response = await fetch(url);
-    if (response.ok) {
-      const data = await response.json();
-      return data;
-    } else {
-      wrap.textContent = "データーを取得できませんでした。"
-    }
+    const data = await response.json();
+    return data;
   } catch (e) {
-    wrap.textContent = e.message;
+    throw new Error(e);
   } finally {
     hideLoading();
   }
 }
 
-getData().then((value) => {
-  if (!value.data.length) {
-    wrap.textContent = "配列が空です。"
+async function getListData() {
+  loading();
+  let listData;
+  try {
+    listData = await getData();
+    console.log(listData);
+    if (listData.status !== 200) {
+      throw new Error(`status:${listData.status}, message:${listData.message}`);
+    }
+  } catch (e) {
+    wrap.textContent = `エラー内容:${e.message}`;
+  } finally {
+    hideLoading();
   }
-  createElement(value);
-})
+  if (listData.data.length) {
+    wrap.textContent = "data is empty";
+  }
+  createElement(listData);
+}
 
 function hideLoading() {
   ul.style.backgroundImage = "none";
@@ -61,4 +69,4 @@ function loading() {
   ul.style.height = "100px";
 }
 
-
+getListData();
