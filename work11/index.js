@@ -1,9 +1,9 @@
 "use strict";
 const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
-const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
+// const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/bu5z";
-// const url = "http://myjson.dit.upm.es/api/bins/2hj3";
+const url = "https://myjson.dit.upm.es/api/bins/2hj3";
 
 
 async function getData() {
