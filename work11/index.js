@@ -1,9 +1,9 @@
 "use strict";
 const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
-const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
+// const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/bu5z";
-// const url = "https://myjson.dit.upm.es/api/bins/2hj3";
+const url = "https://myjson.dit.upm.es/api/bins/2hj3";
 
 
 async function getData() {
@@ -12,10 +12,11 @@ async function getData() {
     if (response.ok) {
       const json = await response.json();
       return json;
+    } else {
+      throw new Error(response.statusText);
     }
-    throw new Error(response.statusText);
   } catch (e) {
-    throw new Error(e + 'getData()');
+    throw new Error(e);
   }
 }
 
@@ -25,7 +26,6 @@ async function getListData() {
   try {
     listData = await getData();
   } catch (e) {
-    console.log(e);
     wrap.textContent = `エラー内容:${e.message}`;
   } finally {
     hideLoading();
