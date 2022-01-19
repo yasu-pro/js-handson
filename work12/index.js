@@ -39,6 +39,7 @@ async function getListData() {
 
 function hideLoading() {
   ul.style.backgroundImage = "none";
+  ul.style.height = "auto";
 }
 
 function createElement({ data }) {
