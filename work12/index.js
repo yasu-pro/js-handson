@@ -1,7 +1,7 @@
 "use strict";
 const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
-const button = document.getElementById("js-button");
+const button_wrap = document.getElementById("js-button-wrap");
 // const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/bu5z";
 const url = "https://myjson.dit.upm.es/api/bins/2hj3";
@@ -69,6 +69,26 @@ function loading() {
   ul.style.height = "100px";
 }
 
-button.addEventListener("click", () => {
-  getListData();
-})
+function createButtonTag() {
+  const buttonTag = document.createElement("button");
+  buttonTag.id = "js-button";
+  buttonTag.type = "submit";
+  buttonTag.textContent = "クリック";
+  return buttonTag;
+}
+
+// 動かなければ、buttonタグがあればという条件分岐を入れる
+function renderElement(createButtonTag) {
+  console.log(createButtonTag);
+  button_wrap.appendChild(createButtonTag);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("js-button");
+  console.log(button);
+  button.addEventListener("click", () => {
+    getListData();
+  })
+});
+
+renderElement(createButtonTag());
