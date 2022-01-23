@@ -2,6 +2,7 @@
 const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
 const button_wrap = document.getElementById("js-button-wrap");
+
 // const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/bu5z";
 const url = "https://myjson.dit.upm.es/api/bins/2hj3";
@@ -21,7 +22,6 @@ async function getData() {
 }
 
 async function getListData() {
-  loading();
   let listData;
   try {
     listData = await getData();
@@ -34,7 +34,7 @@ async function getListData() {
     wrap.textContent = "data is empty";
     return;
   }
-  createElement(listData);
+  return listData;
 }
 
 function hideLoading() {
@@ -77,16 +77,18 @@ function createButtonTag() {
   return buttonTag;
 }
 
-// 動かなければ、buttonタグがあればという条件分岐を入れる
 function renderElement(createButtonTag) {
   button_wrap.appendChild(createButtonTag);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.getElementById("js-button");
-  button.addEventListener("click", () => {
+
+  button.addEventListener("click", async () => {
+    loading();
     button.style.display = "none";
-    getListData();
+    const data = await getListData();
+    createElement(data);
   })
 });
 
