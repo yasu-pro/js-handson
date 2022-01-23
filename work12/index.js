@@ -2,9 +2,9 @@
 const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
 const button_wrap = document.getElementById("js-button-wrap");
-const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
+// const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/bu5z";
-// const url = "https://myjson.dit.upm.es/api/bins/2hj3";
+const url = "https://myjson.dit.upm.es/api/bins/2hj3";
 
 async function getData() {
   try {
@@ -79,14 +79,13 @@ function createButtonTag() {
 
 // 動かなければ、buttonタグがあればという条件分岐を入れる
 function renderElement(createButtonTag) {
-  console.log(createButtonTag);
   button_wrap.appendChild(createButtonTag);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.getElementById("js-button");
-  console.log(button);
   button.addEventListener("click", () => {
+    button.style.display = "none";
     getListData();
   })
 });
