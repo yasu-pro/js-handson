@@ -42,7 +42,7 @@ function hideLoading() {
   ul.style.height = "auto";
 }
 
-function createElement({ data }) {
+function renderListElement({ data }) {
   const fragment = document.createDocumentFragment();
 
   data.forEach((value) => {
@@ -77,7 +77,7 @@ function createButtonTag() {
   return buttonTag;
 }
 
-function renderElement(createButtonTag) {
+function renderButtonElement(createButtonTag) {
   button_wrap.appendChild(createButtonTag);
 }
 
