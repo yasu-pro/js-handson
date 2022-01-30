@@ -5,21 +5,44 @@ const button_wrap = document.getElementById("js-button-wrap");
 
 // const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/bu5z";
-const url = "https://myjson.dit.upm.es/api/bins/2hj3";
-
-async function getData() {
-  try {
-    const response = await fetch(url);
-    if (response.ok) {
-      const json = await response.json();
-      return json;
-    } else {
-      throw new Error(`Server request failed:${response.statusText}`);
+// const url = "https://myjson.dit.upm.es/api/bins/2hj3";
+// 下記は、myjson繋がらない時の固定値
+const url = {
+  "data": [
+    {
+      "a": "bookmark",
+      "img": "img/1.png",
+      "alt": "画像１",
+      "text": "ブックマーク"
+    },
+    {
+      "a": "message",
+      "img": "img/2.png",
+      "alt": "画像２",
+      "text": "メッセージ"
     }
-  } catch (e) {
-    throw new Error(e);
-  }
+  ]
 }
+
+// async function getData() {
+//   try {
+//     const response = await fetch(url);
+//     if (response.ok) {
+//       const json = await response.json();
+//       return json;
+//     } else {
+//       throw new Error(`Server request failed:${response.statusText}`);
+//     }
+//   } catch (e) {
+//     throw new Error(e);
+//   }
+// }
+
+// 下記は、固定値をそのままpromiseの返り値とする
+async function getData() {
+  return url
+}
+
 
 async function getListData() {
   let listData;
@@ -88,8 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
     loading();
     button.style.display = "none";
     const data = await getListData();
-    createElement(data);
+    renderListElement(data);
   })
 });
 
-renderElement(createButtonTag());
+renderButtonElement(createButtonTag());
