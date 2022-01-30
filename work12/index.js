@@ -34,7 +34,7 @@ const url = {
 //       throw new Error(`Server request failed:${response.statusText}`);
 //     }
 //   } catch (e) {
-//     throw new Error(e);
+//     console.error(e)
 //   }
 // }
 
