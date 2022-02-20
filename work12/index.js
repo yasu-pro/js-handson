@@ -3,6 +3,7 @@ const wrap = document.getElementById("js-wrap")
 const ul = document.getElementById("js-list");
 const button_wrap = document.getElementById("js-button-wrap");
 
+
 // const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/bu5z";
 // const url = "https://myjson.dit.upm.es/api/bins/2hj3";
@@ -104,15 +105,20 @@ function renderButtonElement(createButtonTag) {
   button_wrap.appendChild(createButtonTag);
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const button = document.getElementById("js-button");
-
-  button.addEventListener("click", async () => {
-    loading();
-    button.style.display = "none";
-    const data = await getListData();
-    renderListElement(data);
-  })
-});
+const init = async () => {
+  loading();
+  const data = await getListData();
+  renderListElement(data);
+}
 
 renderButtonElement(createButtonTag());
+
+const button = document.getElementById("js-button");
+button.addEventListener("click", () => {
+  init();
+  button.style.display = "none";
+})
+
+
+
+
