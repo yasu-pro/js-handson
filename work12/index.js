@@ -116,7 +116,7 @@ renderButtonElement(createButtonTag());
 const button = document.getElementById("js-button");
 button.addEventListener("click", () => {
   init();
-  button.style.display = "none";
+  button.remove();
 })
 
 
