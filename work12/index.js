@@ -1,8 +1,7 @@
 "use strict";
-const wrap = document.getElementById("js-wrap")
+const wrap = document.getElementById("js-wrap");
 const ul = document.getElementById("js-list");
-const button_wrap = document.getElementById("js-button-wrap");
-
+// const button_wrap = document.getElementById("js-button-wrap");
 
 // const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/bu5z";
@@ -43,7 +42,6 @@ const url = {
 async function getData() {
   return url
 }
-
 
 async function getListData() {
   let listData;
@@ -93,16 +91,20 @@ function loading() {
   ul.style.height = "100px";
 }
 
-function createButtonTag() {
+function renderButtonElement() {
+  const button_wrap = document.createElement("div");
   const buttonTag = document.createElement("button");
+
+  button_wrap.id = "js-button-wrap";
+
   buttonTag.id = "js-button";
   buttonTag.type = "submit";
   buttonTag.textContent = "クリック";
-  return buttonTag;
-}
 
-function renderButtonElement(createButtonTag) {
-  button_wrap.appendChild(createButtonTag);
+  wrap.after(button_wrap);
+  button_wrap.appendChild(buttonTag);
+
+  return buttonTag;
 }
 
 const init = async () => {
@@ -111,14 +113,12 @@ const init = async () => {
   renderListElement(data);
 }
 
-renderButtonElement(createButtonTag());
-
-const button = document.getElementById("js-button");
-button.addEventListener("click", () => {
-  init();
-  button.remove();
+window.addEventListener('DOMContentLoaded', () => {
+  const button = document.getElementById("js-button");
+  button.addEventListener("click", () => {
+    init();
+    button.remove();
+  })
 })
 
-
-
-
+renderButtonElement();
