@@ -4,8 +4,8 @@ const ul = document.getElementById("js-list");
 // const button_wrap = document.getElementById("js-button-wrap");
 
 // const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
-// const url = "https://myjson.dit.upm.es/api/bins/bu5z";
-// const url = "https://myjson.dit.upm.es/api/bins/2hj3";
+// const url = "https://myjson.dit.upm.es/api/bins/86vb";
+// const url = "https://myjson.dit.upm.es/api/bins/eu2f";
 // 下記は、myjson繋がらない時の固定値
 const url = {
   "data": [
@@ -24,24 +24,27 @@ const url = {
   ]
 }
 
-// async function getData() {
-//   try {
-//     const response = await fetch(url);
-//     if (response.ok) {
-//       const json = await response.json();
-//       return json;
-//     } else {
-//       throw new Error(`Server request failed:${response.statusText}`);
-//     }
-//   } catch (e) {
-//     console.error(e)
-//   }
-// }
-
-// 下記は、固定値をそのままpromiseの返り値とする
 async function getData() {
-  return url
+  try {
+    // const response = await fetch(url);
+    // if (response.ok) {
+    //   const json = await response.json();
+    //   return json;
+    // } else {
+    //   throw new Error(`Server request failed:${response.statusText}`);
+    // }
+    // 下記は、固定値をそのままpromiseの返り値とする
+    const json = url
+
+    return json
+  } catch (e) {
+    console.error(e)
+  }
 }
+
+// async function getData() {
+//   return url
+// }
 
 async function getListData() {
   let listData;
