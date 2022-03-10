@@ -116,12 +116,10 @@ const init = async () => {
   renderListElement(data);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  const button = document.getElementById("js-button");
-  button.addEventListener("click", () => {
-    init();
-    button.remove();
-  })
-})
-
 renderButtonElement();
+
+const button = document.getElementById("js-button");
+button.addEventListener("click", () => {
+  init();
+  button.remove();
+})
