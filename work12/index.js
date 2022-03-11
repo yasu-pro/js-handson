@@ -111,7 +111,7 @@ function renderButtonElement() {
   wrap.after(buttonWrap);
   buttonWrap.appendChild(buttonTag);
 
-  return buttonTag;
+  return buttonWrap;
 }
 
 const init = async () => {
