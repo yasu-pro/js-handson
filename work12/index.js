@@ -118,6 +118,7 @@ renderButtonElement();
 
 const button = document.getElementById("js-button");
 button.addEventListener("click", () => {
+  const buttonWrap = document.getElementById("js-button-wrap")
   init();
-  button.remove();
+  buttonWrap.remove();
 })
