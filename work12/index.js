@@ -1,7 +1,6 @@
 "use strict";
 const wrap = document.getElementById("js-wrap");
 const ul = document.getElementById("js-list");
-// const button_wrap = document.getElementById("js-button-wrap");
 
 // const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/86vb";
@@ -100,17 +99,17 @@ function loading() {
 }
 
 function renderButtonElement() {
-  const button_wrap = document.createElement("div");
+  const buttonWrap = document.createElement("div");
   const buttonTag = document.createElement("button");
 
-  button_wrap.id = "js-button-wrap";
+  buttonWrap.id = "js-button-wrap";
 
   buttonTag.id = "js-button";
   buttonTag.type = "submit";
   buttonTag.textContent = "クリック";
 
-  wrap.after(button_wrap);
-  button_wrap.appendChild(buttonTag);
+  wrap.after(buttonWrap);
+  buttonWrap.appendChild(buttonTag);
 
   return buttonTag;
 }
