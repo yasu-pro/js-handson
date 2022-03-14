@@ -46,18 +46,19 @@ async function getData() {
 }
 
 async function getListData() {
+  let listData;
   try {
-    const listData = await getData();
-    if (listData.data.length === 0) {
-      throw new Error("data is empty");
-    }
-    return listData;
+    listData = await getData();
   } catch (e) {
-    // 上記の `catch` の中にある `throw` を取得し表示する
     wrap.textContent = `エラー内容:${e.message}`;
   } finally {
     hideLoading();
   }
+  if (listData.data.length === 0) {
+    wrap.textContent = "data is empty";
+    return;
+  }
+  return listData;
 }
 
 function hideLoading() {
