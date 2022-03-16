@@ -64,8 +64,8 @@ async function getListData() {
 }
 
 function hideLoading() {
-  ul.style.backgroundImage = "none";
-  ul.style.height = "auto";
+  const loading = document.querySelector(".loading")
+  loading.remove();
 }
 
 function renderListElement({ data }) {
@@ -80,8 +80,6 @@ function renderListElement({ data }) {
     a.textContent = value.text;
     img.src = value.img;
     img.alt = value.alt;
-    img.style.width = "30px";
-    img.style.verticalAlign = "middle"
 
     fragment.appendChild(li).appendChild(a).prepend(img);
   });
@@ -90,9 +88,18 @@ function renderListElement({ data }) {
 }
 
 function loading() {
-  ul.style.backgroundImage = "url(./img/loading-circle.gif)";
-  ul.style.backgroundRepeat = "no-repeat";
-  ul.style.height = "100px";
+  const div = document.createElement("div");
+  const img = document.createElement("img");
+  const container = document.querySelector(".container");
+  const body = document.querySelector("html body");
+
+  console.log(body)
+
+  div.classList.add("loading");
+  img.src = "./img/loading-circle.gif"
+
+  div.append(img);
+  body.insertBefore(div, container);
 }
 
 const init = async () => {
