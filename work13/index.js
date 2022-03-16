@@ -1,11 +1,13 @@
 "use strict";
 const wrap = document.getElementById("js_wrap");
 const ul = document.getElementById("js_list");
-const modalButton = document.getElementById("js_modalButton");
+const modalBtn = document.getElementById("js_modalButton");
 const modal = document.getElementById("js_modal");
-// const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
+
 const url = "https://mocki.io/v1/d6da0b8a-3546-419e-aaec-05f3a247c6d0";
+// const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
 // const url = "https://myjson.dit.upm.es/api/bins/eu2f";
+
 // 下記は、myjson繋がらない時の固定値
 // const url = {
 //   "data": [
@@ -100,30 +102,29 @@ const init = async () => {
 }
 
 // モーダルクリック pattern1
-modalButton.addEventListener("click", () => {
+modalBtn.addEventListener("click", () => {
   modal.style.display = "block";
-  modalButton.parentElement.remove();
+  modalBtn.parentElement.remove();
   requestBtnClickEvent();
 });
 
 function requestBtnClickEvent() {
-  const requestButton = document.getElementById("js_requestButton");
-  requestButton.addEventListener("click", () => {
+  const requestBtn = document.getElementById("js_requestButton");
+  requestBtn.addEventListener("click", () => {
     init();
     modal.remove();
   })
 }
 
 // モーダルクリック pattern2
-// modalButton.addEventListener("click", () => {
+// modalBtn.addEventListener("click", () => {
 //   modal.style.display = "block";
-//   modalButton.parentElement.remove();
+//   modalBtn.parentElement.remove();
 // });
 
 
-// const requestButton = document.getElementById("js_requestButton");
-// requestButton.addEventListener("click", (e) => {
-//   console.log(e);
+// const requestBtn = document.getElementById("js_requestButton");
+// requestBtn.addEventListener("click", (e) => {
 //   init();
 //   modal.remove();
 // })
