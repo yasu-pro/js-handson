@@ -1,42 +1,42 @@
 "use strict";
-const wrap = document.getElementById("js-wrap");
-const ul = document.getElementById("js-list");
-
+const wrap = document.getElementById("js_wrap");
+const ul = document.getElementById("js_list");
+const modalButton = document.getElementById("js_modalButton");
+const modal = document.getElementById("js_modal");
 // const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
-// const url = "https://myjson.dit.upm.es/api/bins/86vb";
+const url = "https://mocki.io/v1/d6da0b8a-3546-419e-aaec-05f3a247c6d0";
 // const url = "https://myjson.dit.upm.es/api/bins/eu2f";
 // 下記は、myjson繋がらない時の固定値
-const url = {
-  "data": [
-    {
-      "a": "bookmark",
-      "img": "img/1.png",
-      "alt": "画像１",
-      "text": "ブックマーク"
-    },
-    {
-      "a": "message",
-      "img": "img/2.png",
-      "alt": "画像２",
-      "text": "メッセージ"
-    }
-  ]
-}
+// const url = {
+//   "data": [
+//     {
+//       "a": "bookmark",
+//       "img": "img/1.png",
+//       "alt": "画像１",
+//       "text": "ブックマーク"
+//     },
+//     {
+//       "a": "message",
+//       "img": "img/2.png",
+//       "alt": "画像２",
+//       "text": "メッセージ"
+//     }
+//   ]
+// }
 
 async function getData() {
   try {
-    // const response = await fetch(url);
-    // if (response.ok) {
-    //   const json = await response.json();
-    //   return json;
-    // } else {
-    //.okでなければerrorを投げる
-    //   throw new Error(`Server request failed:${response.statusText}`);
-    // }
+    const response = await fetch(url);
+    if (response.ok) {
+      const json = await response.json();
+      return json;
+    } else {
+      // .okでなければerrorを投げる
+      throw new Error(`Server request failed:${response.statusText}`);
+    }
     // 下記は、固定値をそのままpromiseの返り値とする
-    const json = url
-
-    return json
+    // const json = url
+    // return json
   } catch (e) {
     //上記のthrowでエラーが出ていれば、ここでコンソールに表示し、
     //エラーを投げる
@@ -93,33 +93,37 @@ function loading() {
   ul.style.height = "100px";
 }
 
-function renderButtonElement() {
-  const buttonWrap = document.createElement("div");
-  const buttonTag = document.createElement("button");
-
-  buttonWrap.id = "js-button-wrap";
-
-  buttonTag.id = "js-button";
-  buttonTag.type = "submit";
-  buttonTag.textContent = "クリック";
-
-  wrap.after(buttonWrap);
-  buttonWrap.appendChild(buttonTag);
-
-  return buttonWrap;
-}
-
 const init = async () => {
   loading();
   const data = await getListData();
   renderListElement(data);
 }
 
-renderButtonElement();
+// モーダルクリック pattern1
+modalButton.addEventListener("click", () => {
+  modal.style.display = "block";
+  modalButton.parentElement.remove();
+  requestBtnClickEvent();
+});
 
-const button = document.getElementById("js-button");
-button.addEventListener("click", () => {
-  const buttonWrap = document.getElementById("js-button-wrap")
-  init();
-  buttonWrap.remove();
-})
+function requestBtnClickEvent() {
+  const requestButton = document.getElementById("js_requestButton");
+  requestButton.addEventListener("click", () => {
+    init();
+    modal.remove();
+  })
+}
+
+// モーダルクリック pattern2
+// modalButton.addEventListener("click", () => {
+//   modal.style.display = "block";
+//   modalButton.parentElement.remove();
+// });
+
+
+// const requestButton = document.getElementById("js_requestButton");
+// requestButton.addEventListener("click", (e) => {
+//   console.log(e);
+//   init();
+//   modal.remove();
+// })
