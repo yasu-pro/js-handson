@@ -93,8 +93,6 @@ function loading() {
   const container = document.querySelector(".container");
   const body = document.querySelector("html body");
 
-  console.log(body)
-
   div.classList.add("loading");
   img.src = "./img/loading-circle.gif"
 
