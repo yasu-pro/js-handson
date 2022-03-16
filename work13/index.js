@@ -54,7 +54,7 @@ async function getListData() {
   } catch (e) {
     wrap.textContent = `エラー内容:${e.message}`;
   } finally {
-    hideLoading();
+    removeLoading();
   }
   if (listData.data.length === 0) {
     wrap.textContent = "data is empty";
@@ -63,7 +63,7 @@ async function getListData() {
   return listData;
 }
 
-function hideLoading() {
+function removeLoading() {
   const loading = document.querySelector(".loading")
   loading.remove();
 }
