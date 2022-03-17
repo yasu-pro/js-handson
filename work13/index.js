@@ -64,7 +64,7 @@ async function getListData() {
 }
 
 function removeLoading() {
-  const loading = document.getElementById("js-loading");
+  const loading = document.getElementById("js_loading");
   loading.remove();
 }
 
@@ -92,7 +92,7 @@ function renderLoading() {
   const img = document.createElement("img");
   const body = document.querySelector("html body");
 
-  div.id = "js-loading";
+  div.id = "js_loading";
   img.src = "./img/loading-circle.gif"
 
   div.append(img);
