@@ -99,7 +99,7 @@ function renderLoading() {
   body.prepend(div);
 }
 
-const init = async () => {
+async function init() {
   renderLoading();
   const data = await getListData();
   renderListElement(data);
