@@ -97,7 +97,7 @@ function loading() {
   img.src = "./img/loading-circle.gif"
 
   div.append(img);
-  body.insertBefore(div, container);
+  body.prepend(div);
 }
 
 const init = async () => {
