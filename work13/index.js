@@ -3,6 +3,7 @@ const wrap = document.getElementById("js_wrap");
 const ul = document.getElementById("js_list");
 const modalBtn = document.getElementById("js_modalButton");
 const modal = document.getElementById("js_modal");
+const requestBtn = document.getElementById("js_requestButton");
 
 const url = "https://mocki.io/v1/d6da0b8a-3546-419e-aaec-05f3a247c6d0";
 // const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
@@ -105,30 +106,12 @@ async function init() {
   renderListElement(data);
 }
 
-// モーダルクリック pattern1
 modalBtn.addEventListener("click", () => {
   modal.style.display = "block";
   modalBtn.parentElement.remove();
-  requestBtnClickEvent();
 });
 
-function requestBtnClickEvent() {
-  const requestBtn = document.getElementById("js_requestButton");
-  requestBtn.addEventListener("click", () => {
-    init();
-    modal.remove();
-  })
-}
-
-// モーダルクリック pattern2
-// modalBtn.addEventListener("click", () => {
-//   modal.style.display = "block";
-//   modalBtn.parentElement.remove();
-// });
-
-
-// const requestBtn = document.getElementById("js_requestButton");
-// requestBtn.addEventListener("click", (e) => {
-//   init();
-//   modal.remove();
-// })
+requestBtn.addEventListener("click", () => {
+  init();
+  modal.remove();
+})
