@@ -87,7 +87,7 @@ function renderListElement({ data }) {
   ul.appendChild(fragment);
 }
 
-function loading() {
+function renderLoading() {
   const div = document.createElement("div");
   const img = document.createElement("img");
   const body = document.querySelector("html body");
@@ -100,7 +100,7 @@ function loading() {
 }
 
 const init = async () => {
-  loading();
+  renderLoading();
   const data = await getListData();
   renderListElement(data);
 }
