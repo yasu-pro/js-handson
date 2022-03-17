@@ -64,7 +64,7 @@ async function getListData() {
 }
 
 function removeLoading() {
-  const loading = document.querySelector(".loading")
+  const loading = document.getElementById("js-loading");
   loading.remove();
 }
 
@@ -93,7 +93,7 @@ function loading() {
   const container = document.querySelector(".container");
   const body = document.querySelector("html body");
 
-  div.classList.add("loading");
+  div.id = "js-loading";
   img.src = "./img/loading-circle.gif"
 
   div.append(img);
