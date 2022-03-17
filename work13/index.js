@@ -90,7 +90,6 @@ function renderListElement({ data }) {
 function loading() {
   const div = document.createElement("div");
   const img = document.createElement("img");
-  const container = document.querySelector(".container");
   const body = document.querySelector("html body");
 
   div.id = "js-loading";
