@@ -65,8 +65,7 @@ async function getListData() {
 }
 
 function removeLoading() {
-  const loading = document.getElementById("js_loading");
-  loading.remove();
+  document.getElementById("js_loading").remove();
 }
 
 function renderListElement({ data }) {
