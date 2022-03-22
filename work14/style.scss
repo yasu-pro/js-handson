@@ -52,6 +52,7 @@ body {
 
     &_buttonArea {
         display: block;
+        margin-top: 10px;
         margin-left: auto;
     }
 }
@@ -69,6 +70,10 @@ form {
 table {
     margin-right: auto;
     margin-left: auto;
+
+    input {
+        padding: 10px 15px;
+    }
 }
 
 label {
