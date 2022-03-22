@@ -34,15 +34,12 @@ async function getData() {
       const json = await response.json();
       return json;
     } else {
-      // .okでなければerrorを投げる
       throw new Error(`Server request failed:${response.statusText}`);
     }
     // 下記は、固定値をそのままpromiseの返り値とする
     // const json = url
     // return json
   } catch (e) {
-    //上記のthrowでエラーが出ていれば、ここでコンソールに表示し、
-    //エラーを投げる
     console.error(e)
     throw new Error(e);
   }
