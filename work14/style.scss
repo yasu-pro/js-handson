@@ -48,6 +48,30 @@ body {
         from {opacity: 0}
         to {opacity: 1}
     }
+
+    &_buttonArea {
+        display: block;
+        margin-left: auto;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+table {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+label {
+    vertical-align: middle;
 }
 
 .buttonArea {

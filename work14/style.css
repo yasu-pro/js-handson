@@ -66,6 +66,37 @@ body {
   }
 }
 
+.modal_buttonArea {
+  display: block;
+  margin-left: auto;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+table {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+label {
+  vertical-align: middle;
+}
+
 .buttonArea {
   position: relative;
   top: 50%;
