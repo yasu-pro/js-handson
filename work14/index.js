@@ -27,6 +27,12 @@ const url = "https://mocki.io/v1/d6da0b8a-3546-419e-aaec-05f3a247c6d0";
 //   ]
 // }
 
+async function init() {
+  renderLoading();
+  const data = await getListData();
+  renderListElement(data);
+}
+
 async function getData() {
   try {
     const response = await fetch(url);
@@ -94,12 +100,6 @@ function renderLoading() {
 
   div.append(img);
   body.prepend(div);
-}
-
-async function init() {
-  renderLoading();
-  const data = await getListData();
-  renderListElement(data);
 }
 
 modalBtn.addEventListener("click", () => {
