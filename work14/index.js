@@ -1,5 +1,4 @@
 "use strict";
-const wrap = document.getElementById("js_wrap");
 const modalBtn = document.getElementById("js_modalButton");
 const modal = document.getElementById("js_modal");
 const requestBtn = document.getElementById("js_requestButton");
