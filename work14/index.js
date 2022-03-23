@@ -1,6 +1,5 @@
 "use strict";
 const wrap = document.getElementById("js_wrap");
-const ul = document.getElementById("js_list");
 const modalBtn = document.getElementById("js_modalButton");
 const modal = document.getElementById("js_modal");
 const requestBtn = document.getElementById("js_requestButton");
@@ -53,6 +52,8 @@ async function getData() {
 
 async function getListData() {
   let listData;
+  const wrap = document.getElementById("js_wrap");
+
   try {
     listData = await getData();
   } catch (e) {
@@ -73,6 +74,7 @@ function removeLoading() {
 
 function renderListElement({ data }) {
   const fragment = document.createDocumentFragment();
+  const ul = document.getElementById("js_list");
 
   data.forEach((value) => {
     const li = document.createElement("li");
