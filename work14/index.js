@@ -49,22 +49,22 @@ async function getData() {
   }
 }
 
-async function getListData() {
+async function init() {
+  renderLoading();
   let listData;
   const wrap = document.getElementById("js_wrap");
 
   try {
     listData = await getData();
   } catch (e) {
-    wrap.textContent = `エラー内容:${e.message}`;
+    wrap.textContent = `${e.message}`;
   } finally {
     removeLoading();
   }
   if (listData.data.length === 0) {
     wrap.textContent = "data is empty";
-    return;
   }
-  return listData;
+  renderListElement(listData);
 }
 
 function removeLoading() {
