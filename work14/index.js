@@ -2,10 +2,17 @@
 const modalBtn = document.getElementById("js_modalButton");
 const modal = document.getElementById("js_modal");
 const requestBtn = document.getElementById("js_requestButton");
+const wrap = document.getElementById("js_wrap");
 
-const url = "https://mocki.io/v1/d6da0b8a-3546-419e-aaec-05f3a247c6d0";
+// const url = "https://mocki.io/v1/d6da0b8a-3546-419e-aaec-05f3a247c6d0";
+// 間違っているURLの場合↓
 // const url = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
-// const url = "https://myjson.dit.upm.es/api/bins/eu2f";
+// 空の配列の場合↓
+// const url = "https://mocki.io/v1/242b685f-a3d7-45a8-aeca-0376bd495b89";
+// 404エラーの場合↓
+// const url = "https://httpstat.us/404";
+// 503エラーの場合↓
+const url = "https://httpstat.us/503";
 
 // 下記は、myjson繋がらない時の固定値
 // const url = {
@@ -25,26 +32,21 @@ const url = "https://mocki.io/v1/d6da0b8a-3546-419e-aaec-05f3a247c6d0";
 //   ]
 // }
 
-async function init() {
-  renderLoading();
-  const data = await getListData();
-  renderListElement(data);
-}
-
 async function getData() {
   try {
     const response = await fetch(url);
     if (response.ok) {
       const json = await response.json();
       return json;
-    } else {
-      throw new Error(`Server request failed:${response.statusText}`);
+    } else if (response.status >= 400) {
+      console.error(response.statusText);
+      wrap.textContent = `${"ページは存在しないようです：" + response.status}`;
     }
     // 下記は、固定値をそのままpromiseの返り値とする
     // const json = url
     // return json
   } catch (e) {
-    console.error(e)
+    console.error(e);
     throw new Error(e);
   }
 }
@@ -52,7 +54,6 @@ async function getData() {
 async function init() {
   renderLoading();
   let listData;
-  const wrap = document.getElementById("js_wrap");
 
   try {
     listData = await getData();
@@ -63,6 +64,7 @@ async function init() {
   }
   if (listData.data.length === 0) {
     wrap.textContent = "data is empty";
+    return;
   }
   renderListElement(listData);
 }
@@ -97,7 +99,7 @@ function renderLoading() {
   const body = document.querySelector("html body");
 
   div.id = "js_loading";
-  img.src = "./img/loading-circle.gif"
+  img.src = "./img/loading-circle.gif";
 
   div.append(img);
   body.prepend(div);
@@ -117,4 +119,4 @@ requestBtn.addEventListener("click", () => {
     init();
     modal.remove();
   }
-})
+});
