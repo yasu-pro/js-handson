@@ -107,11 +107,16 @@ modalBtn.addEventListener("click", () => {
 });
 
 requestBtn.addEventListener("click", () => {
+  const nameBox = document.getElementById("js_nameBox");
   const numBox = document.getElementById("js_numBox");
-  if (numBox.value === "") {
+  const name = nameBox.value;
+  const num = numBox.value;
+
+  if (name.trim() === "" || num === "") {
     alert("Value is empty");
   } else {
-    console.log(numBox.value);
+    console.log(name.trim());
+    console.log(num);
     init();
     modal.remove();
   }

@@ -1,5 +1,5 @@
 body {
-  font-family: serif;
+  font-family: sans-serif;
 }
 
 .loading {
@@ -49,6 +49,13 @@ body {
           animation-duration: 1s;
 }
 
+.modal_wrap p {
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
 @-webkit-keyframes modalopen {
   from {
     opacity: 0;
@@ -85,7 +92,7 @@ form {
       -ms-flex-pack: center;
           justify-content: center;
   width: 250px;
-  height: 100%;
+  margin-top: 30px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -127,4 +134,4 @@ label {
   background: lightcoral;
   cursor: pointer;
 }
-
+/*# sourceMappingURL=style.css.map */

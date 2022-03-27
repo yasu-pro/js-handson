@@ -18,9 +18,18 @@
 
     <div class="modal" id="js_modal">
       <div class="modal_wrap" id="js_modal_wrap">
+        <p>名前と数字を入れてください</p>
         <form class="form" action="#" method="get" name="form">
           <table>
             <tbody>
+              <tr>
+                <th>
+                  <label for="js_nameBox">名前</label>
+                </th>
+                <td>
+                  <input type="text" name="name" id="js_nameBox">
+                </td>
+              </tr>
               <tr>
                 <th>
                   <label for="js_numBox">数字</label>
@@ -32,7 +41,7 @@
             </tbody>
           </table>
           <div class="modal_buttonArea">
-            <button type="button" class="requestButton button" id="js_requestButton">リクエスト送信</button>
+            <button type="submit" class="requestButton button" id="js_requestButton">リクエスト送信</button>
           </div>
         </form>
       </div>
