@@ -38,9 +38,6 @@ async function getData() {
     } else {
       console.error(`${response.status}:${response.statusText}`);
     }
-    // 下記は、固定値をそのままpromiseの返り値とする
-    // const json = url
-    // return json
   } catch (e) {
     throw new Error(e);
   }
