@@ -112,7 +112,7 @@ requestBtn.addEventListener("click", () => {
   const name = nameBox.value;
   const num = numBox.value;
 
-  if (name.trim() === "" || num === "") {
+  if (!name.trim() || !num) {
     alert("Value is empty");
   } else {
     console.log(name.trim());
