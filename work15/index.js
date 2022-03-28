@@ -104,10 +104,10 @@ modalBtn.addEventListener("click", () => {
 });
 
 requestBtn.addEventListener("click", () => {
-  const nameBox = document.getElementById("js_nameBox");
-  const numBox = document.getElementById("js_numBox");
-  const name = nameBox.value;
-  const num = numBox.value;
+  const inputName = document.getElementById("js_inputName");
+  const inputNum = document.getElementById("js_inputNum");
+  const name = inputName.value;
+  const num = inputNum.value;
 
   if (!name.trim() || !num) {
     alert("Value is empty");
