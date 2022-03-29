@@ -137,12 +137,12 @@ label {
 }
 
 .button-close {
-  border: 2px solid #F09090;
-  color: #F09090;
+  border: 2px solid #A9A9A9;
+  color: #A9A9A9;
 }
 
 .button-close:hover {
-  background-color: #F09090;
-  color: #fff;
+  background-color: #fff;
+  color: #A9A9A9;
 }
 /*# sourceMappingURL=style.css.map */
