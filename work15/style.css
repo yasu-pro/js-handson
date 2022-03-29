@@ -144,4 +144,9 @@ label {
   background-color: #fff;
   color: #A9A9A9;
 }
+
+.button-close:hover {
+  background-color: #A9A9A9;
+  color: #fff;
+}
 /*# sourceMappingURL=style.css.map */
