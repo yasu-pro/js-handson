@@ -2,6 +2,7 @@
 const modalBtn = document.getElementById("js_modalButton");
 const modal = document.getElementById("js_modal");
 const requestBtn = document.getElementById("js_requestButton");
+const modalClosedButton = document.getElementById("js_modalClosedButton")
 
 const url = "https://mocki.io/v1/d6da0b8a-3546-419e-aaec-05f3a247c6d0";
 // 間違っているURLの場合↓
@@ -100,10 +101,10 @@ function renderLoading() {
 
 modalBtn.addEventListener("click", () => {
   modal.style.display = "block";
-  modalBtn.parentElement.remove();
 });
 
-requestBtn.addEventListener("click", () => {
+requestBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   const inputName = document.getElementById("js_inputName");
   const inputNum = document.getElementById("js_inputNum");
   const name = inputName.value;
@@ -114,7 +115,12 @@ requestBtn.addEventListener("click", () => {
   } else {
     console.log(name.trim());
     console.log(num);
+    modal.style.display = "none";
+    modalBtn.style.display = "none";
     init();
-    modal.remove();
   }
 });
+
+modalClosedButton.addEventListener("click", () => {
+  modal.style.display = "none";
+})

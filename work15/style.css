@@ -29,6 +29,7 @@ body {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 .modal_wrap {
@@ -132,6 +133,16 @@ label {
 
 .button:hover {
   background-color: #2266EE;
+  color: #fff;
+}
+
+.button-close {
+  border: 2px solid #F09090;
+  color: #F09090;
+}
+
+.button-close:hover {
+  background-color: #F09090;
   color: #fff;
 }
 /*# sourceMappingURL=style.css.map */
