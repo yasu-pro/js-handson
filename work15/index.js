@@ -51,6 +51,9 @@ async function init() {
 
   try {
     listData = await getData();
+    if (!listData) {
+      return;
+    }
   } catch (e) {
     wrap.textContent = `${e.message}`;
   } finally {
