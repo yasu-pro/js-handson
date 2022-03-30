@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./style.css" type="text/css" />
+  <script src=" ./index.js" defer></script>
+  <title>TerraceTechフロントエンドエンジニア養成所</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrap" id="js_wrap">
+      <ul class="list" id="js_list"></ul>
+    </div>
+
+    <div class="modal" id="js_modal">
+      <div class="modal_wrap" id="js_modal_wrap">
+        <p>名前と数字を入れてください</p>
+        <form class="form" action="#" method="get" name="form">
+          <table>
+            <tbody>
+              <tr>
+                <th>
+                  <label for="js_nameBox">名前</label>
+                </th>
+                <td>
+                  <input type="text" name="name" id="js_inputName">
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <label for="js_numBox">数字</label>
+                </th>
+                <td>
+                  <input type="number" name="num" id="js_inputNum">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="modal_buttonArea">
+            <button type="submit" class="button button-request" id="js_requestButton">リクエスト送信</button>
+
+            <button type="button" class="button button-close" id="js_modalClosedButton">閉じる</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="buttonArea">
+      <button class="button button-modal" id="js_modalButton">モーダル表示</button>
+    </div>
+  </div>
+</body>
+
+</html>
