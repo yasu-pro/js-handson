@@ -49,24 +49,16 @@ const init = async () => {
     displayNews(responseJsonData.data);
 }
 
-// loadingとhideloading関数を作成
-
-// 取得したデータからニュースのカテゴリーを作成
-
-// ニュースの記事を表示
-// コメントがあれば表示
-
-
 const displayNews = (newsDataArray) => {
     renderNewsTab(newsDataArray);
     renderNewsContent(newsDataArray);
 }
 
 const renderNewsTab = (newsDataArray) => {
-    const js_tabList = document.getElementById("js_tabList");
+    const tabList = document.getElementById("js_tabList");
     const fragment = document.createDocumentFragment();
 
-    newsDataArray.forEach((categoryObj, index) => {
+    newsDataArray.forEach((newsCategoryObj, index) => {
         const li = document.createElement("li");
         const a = document.createElement("a");
 
@@ -78,14 +70,16 @@ const renderNewsTab = (newsDataArray) => {
         li.setAttribute("roll", "tab");
         li.id = `${"js_tabTopics" + ++index}`;
         li.classList = "tabTopics";
-        li.appendChild(a);
 
-        a.textContent = categoryObj.field
+        a.textContent = newsCategoryObj.field
         a.href = "#"
 
+        li.appendChild(a);
         fragment.appendChild(li);
     });
-    js_tabList.appendChild(fragment);
+    tabList.appendChild(fragment);
+
+
 
     const tabTopics = document.querySelectorAll(".tabTopics");
     for (let i = 0; i < tabTopics.length; i++) {
@@ -97,8 +91,6 @@ const renderNewsTab = (newsDataArray) => {
                 }
                 tabTopics[i].setAttribute("aria-selected", true);
             }
-
-
         });
     }
 }
@@ -118,16 +110,9 @@ const renderNewsContent = (newsDataArray) => {
         const fragment = document.createDocumentFragment();
         const ul = document.createElement("ul");
 
-        const newsContentsData = newsCategoryObj.contents;
         newsSection.setAttribute("roll", "tabpanel");
 
-        // if (!index) {
-        //     newsSection.setAttribute("aria-hidden", "false");
-        // }
-        // else {
-        //     newsSection.setAttribute("aria-hidden", "false");
-        // }
-
+        const newsContentsData = newsCategoryObj.contents;
         newsContentsData.forEach(newsArticleData => {
             const li = document.createElement("li");
             const a = document.createElement("a");
