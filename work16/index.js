@@ -149,16 +149,15 @@ const renderNewsContent = (newsDataArray) => {
             newsSection.setAttribute("aria-hidden", "false");
             newsSection.id = `${"tabpanelTopics" + (index + 1)}`;
 
+            console.log(newsContentsData);
 
-
-            newsContentsData.forEach(newsArticleData => {
+            newsContentsData.forEach((newsArticleData, newsArticleDataIndex) => {
                 const getAncorsElem = document.querySelectorAll(`#tabpanelTopics${index + 1} > ul > li > a`);
 
-                console.log(getAncorsElem);
+                console.log(newsArticleData);
 
-                for (let j = 0; j < getAncorsElem.length; j++) {
-                    getAncorsElem[j].textContent = newsArticleData.title;
-                }
+                getAncorsElem[newsArticleDataIndex].textContent = newsArticleData.title;
+
             })
         })
     })
