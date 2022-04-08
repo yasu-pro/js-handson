@@ -70,15 +70,14 @@ const renderNewsTab = (newsDataArray) => {
         const li = document.createElement("li");
         const a = document.createElement("a");
 
-
         if (!index) {
             li.setAttribute("aria-selected", true);
         } else {
             li.setAttribute("aria-selected", false);
         }
         li.setAttribute("roll", "tab");
-        li.id = `${"tabLists" + ++index}`;
-        li.classList = "tabLists";
+        li.id = `${"js_tabTopics" + ++index}`;
+        li.classList = "tabTopics";
         li.appendChild(a);
 
         a.textContent = categoryObj.field
@@ -88,25 +87,97 @@ const renderNewsTab = (newsDataArray) => {
     });
     js_tabList.appendChild(fragment);
 
-    const tabLists = document.querySelectorAll(".tabLists");
-    for (let i = 0; i < tabLists.length; i++) {
+    const tabTopics = document.querySelectorAll(".tabTopics");
+    for (let i = 0; i < tabTopics.length; i++) {
 
-        tabLists[i].addEventListener("click", (e) => {
-            if (tabLists[i].getAttribute("aria-selected") === "false") {
-                for (let j = 0; j < tabLists.length; j++) {
-                    tabLists[j].setAttribute("aria-selected", false);
+        tabTopics[i].addEventListener("click", (e) => {
+            if (tabTopics[i].getAttribute("aria-selected") === "false") {
+                for (let j = 0; j < tabTopics.length; j++) {
+                    tabTopics[j].setAttribute("aria-selected", false);
                 }
-                tabLists[i].setAttribute("aria-selected", true);
+                tabTopics[i].setAttribute("aria-selected", true);
             }
+
+
         });
     }
 }
-// loadingとhideloading関数を作成
 
-// 取得したデータからニュースのカテゴリーを作成
+const renderNewsContent = (newsDataArray) => {
+    const tabTopics = document.querySelectorAll(".tabTopics");
+    const newsSection = document.createElement("section");
 
-// ニュースの記事を表示
-// コメントがあれば表示
+    let tabTopicElem;
+    let tabIdName;
+
+    newsSection.setAttribute("roll", "tabpanel")
+    document.getElementById("js_tabList").after(newsSection);
+
+    newsDataArray.forEach((newsCategoryObj, index) => {
+
+        const fragment = document.createDocumentFragment();
+        const ul = document.createElement("ul");
+
+        const newsContentsData = newsCategoryObj.contents;
+        newsSection.setAttribute("roll", "tabpanel");
+
+        // if (!index) {
+        //     newsSection.setAttribute("aria-hidden", "false");
+        // }
+        // else {
+        //     newsSection.setAttribute("aria-hidden", "false");
+        // }
+
+        newsContentsData.forEach(newsArticleData => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            const title = newsArticleData.title;
+
+            li.appendChild(a);
+
+            a.href = "#";
+            a.textContent = title;
+
+            fragment.appendChild(li);
+        })
+        ul.appendChild(fragment);
+
+
+        if (tabTopics[index].getAttribute("aria-selected") === "true") {
+            tabTopicElem = document.getElementById(tabTopics[index].id);
+            tabIdName = tabTopicElem.id;
+        }
+
+        if (!index) {
+            newsSection.id = `${"tabpanelTopics" + (index + 1)}`;
+            newsSection.setAttribute("aria-labelledby", tabIdName);
+            newsSection.setAttribute("aria-hidden", "false");
+            newsSection.appendChild(ul);
+        }
+
+        tabTopics[index].addEventListener("click", () => {
+
+            tabTopicElem = document.getElementById(tabTopics[index].id);
+            tabIdName = tabTopicElem.id;
+
+            newsSection.setAttribute("aria-labelledby", tabIdName);
+            newsSection.setAttribute("aria-hidden", "false");
+            newsSection.id = `${"tabpanelTopics" + (index + 1)}`;
+
+
+
+            newsContentsData.forEach(newsArticleData => {
+                const getAncorsElem = document.querySelectorAll(`#tabpanelTopics${index + 1} > ul > li > a`);
+
+                console.log(getAncorsElem);
+
+                for (let j = 0; j < getAncorsElem.length; j++) {
+                    getAncorsElem[j].textContent = newsArticleData.title;
+                }
+            })
+        })
+    })
+}
 
 const renderLoadingImg = () => {
     const div = document.createElement("div");
