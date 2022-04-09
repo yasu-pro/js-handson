@@ -78,14 +78,12 @@ const renderNewsTab = (newsDataArray) => {
     });
     tabList.appendChild(fragment);
 
-
-
     const tabTopics = document.querySelectorAll(".tabTopics");
     for (let i = 0; i < tabTopics.length; i++) {
         tabTopics[i].addEventListener("click", () => {
             if (tabTopics[i].getAttribute("aria-selected") === "false") {
-                for (let j = 0; j < tabTopics.length; j++) {
-                    tabTopics[j].setAttribute("aria-selected", false);
+                for (let k = 0; k < tabTopics.length; k++) {
+                    tabTopics[k].setAttribute("aria-selected", false);
                 }
                 tabTopics[i].setAttribute("aria-selected", true);
             }
@@ -94,17 +92,10 @@ const renderNewsTab = (newsDataArray) => {
 }
 
 const renderNewsContent = (newsDataArray) => {
-    const tabTopics = document.querySelectorAll(".tabTopics");
-    const newsSection = document.createElement("section");
-    let tabTopicElem;
-    let tabIdName;
-
-    newsSection.setAttribute("roll", "tabpanel")
-    document.getElementById("js_tabList").after(newsSection);
-
     newsDataArray.forEach((newsCategoryObj, index) => {
         const fragment = document.createDocumentFragment();
         const ul = document.createElement("ul");
+        const tabTopics = document.querySelectorAll(".tabTopics");
         const newsContentsData = newsCategoryObj.contents;
 
         newsContentsData.forEach(newsArticleData => {
@@ -120,32 +111,39 @@ const renderNewsContent = (newsDataArray) => {
         })
         ul.appendChild(fragment);
 
-        if (tabTopics[index].getAttribute("aria-selected") === "true") {
-            tabTopicElem = document.getElementById(tabTopics[index].id);
-            tabIdName = tabTopicElem.id;
-        }
-
         if (!index) {
-            newsSection.id = `${"tabpanelTopics" + (index + 1)}`;
-            newsSection.setAttribute("aria-labelledby", tabIdName);
-            newsSection.setAttribute("aria-hidden", "false");
+            const newsSection = createSection(tabTopics, index);
+
+            document.getElementById("js_tabList").after(newsSection);
             newsSection.appendChild(ul);
         }
 
         tabTopics[index].addEventListener("click", () => {
-            tabTopicElem = document.getElementById(tabTopics[index].id);
-            tabIdName = tabTopicElem.id;
-
-            newsSection.setAttribute("aria-labelledby", tabIdName);
-            newsSection.setAttribute("aria-hidden", "false");
-            newsSection.id = `${"tabpanelTopics" + (index + 1)}`;
-
             newsContentsData.forEach((newsArticleData, newsArticleDataIndex) => {
-                const getAncorsElem = document.querySelectorAll(`#tabpanelTopics${index + 1} > ul > li > a`);
-                getAncorsElem[newsArticleDataIndex].textContent = newsArticleData.title;
+                const tabTopicIdName = document.getElementById(tabTopics[index].id).id;
+                const currentNewsSectionElem = document.querySelector(`section[aria-hidden="false"]`);
+                const newsContentAncor = document.querySelectorAll(`section[aria-hidden="false"] a`);
+
+                currentNewsSectionElem.id = `${"tabpanelTopics" + (index + 1)}`;
+                currentNewsSectionElem.setAttribute("aria-labelledby", tabTopicIdName);
+
+                newsContentAncor[newsArticleDataIndex].textContent = newsArticleData.title;
             })
         })
     })
+}
+
+const createSection = (tabTopics, index) => {
+    const section = document.createElement("section");
+    const tabTopicElem = document.getElementById(tabTopics[index].id);
+    const tabIdName = tabTopicElem.id;
+
+    section.id = `${"tabpanelTopics" + (index + 1)}`;
+    section.setAttribute("aria-labelledby", tabIdName);
+    section.setAttribute("aria-hidden", "false");
+    section.setAttribute("roll", "tabpanel")
+
+    return section;
 }
 
 const renderLoadingImg = () => {
