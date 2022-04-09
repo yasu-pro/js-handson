@@ -113,11 +113,15 @@ const renderNewsContent = (newsDataArray) => {
         ul.appendChild(fragment);
 
         if (!index) {
+            const div = document.createElement("div");
             const newsSection = createSection(tabTopics, index);
 
+            div.classList = "tabpanelTopics_wrap";
+
             document.getElementById("js_tabList").after(newsSection);
-            newsSection.appendChild(createTopicImg(newsCategoryImg));
-            newsSection.prepend(ul);
+            div.appendChild(createTopicImg(newsCategoryImg));
+            div.prepend(ul);
+            newsSection.appendChild(div);
         }
 
         tabTopics[index].addEventListener("click", () => {

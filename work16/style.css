@@ -2,6 +2,10 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul, li, div, img {
   padding: 0;
   margin: 0;
@@ -44,6 +48,14 @@ ul, li, div, img {
   border-radius: 15px 15px 0 0;
 }
 
+.tabList li[aria-selected="true"] {
+  background-color: #dcd6d9;
+}
+
+.tabList li[aria-selected="true"] a {
+  font-weight: bolder;
+}
+
 .tabList a {
   display: block;
   width: 90px;
@@ -51,16 +63,44 @@ ul, li, div, img {
   text-align: center;
   font-size: 18px;
   pointer-events: auto;
+  color: #1d3994;
 }
 
 section {
+  background-color: #dcd6d9;
+}
+
+.tabpanelTopics_wrap {
+  width: 700px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-top: 15px;
-  background-color: #dcd6d9;
+  padding: 50px 0;
+  margin: 0 auto;
+}
+
+.tabpanelTopics_wrap ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.tabpanelTopics_wrap li {
+  font-size: 19px;
+  list-style: square;
+}
+
+.tabpanelTopics_wrap li:not(:first-of-type) {
+  margin-top: 10px;
 }
 /*# sourceMappingURL=style.css.map */

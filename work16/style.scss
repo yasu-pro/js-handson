@@ -2,6 +2,10 @@ li {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 ul,li,div,img {
     padding: 0;
     margin:0;
@@ -32,9 +36,16 @@ ul,li,div,img {
     margin-left: auto;
     
     li {
-        background-color: #b9d08b;
+        background-color: #b9d08b;        
         text-align: center;
         border-radius: 15px 15px 0 0;
+
+        &[aria-selected="true"] {
+            background-color: #dcd6d9;
+            a {
+                font-weight: bolder;
+            }
+        }
     }
 
     a {
@@ -44,12 +55,33 @@ ul,li,div,img {
         text-align: center;
         font-size: 18px;
         pointer-events: auto;
+        color: #1d3994;
     }
 }
 
 section {
+    background-color: #dcd6d9;
+}
+
+.tabpanelTopics_wrap {
+    width: 700px;
     display: flex;
     justify-content: space-between;
-    padding-top: 15px;
-    background-color: #dcd6d9;
+    padding: 50px 0;
+    margin: 0 auto;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    li {
+        font-size: 19px;
+        list-style: square;
+
+        &:not(:first-of-type) {
+            margin-top: 10px;
+        }
+    }
 }
