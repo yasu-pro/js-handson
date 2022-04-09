@@ -117,7 +117,7 @@ const renderNewsContent = (newsDataArray) => {
 
             document.getElementById("js_tabList").after(newsSection);
             newsSection.appendChild(createTopicImg(newsCategoryImg));
-            newsSection.appendChild(ul);
+            newsSection.prepend(ul);
         }
 
         tabTopics[index].addEventListener("click", () => {
