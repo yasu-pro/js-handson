@@ -97,6 +97,7 @@ const renderNewsContent = (newsDataArray) => {
         const ul = document.createElement("ul");
         const tabTopics = document.querySelectorAll(".tabTopics");
         const newsContentsData = newsCategoryObj.contents;
+        const newsCategoryImg = newsCategoryObj.img;
 
         newsContentsData.forEach(newsArticleData => {
             const li = document.createElement("li");
@@ -115,6 +116,7 @@ const renderNewsContent = (newsDataArray) => {
             const newsSection = createSection(tabTopics, index);
 
             document.getElementById("js_tabList").after(newsSection);
+            newsSection.appendChild(createTopicImg(newsCategoryImg));
             newsSection.appendChild(ul);
         }
 
@@ -122,12 +124,14 @@ const renderNewsContent = (newsDataArray) => {
             newsContentsData.forEach((newsArticleData, newsArticleDataIndex) => {
                 const tabTopicIdName = document.getElementById(tabTopics[index].id).id;
                 const currentNewsSectionElem = document.querySelector(`section[aria-hidden="false"]`);
-                const newsContentAncor = document.querySelectorAll(`section[aria-hidden="false"] a`);
+                const currentNewsContentAncorElem = document.querySelectorAll(`section[aria-hidden="false"] a`);
+                const currentNewsContentImgElem = document.querySelector(".tabTopicImg > img");
 
                 currentNewsSectionElem.id = `${"tabpanelTopics" + (index + 1)}`;
                 currentNewsSectionElem.setAttribute("aria-labelledby", tabTopicIdName);
+                currentNewsContentImgElem.src = newsCategoryImg;
 
-                newsContentAncor[newsArticleDataIndex].textContent = newsArticleData.title;
+                currentNewsContentAncorElem[newsArticleDataIndex].textContent = newsArticleData.title;
             })
         })
     })
@@ -144,6 +148,17 @@ const createSection = (tabTopics, index) => {
     section.setAttribute("roll", "tabpanel")
 
     return section;
+}
+
+const createTopicImg = (imgPath) => {
+    const img = document.createElement("img");
+    const div = document.createElement("div");
+
+    div.classList = "tabTopicImg";
+    img.src = imgPath;
+
+    div.appendChild(img);
+    return div;
 }
 
 const renderLoadingImg = () => {
