@@ -156,6 +156,8 @@ const createTopicImg = (imgPath) => {
 
     div.classList = "tabTopicImg";
     img.src = imgPath;
+    img.width = "350";
+    img.height = "250";
 
     div.appendChild(img);
     return div;
