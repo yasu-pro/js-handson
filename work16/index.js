@@ -93,24 +93,9 @@ const renderNewsTab = (newsDataArray) => {
 
 const renderNewsContent = (newsDataArray) => {
     newsDataArray.forEach((newsCategoryObj, index) => {
-        const fragment = document.createDocumentFragment();
-        const ul = document.createElement("ul");
         const tabTopics = document.querySelectorAll(".tabTopics");
         const newsContentsData = newsCategoryObj.contents;
         const newsCategoryImg = newsCategoryObj.img;
-
-        newsContentsData.forEach(newsArticleData => {
-            const li = document.createElement("li");
-            const a = document.createElement("a");
-            const title = newsArticleData.title;
-
-            a.href = "#";
-            a.textContent = title;
-
-            li.appendChild(a);
-            fragment.appendChild(li);
-        })
-        ul.appendChild(fragment);
 
         if (!index) {
             const div = document.createElement("div");
@@ -120,7 +105,8 @@ const renderNewsContent = (newsDataArray) => {
 
             document.getElementById("js_tabList").after(newsSection);
             div.appendChild(createTopicImg(newsCategoryImg));
-            div.prepend(ul);
+            div.prepend(renderArticleTitle(newsContentsData));
+
             newsSection.appendChild(div);
         }
 
@@ -139,6 +125,26 @@ const renderNewsContent = (newsDataArray) => {
             })
         })
     })
+}
+
+const renderArticleTitle = (newsContentsData) => {
+    const ul = document.createElement("ul");
+    const fragment = document.createDocumentFragment();
+
+    newsContentsData.forEach(newsArticleData => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        const title = newsArticleData.title;
+
+        a.href = "#";
+        a.textContent = title;
+
+        li.appendChild(a);
+        fragment.appendChild(li);
+    })
+    ul.appendChild(fragment);
+
+    return ul;
 }
 
 const createSection = (tabTopics, index) => {
