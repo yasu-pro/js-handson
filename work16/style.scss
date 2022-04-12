@@ -6,7 +6,7 @@ a {
     text-decoration: none;
 }
 
-ul,li,div,img {
+ul,li,div,h1,img {
     padding: 0;
     margin:0;
 }
@@ -77,11 +77,41 @@ section {
     }
 
     li {
+        display: flex;
+        position: relative;
+        align-items: center;
         font-size: 19px;
-        list-style: square;
 
         &:not(:first-of-type) {
             margin-top: 10px;
+        }
+
+        &:before {
+            content: "・";
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            transform: translateY(-50%) scale(1.5);
+        }
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .commentIcon_wrap {
+        display: flex;
+        margin-left: 10px;
+        .fa-layers {
+            vertical-align: top;
+        }
+        svg {
+            vertical-align: middle;
+        }
+        .fa-layers-counter {
+            top: -5px;
+            right: -5px;
+            transform: scale(.55);
         }
     }
 }
