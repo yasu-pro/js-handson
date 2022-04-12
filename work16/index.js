@@ -114,8 +114,6 @@ const renderNewsContent = (newsDataArray) => {
         tabTopics[index].addEventListener("click", () => {
             const liElement2 = document.querySelectorAll(".commentIcon_wrap");
             for (let k = 0; k < liElement2.length; k++) {
-                console.log(liElement2.length)
-                console.log(liElement2)
                 liElement2[k].remove();
             }
 
@@ -136,18 +134,7 @@ const renderNewsContent = (newsDataArray) => {
                 if (commentArray.length !== 0) {
                     const liElements = document.querySelectorAll(".tabpanelTopics_wrap li");
                     const liElement = liElements[newsArticleDataIndex];
-
-                    const div = document.createElement("div");
-
-                    div.classList = "commentIcon_wrap";
-
-                    div.insertAdjacentHTML("beforeend",
-                        `<span class="fa-layers fa-fw">
-                            <i class="fa fa-light fa-comment faa-wrench animated"></i>
-                            <span class= "fa-layers-counter" > ${commentArray.length}</span>
-                        </span>`
-                    );
-                    liElement.append(div);
+                    liElement.append(createCommentIcon(commentArray));
                 }
             })
         })
@@ -173,23 +160,27 @@ const renderArticle = (newsContentsData, index) => {
         li.appendChild(h1);
 
         if (commentArray.length !== 0) {
-            const div = document.createElement("div");
-
-            div.classList = "commentIcon_wrap";
-
-            div.insertAdjacentHTML("beforeend",
-                `<span class="fa-layers fa-fw">
-                    <i class="fa fa-light fa-comment faa-wrench animated"></i>
-                    <span class= "fa-layers-counter" > ${commentArray.length}</span>
-                </span>`
-            );
-            li.append(div);
+            li.append(createCommentIcon(commentArray));
         }
         fragment.appendChild(li);
     })
     ul.appendChild(fragment);
 
     return ul;
+}
+
+const createCommentIcon = (commentArray) => {
+    const div = document.createElement("div");
+
+    div.classList = "commentIcon_wrap";
+    div.insertAdjacentHTML("beforeend",
+        `<span class="fa-layers fa-fw">
+            <i class="fa fa-light fa-comment faa-vertical animated"></i>
+            <span class= "fa-layers-counter" > ${commentArray.length}</span>
+        </span>`
+    );
+
+    return div;
 }
 
 const createSection = (tabTopics, index) => {
