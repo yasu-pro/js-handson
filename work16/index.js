@@ -1,5 +1,5 @@
 
-const requestURL = "https://mocki.io/v1/764bd14c-1995-4f85-88f1-eb30bbfcefd8"
+const requestURL = "https://mocki.io/v1/21ee587f-5a59-40ff-98c6-46b2d4715f25"
 
 // 間違っているURLの場合↓
 // const requestURL = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
@@ -105,12 +105,20 @@ const renderNewsContent = (newsDataArray) => {
 
             document.getElementById("js_tabList").after(newsSection);
             div.appendChild(createTopicImg(newsCategoryImg));
-            div.prepend(renderArticleTitle(newsContentsData));
+            div.prepend(renderArticle(newsContentsData, index));
 
             newsSection.appendChild(div);
         }
 
+
         tabTopics[index].addEventListener("click", () => {
+            const liElement2 = document.querySelectorAll(".commentIcon_wrap");
+            for (let k = 0; k < liElement2.length; k++) {
+                console.log(liElement2.length)
+                console.log(liElement2)
+                liElement2[k].remove();
+            }
+
             newsContentsData.forEach((newsArticleData, newsArticleDataIndex) => {
                 const tabTopicIdName = document.getElementById(tabTopics[index].id).id;
                 const currentNewsSectionElem = document.querySelector(`section[aria-hidden="false"]`);
@@ -122,24 +130,61 @@ const renderNewsContent = (newsDataArray) => {
                 currentNewsContentImgElem.src = newsCategoryImg;
 
                 currentNewsContentAncorElem[newsArticleDataIndex].textContent = newsArticleData.title;
+
+
+                const commentArray = newsArticleData.comments;
+                if (commentArray.length !== 0) {
+                    const liElements = document.querySelectorAll(".tabpanelTopics_wrap li");
+                    const liElement = liElements[newsArticleDataIndex];
+
+                    const div = document.createElement("div");
+
+                    div.classList = "commentIcon_wrap";
+
+                    div.insertAdjacentHTML("beforeend",
+                        `<span class="fa-layers fa-fw">
+                            <i class="fa fa-light fa-comment faa-wrench animated"></i>
+                            <span class= "fa-layers-counter" > ${commentArray.length}</span>
+                        </span>`
+                    );
+                    liElement.append(div);
+                }
             })
         })
     })
 }
 
-const renderArticleTitle = (newsContentsData) => {
+const renderArticle = (newsContentsData, index) => {
     const ul = document.createElement("ul");
     const fragment = document.createDocumentFragment();
 
     newsContentsData.forEach(newsArticleData => {
         const li = document.createElement("li");
+        const h1 = document.createElement("h1");
         const a = document.createElement("a");
+
         const title = newsArticleData.title;
+        const commentArray = newsArticleData.comments;
 
         a.href = "#";
         a.textContent = title;
 
-        li.appendChild(a);
+        h1.appendChild(a)
+        li.appendChild(h1);
+
+        if (commentArray.length !== 0) {
+            const div = document.createElement("div");
+
+            div.classList = "commentIcon_wrap";
+
+            div.insertAdjacentHTML("beforeend",
+                `<span class="fa-layers fa-fw">
+                    <i class="fa fa-light fa-comment faa-wrench animated"></i>
+                    <span class= "fa-layers-counter" > ${commentArray.length}</span>
+                </span>`
+            );
+            li.append(div);
+        }
         fragment.appendChild(li);
     })
     ul.appendChild(fragment);
@@ -152,7 +197,7 @@ const createSection = (tabTopics, index) => {
     const tabTopicElem = document.getElementById(tabTopics[index].id);
     const tabIdName = tabTopicElem.id;
 
-    section.id = `${"tabpanelTopics" + (index + 1)}`;
+    section.id = `${"tabpanelTopics" + (index + 1)} `;
     section.setAttribute("aria-labelledby", tabIdName);
     section.setAttribute("aria-hidden", "false");
     section.setAttribute("roll", "tabpanel")
