@@ -9,60 +9,41 @@
                     "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3",
                     "title": "news記事タイトル1",
                     "new": "new",
-                    "comment": [
+                    "comments": [
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c124",
                             "data": "2022-03-10",
                             "name": "Chris",
-                            "comment_contents": "Chrisのコメント"
+                            "comment_content": "Chrisのコメント"
                         },
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c110",
                             "data": "2022-03-11",
                             "name": "Zelma",
-                            "comment_contents": "Zelmaのコメント"
+                            "comment_content": "Zelmaのコメント"
                         }
                     ]
                 },
                 {
                     "id": "4a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a4",
                     "title": "news記事タイトル2",
-                    "comment": [
-                        {
-                            "id": "4a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a4-c122",
-                            "data": "2022-03-12",
-                            "name": "Pat",
-                            "comment_contents": "Patのコメント"
-                        },
-                        {
-                            "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c123",
-                            "data": "2022-03-10",
-                            "name": "Chris",
-                            "comment_contents": "Chrisのコメント"
-                        },
-                        {
-                            "id": "1a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a1-c121",
-                            "data": "2022-03-11",
-                            "name": "Alex",
-                            "comment_contents": "Alexのコメント"
-                        }
-                    ]
+                    "comments": []
                 },
                 {
                     "id": "1a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a1",
                     "title": "news記事タイトル3",
-                    "comment": [
+                    "comments": [
                         {
                             "id": "1a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a1-c021",
                             "data": "2022-03-11",
                             "name": "Alex",
-                            "comment_contents": "Alexのコメント"
+                            "comment_content": "Alexのコメント"
                         },
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c100",
                             "data": "2022-03-14",
                             "name": "Zelma",
-                            "comment_contents": "Zelmaのコメント"
+                            "comment_content": "Zelmaのコメント"
                         }
                     ]
                 },
@@ -70,36 +51,36 @@
                     "id": "2a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a2",
                     "title": "news記事タイトル4",
                     "new": "new",
-                    "comment": [
+                    "comments": [
                         {
                             "id": "2a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a2-c125",
                             "data": "2022-03-13",
                             "name": "Dana",
-                            "comment_contents": "Danaのコメント"
+                            "comment_content": "Danaのコメント"
                         },
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c090",
                             "data": "2022-03-15",
                             "name": "Zelma",
-                            "comment_contents": "Zelmaのコメント"
+                            "comment_content": "Zelmaのコメント"
                         },
                         {
                             "id": "4a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a4-c102",
                             "data": "2022-03-12",
                             "name": "Pat",
-                            "comment_contents": "Patのコメント"
+                            "comment_content": "Patのコメント"
                         },
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c153",
                             "data": "2022-03-10",
                             "name": "Chris",
-                            "comment_contents": "Chrisのコメント"
+                            "comment_content": "Chrisのコメント"
                         },
                         {
                             "id": "1a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a1-c171",
                             "data": "2022-03-11",
                             "name": "Alex",
-                            "comment_contents": "Alexのコメント"
+                            "comment_content": "Alexのコメント"
                         }
                     ]
                 }
@@ -114,14 +95,7 @@
                     "id": "2b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b2",
                     "title": "経済記事タイトル1",
                     "new": "new",
-                    "comments": [
-                        {
-                            "id": "2b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b2-c221",
-                            "data": "2022-03-16",
-                            "name": "Hunter",
-                            "comment_contents": "Hunterのコメント"
-                        }
-                    ]
+                    "comments": []
                 },
                 {
                     "id": "1b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b1",
@@ -132,13 +106,13 @@
                             "id": "1b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b1-c225",
                             "data": "2022-03-15",
                             "name": "Jamie",
-                            "comment_contents": "Jamieのコメント"
+                            "comment_content": "Jamieのコメント"
                         },
                         {
                             "id": "2b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b2-c201",
                             "data": "2022-03-17",
                             "name": "Hunter",
-                            "comment_contents": "Hunterのコメント"
+                            "comment_content": "Hunterのコメント"
                         }
                     ]
                 },
@@ -151,19 +125,19 @@
                             "id": "4b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b4-c220",
                             "data": "2022-03-14",
                             "name": "Morgan",
-                            "comment_contents": "Morganのコメント"
+                            "comment_content": "Morganのコメント"
                         },
                         {
                             "id": "1b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b1-c024",
                             "data": "2022-03-25",
                             "name": "Jamie",
-                            "comment_contents": "Jamieのコメント"
+                            "comment_content": "Jamieのコメント"
                         },
                         {
                             "id": "2b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b2-c011",
                             "data": "2022-03-17",
                             "name": "Hunter",
-                            "comment_contents": "Hunterのコメント"
+                            "comment_content": "Hunterのコメント"
                         }
                     ]
                 },
@@ -176,7 +150,7 @@
                             "id": "3b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b3-c222",
                             "data": "2022-03-13",
                             "name": "Robin",
-                            "comment_contents": "Robinのコメント"
+                            "comment_content": "Robinのコメント"
                         }
                     ]
                 }
@@ -196,13 +170,13 @@
                             "id": "4c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c4-c325",
                             "data": "2022-03-16",
                             "name": "Ronnie",
-                            "comment_contents": "Ronnieのコメント"
+                            "comment_content": "Ronnieのコメント"
                         },
                         {
                             "id": "3b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b3-c323",
                             "data": "2022-03-13",
                             "name": "Robin",
-                            "comment_contents": "Robinのコメント"
+                            "comment_content": "Robinのコメント"
                         }
                     ]
                 },
@@ -215,7 +189,7 @@
                             "id": "2c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c2-c324",
                             "data": "2022-03-18",
                             "name": "Shannon",
-                            "comment_contents": "Shannonのコメント"
+                            "comment_content": "Shannonのコメント"
                         }
                     ]
                 },
@@ -228,19 +202,19 @@
                             "id": "3c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c3-c320",
                             "data": "2022-03-17",
                             "name": "Terry",
-                            "comment_contents": "Terryのコメント"
+                            "comment_content": "Terryのコメント"
                         },
                         {
                             "id": "4c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c4-c005",
                             "data": "2022-03-18",
                             "name": "Ronnie",
-                            "comment_contents": "Ronnieのコメント"
+                            "comment_content": "Ronnieのコメント"
                         },
                         {
                             "id": "3b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b3-c003",
                             "data": "2022-03-15",
                             "name": "Robin",
-                            "comment_contents": "Robinのコメント"
+                            "comment_content": "Robinのコメント"
                         }
                     ]
                 },
@@ -253,13 +227,13 @@
                             "id": "1c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c1-c303",
                             "data": "2022-03-15",
                             "name": "Tracey",
-                            "comment_contents": "Traceyのコメント"
+                            "comment_content": "Traceyのコメント"
                         },
                         {
                             "id": "2c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c2-c304",
                             "data": "2022-03-15",
                             "name": "Shannon",
-                            "comment_contents": "Shannonのコメント"
+                            "comment_content": "Shannonのコメント"
                         }
                     ]
                 }
@@ -279,7 +253,7 @@
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c425",
                             "data": "2022-03-24",
                             "name": "Abbi",
-                            "comment_contents": "Abbiのコメント"
+                            "comment_content": "Abbiのコメント"
                         }
                     ]
                 },
@@ -292,19 +266,19 @@
                             "id": "1d1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d1-c424",
                             "data": "2022-03-23",
                             "name": "Addison",
-                            "comment_contents": "Addisonのコメント"
+                            "comment_content": "Addisonのコメント"
                         },
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c401",
                             "data": "2022-03-24",
                             "name": "Abbi",
-                            "comment_contents": "Abbiのコメント"
+                            "comment_content": "Abbiのコメント"
                         },
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c403",
                             "data": "2022-03-22",
                             "name": "Britny",
-                            "comment_contents": "Britnyのコメント"
+                            "comment_content": "Britnyのコメント"
                         }
                     ]
                 },
@@ -317,7 +291,7 @@
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c423",
                             "data": "2022-03-22",
                             "name": "Britny",
-                            "comment_contents": "Britnyのコメント"
+                            "comment_content": "Britnyのコメント"
                         }
                     ]
                 },
@@ -330,25 +304,25 @@
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c422",
                             "data": "2022-03-21",
                             "name": "Dell",
-                            "comment_contents": "Dellのコメント"
+                            "comment_content": "Dellのコメント"
                         },
                         {
                             "id": "1d1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d1-c104",
                             "data": "2022-03-23",
                             "name": "Addison",
-                            "comment_contents": "Addisonのコメント"
+                            "comment_content": "Addisonのコメント"
                         },
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c301",
                             "data": "2022-03-24",
                             "name": "Abbi",
-                            "comment_contents": "Abbiのコメント"
+                            "comment_content": "Abbiのコメント"
                         },
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c503",
                             "data": "2022-03-22",
                             "name": "Britny",
-                            "comment_contents": "Britnyのコメント"
+                            "comment_content": "Britnyのコメント"
                         }
                     ]
                 }
@@ -368,13 +342,13 @@
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c522",
                             "data": "2022-03-25",
                             "name": "Leta",
-                            "comment_contents": "Letaのコメント"
+                            "comment_content": "Letaのコメント"
                         },
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c520",
                             "data": "2022-03-27",
                             "name": "Martez",
-                            "comment_contents": "Martezのコメント"
+                            "comment_content": "Martezのコメント"
                         }
                     ]
                 },
@@ -387,7 +361,7 @@
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c521",
                             "data": "2022-03-28",
                             "name": "Martez",
-                            "comment_contents": "Martezのコメント"
+                            "comment_content": "Martezのコメント"
                         }
                     ]
                 },
@@ -395,26 +369,7 @@
                     "id": "1e1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6e1",
                     "title": "国内記事タイトル3",
                     "new": "none",
-                    "comments": [
-                        {
-                            "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c523",
-                            "data": "2022-03-26",
-                            "name": "Pamela",
-                            "comment_contents": "Pamelaのコメント"
-                        },
-                        {
-                            "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c922",
-                            "data": "2022-03-21",
-                            "name": "Dell",
-                            "comment_contents": "Dellのコメント"
-                        },
-                        {
-                            "id": "1d1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d1-c804",
-                            "data": "2022-03-23",
-                            "name": "Addison",
-                            "comment_contents": "Addisonのコメント"
-                        }
-                    ]
+                    "comments": []
                 },
                 {
                     "id": "2e1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6e2",
@@ -425,13 +380,13 @@
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c524",
                             "data": "2022-03-29",
                             "name": "Zoey",
-                            "comment_contents": "Zoeyのコメント"
+                            "comment_content": "Zoeyのコメント"
                         },
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c527",
                             "data": "2022-03-29",
                             "name": "Zeke",
-                            "comment_contents": "Zekeのコメント"
+                            "comment_content": "Zekeのコメント"
                         }
                     ]
                 }
