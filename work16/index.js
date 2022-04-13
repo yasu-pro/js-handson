@@ -15,7 +15,7 @@ const request = async () => {
         }
     });
     if (!response.ok) {
-        console.log(`${response.status}:${response.statusText}`);
+        throw new Error(`${response.status}:${response.statusText}`);
     } else {
         return response.json();
     }
