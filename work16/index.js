@@ -1,5 +1,5 @@
 
-const REQUEST_URL = "https://mocki.io/v1/21ee587f-5a59-40ff-98c6-46b2d4715f25"
+const REQUEST_URL = "https://mocki.io/v1/e611647b-bcef-4351-81cd-118512c7690a"
 
 // 間違っているURLの場合↓
 // const REQUEST_URL = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
@@ -64,8 +64,9 @@ const renderNewsTab = (newsDataArray) => {
     newsDataArray.forEach((newsCategoryObj, newsCategoryIndex) => {
         const li = document.createElement("li");
         const a = document.createElement("a");
+        let isInitialDisplay = newsCategoryObj.isInitialDisplay;
 
-        if (!newsCategoryIndex) {
+        if (isInitialDisplay === "true") {
             li.setAttribute("aria-selected", true);
         } else {
             li.setAttribute("aria-selected", false);
@@ -90,8 +91,9 @@ const renderNewsContent = (newsDataArray) => {
         const tabTopics = document.querySelectorAll(".tabTopics");
         const newsContentsData = newsCategoryObj.contents;
         const newsCategoryImg = newsCategoryObj.img;
+        let isInitialDisplay = newsCategoryObj.isInitialDisplay;
 
-        if (!newsCategoryIndex) {
+        if (isInitialDisplay === "true") {
             const div = document.createElement("div");
             const newsSection = createSection(tabTopics, newsCategoryIndex);
 
