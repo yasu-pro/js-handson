@@ -85,17 +85,6 @@ const renderNewsTab = (newsDataArray) => {
     clickEventChangeTabAttribute();
 }
 
-const clickEventChangeTabAttribute = () => {
-    const tabTopics = document.querySelectorAll(".tabTopics");
-    for (let i = 0; i < tabTopics.length; i++) {
-        tabTopics[i].addEventListener("click", (event) => {
-            const selectedTab = document.querySelector('[aria-selected="true"]');
-            selectedTab.ariaSelected = false;
-            event.currentTarget.ariaSelected = true;
-        });
-    }
-}
-
 const renderNewsContent = (newsDataArray) => {
     newsDataArray.forEach((newsCategoryObj, newsCategoryIndex) => {
         const tabTopics = document.querySelectorAll(".tabTopics");
@@ -134,6 +123,17 @@ const renderNewsContent = (newsDataArray) => {
             })
         })
     })
+}
+
+const clickEventChangeTabAttribute = () => {
+    const tabTopics = document.querySelectorAll(".tabTopics");
+    for (let i = 0; i < tabTopics.length; i++) {
+        tabTopics[i].addEventListener("click", (event) => {
+            const selectedTab = document.querySelector('[aria-selected="true"]');
+            selectedTab.ariaSelected = false;
+            event.currentTarget.ariaSelected = true;
+        });
+    }
 }
 
 const removeCommentIcon = () => {
