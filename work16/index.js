@@ -82,15 +82,16 @@ const renderNewsTab = (newsDataArray) => {
     });
     tabList.appendChild(fragment);
 
+    clickEventChangeTabAttribute();
+}
+
+const clickEventChangeTabAttribute = () => {
     const tabTopics = document.querySelectorAll(".tabTopics");
     for (let i = 0; i < tabTopics.length; i++) {
-        tabTopics[i].addEventListener("click", () => {
-            if (tabTopics[i].getAttribute("aria-selected") === "false") {
-                for (let k = 0; k < tabTopics.length; k++) {
-                    tabTopics[k].setAttribute("aria-selected", false);
-                }
-                tabTopics[i].setAttribute("aria-selected", true);
-            }
+        tabTopics[i].addEventListener("click", (event) => {
+            const selectedTab = document.querySelector('[aria-selected="true"]');
+            selectedTab.ariaSelected = false;
+            event.currentTarget.ariaSelected = true;
         });
     }
 }
