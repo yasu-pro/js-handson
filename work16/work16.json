@@ -1,6 +1,7 @@
 {
     "data": [
         {
+            "isInitialDisplay": "true",
             "field": "ニュース",
             "date": "2022-03-05",
             "img": "./img/news_img.jpg",
@@ -87,6 +88,7 @@
             ]
         },
         {
+            "isInitialDisplay": "false",
             "field": "経済",
             "date": "2022-03-10",
             "img": "./img/economy_img.jpg",
@@ -157,6 +159,7 @@
             ]
         },
         {
+            "isInitialDisplay": "false",
             "field": "エンタメ",
             "date": "2022-03-15",
             "img": "./img/entertainment_img.jpg",
@@ -240,6 +243,7 @@
             ]
         },
         {
+            "isInitialDisplay": "false",
             "field": "スポーツ",
             "date": "2022-03-20",
             "img": "./img/sports_img.jpg",
@@ -329,6 +333,7 @@
             ]
         },
         {
+            "isInitialDisplay": "false",
             "field": "国内",
             "date": "2022-03-25",
             "img": "./img/domestic_img.jpg",
