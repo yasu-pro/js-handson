@@ -209,7 +209,6 @@ const createSection = (tabTopics, index) => {
 
     section.id = `${"tabpanelTopics" + (index + 1)} `;
     section.setAttribute("aria-labelledby", tabIdName);
-    section.setAttribute("aria-hidden", "false");
     section.setAttribute("roll", "tabpanel")
 
     return section;
