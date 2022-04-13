@@ -3,13 +3,12 @@
         {
             "isInitialDisplay": "true",
             "field": "ニュース",
-            "date": "2022-03-05",
             "img": "./img/news_img.jpg",
             "contents": [
                 {
                     "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3",
                     "title": "news記事タイトル1",
-                    "new": "new",
+                    "date": "2022-04-13",
                     "comments": [
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c124",
@@ -28,11 +27,13 @@
                 {
                     "id": "4a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a4",
                     "title": "news記事タイトル2",
+                    "date": "2022-04-10",
                     "comments": []
                 },
                 {
                     "id": "1a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a1",
                     "title": "news記事タイトル3",
+                    "date": "2022-04-09",
                     "comments": [
                         {
                             "id": "1a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a1-c021",
@@ -51,7 +52,7 @@
                 {
                     "id": "2a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a2",
                     "title": "news記事タイトル4",
-                    "new": "new",
+                    "date": "2022-04-13",
                     "comments": [
                         {
                             "id": "2a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a2-c125",
@@ -90,19 +91,18 @@
         {
             "isInitialDisplay": "false",
             "field": "経済",
-            "date": "2022-03-10",
             "img": "./img/economy_img.jpg",
             "contents": [
                 {
                     "id": "2b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b2",
                     "title": "経済記事タイトル1",
-                    "new": "new",
+                    "date": "2022-04-01",
                     "comments": []
                 },
                 {
                     "id": "1b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b1",
                     "title": "経済記事タイトル2",
-                    "new": "new",
+                    "date": "2022-04-13",
                     "comments": [
                         {
                             "id": "1b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b1-c225",
@@ -121,7 +121,7 @@
                 {
                     "id": "4b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b4",
                     "title": "経済記事タイトル3",
-                    "new": "none",
+                    "date": "2022-04-05",
                     "comments": [
                         {
                             "id": "4b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b4-c220",
@@ -146,7 +146,7 @@
                 {
                     "id": "3b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b3",
                     "title": "経済記事タイトル4",
-                    "new": "none",
+                    "date": "2022-04-12",
                     "comments": [
                         {
                             "id": "3b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b3-c222",
@@ -161,13 +161,12 @@
         {
             "isInitialDisplay": "false",
             "field": "エンタメ",
-            "date": "2022-03-15",
             "img": "./img/entertainment_img.jpg",
             "contents": [
                 {
                     "id": "4c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c4",
                     "title": "エンタメ記事タイトル1",
-                    "new": "new",
+                    "date": "2022-04-08",
                     "comments": [
                         {
                             "id": "4c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c4-c325",
@@ -186,7 +185,7 @@
                 {
                     "id": "2c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c2",
                     "title": "エンタメ記事タイトル2",
-                    "new": "new",
+                    "date": "2022-04-12",
                     "comments": [
                         {
                             "id": "2c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c2-c324",
@@ -199,7 +198,7 @@
                 {
                     "id": "3c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c3",
                     "title": "エンタメ記事タイトル3",
-                    "new": "none",
+                    "date": "2022-04-12",
                     "comments": [
                         {
                             "id": "3c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c3-c320",
@@ -224,7 +223,7 @@
                 {
                     "id": "1c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c1",
                     "title": "エンタメ記事タイトル4",
-                    "new": "none",
+                    "date": "2022-04-07",
                     "comments": [
                         {
                             "id": "1c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c1-c303",
@@ -245,13 +244,12 @@
         {
             "isInitialDisplay": "false",
             "field": "スポーツ",
-            "date": "2022-03-20",
             "img": "./img/sports_img.jpg",
             "contents": [
                 {
                     "id": "2d1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d2",
                     "title": "スポーツ記事タイトル1",
-                    "new": "new",
+                    "date": "2022-04-13",
                     "comments": [
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c425",
@@ -264,7 +262,7 @@
                 {
                     "id": "1d1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d1",
                     "title": "スポーツ記事タイトル2",
-                    "new": "new",
+                    "date": "2022-04-11",
                     "comments": [
                         {
                             "id": "1d1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d1-c424",
@@ -289,7 +287,7 @@
                 {
                     "id": "3d1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d3",
                     "title": "スポーツ記事タイトル3",
-                    "new": "none",
+                    "date": "2022-04-05",
                     "comments": [
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c423",
@@ -302,7 +300,7 @@
                 {
                     "id": "4d1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d4",
                     "title": "スポーツ記事タイトル4",
-                    "new": "none",
+                    "date": "2022-04-08",
                     "comments": [
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c422",
@@ -335,13 +333,12 @@
         {
             "isInitialDisplay": "false",
             "field": "国内",
-            "date": "2022-03-25",
             "img": "./img/domestic_img.jpg",
             "contents": [
                 {
                     "id": "3e1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6e3",
                     "title": "国内記事タイトル1",
-                    "new": "new",
+                    "date": "2022-04-02",
                     "comments": [
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c522",
@@ -360,7 +357,7 @@
                 {
                     "id": "4e1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6e4",
                     "title": "国内記事タイトル2",
-                    "new": "new",
+                    "date": "2022-04-13",
                     "comments": [
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c521",
@@ -373,13 +370,13 @@
                 {
                     "id": "1e1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6e1",
                     "title": "国内記事タイトル3",
-                    "new": "none",
+                    "date": "2022-04-07",
                     "comments": []
                 },
                 {
                     "id": "2e1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6e2",
                     "title": "国内記事タイトル4",
-                    "new": "none",
+                    "date": "2022-04-13",
                     "comments": [
                         {
                             "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3-c524",

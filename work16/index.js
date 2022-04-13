@@ -1,4 +1,5 @@
 
+// import { format, formatDistance, formatRelative, subDays } from 'date-fns';
 const REQUEST_URL = "https://mocki.io/v1/e611647b-bcef-4351-81cd-118512c7690a"
 
 // 間違っているURLの場合↓
@@ -91,7 +92,10 @@ const renderNewsContent = (newsDataArray) => {
         const tabTopics = document.querySelectorAll(".tabTopics");
         const newsContentsData = newsCategoryObj.contents;
         const newsCategoryImg = newsCategoryObj.img;
+        const newsArticleDate = newsCategoryObj.date;
         let isInitialDisplay = newsCategoryObj.isInitialDisplay;
+
+        console.log(newsArticleDate);
 
         if (isInitialDisplay === "true") {
             const div = document.createElement("div");
@@ -125,6 +129,10 @@ const renderNewsContent = (newsDataArray) => {
             })
         })
     })
+}
+
+const isLatestArticles = () => {
+
 }
 
 const clickEventChangeTabAttribute = () => {
