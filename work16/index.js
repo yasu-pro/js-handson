@@ -144,7 +144,7 @@ const removeCommentIcon = () => {
 }
 
 const changeCategoryTitle = (newsArticleData, categoryNewsArticleDataIndex) => {
-    const currentNewsContentAncorElements = document.querySelectorAll(`section[aria-hidden="false"] a`);
+    const currentNewsContentAncorElements = document.querySelectorAll(`section[roll="tabpanel"] a`);
     currentNewsContentAncorElements[categoryNewsArticleDataIndex].textContent = newsArticleData.title;
 }
 
@@ -155,7 +155,7 @@ const changeCategoryImg = (newsCategoryImg) => {
 
 const changeCategoryConetent = (newsCategoryIndex, clickedTabElement) => {
     const tabTopicIdName = clickedTabElement.id;
-    const currentNewsSectionElem = document.querySelector(`section[aria-hidden="false"]`);
+    const currentNewsSectionElem = document.querySelector(`section[roll="tabpanel"]`);
 
     currentNewsSectionElem.id = `${"tabpanelTopics" + (newsCategoryIndex + 1)}`;
     currentNewsSectionElem.setAttribute("aria-labelledby", tabTopicIdName);
