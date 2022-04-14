@@ -1,0 +1,127 @@
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,li,div,h1,img {
+  padding: 0;
+  margin:0;
+}
+
+.loading_wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.newsContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 850px;
+  margin-right: auto;
+  margin-left: auto;    
+}
+
+.tabList {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  
+  li {
+      background-color: #b9d08b;        
+      text-align: center;
+      border-radius: 15px 15px 0 0;
+
+      &[aria-selected="true"] {
+          background-color: #dcd6d9;
+          a {
+              font-weight: bolder;
+          }
+      }
+  }
+
+  a {
+      display: block;
+      width: 90px;
+      padding: 15px 20px 0;
+      text-align: center;
+      font-size: 18px;
+      pointer-events: auto;
+      color: #1d3994;
+  }
+}
+
+section {
+  background-color: #dcd6d9;
+}
+
+.tabpanelTopics_wrap {
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0;
+  margin: 0 auto;
+
+  ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  li {
+      display: flex;
+      position: relative;
+      align-items: center;
+      font-size: 19px;
+
+      &:not(:first-of-type) {
+          margin-top: 10px;
+      }
+
+      &:before {
+          content: "・";
+          position: absolute;
+          top: 50%;
+          left: -20px;
+          transform: translateY(-50%) scale(1.5);
+      }
+  }
+
+  h1 {
+      font-size: 18px;
+  }
+
+  .newIcon {
+    display: flex;
+    font-size: 13px;
+    color: #fff;
+    background-color: #AAC4F2;
+    padding: 3px;
+    margin-left: 5px;
+    border-radius: 5px;
+  }
+
+  .commentIcon_wrap {
+      display: flex;
+      margin-left: 5px;
+      .fa-layers {
+          vertical-align: top;
+      }
+      svg {
+          vertical-align: middle;
+      }
+      .fa-layers-counter {
+          top: -5px;
+          right: -5px;
+          transform: scale(.55);
+      }
+  }
+}

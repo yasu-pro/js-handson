@@ -124,11 +124,23 @@ section {
   font-size: 18px;
 }
 
+.tabpanelTopics_wrap .newIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 13px;
+  color: #fff;
+  background-color: #AAC4F2;
+  padding: 3px;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+
 .tabpanelTopics_wrap .commentIcon_wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .tabpanelTopics_wrap .commentIcon_wrap .fa-layers {
