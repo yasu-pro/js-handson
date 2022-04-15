@@ -41,7 +41,7 @@ const request = async () => {
     }
   });
   if (!response.ok) {
-    throw new Error(`${response.status}:${response.statusText}`);
+    displayErrorMessage(`${response.status}:${response.statusText}`);
   } else {
     return response.json();
   }
