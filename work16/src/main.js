@@ -1,7 +1,7 @@
 import './style.scss';
 import { differenceInCalendarDays } from 'date-fns';
 
-const REQUEST_URL = "https://mocki.io/v1/4ae76d00-4831-47d0-895b-644f5c181061";
+const REQUEST_URL = "https://mocki.io/v1/59f387cd-7c02-46a4-a269-650cbe0a76b2";
 
 // 間違っているURLの場合↓
 // const REQUEST_URL = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
@@ -64,7 +64,7 @@ const renderLoadingImg = () => {
 
   div.classList = "loading_wrap";
   div.id = "js_loading_wrap"
-  img.src = "./img/loading-circle.gif";
+  img.src = "https://i.postimg.cc/k2RLrq7B/loading-circle.gif";
   img.alt = "ローディング画像"
 
   div.appendChild(img);

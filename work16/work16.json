@@ -3,7 +3,7 @@
         {
             "isInitialDisplay": "true",
             "field": "ニュース",
-            "img": "./img/news_img.jpg",
+            "img": "https://i.postimg.cc/67dS3c2K/news-img.jpg",
             "contents": [
                 {
                     "id": "3a1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6a3",
@@ -91,7 +91,7 @@
         {
             "isInitialDisplay": "false",
             "field": "経済",
-            "img": "./img/economy_img.jpg",
+            "img": "https://i.postimg.cc/bDp52nkt/economy-img.jpg",
             "contents": [
                 {
                     "id": "2b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6b2",
@@ -161,7 +161,7 @@
         {
             "isInitialDisplay": "false",
             "field": "エンタメ",
-            "img": "./img/entertainment_img.jpg",
+            "img": "https://i.postimg.cc/0MnBGN0H/entertainment-img.jpg",
             "contents": [
                 {
                     "id": "4c1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6c4",
@@ -247,7 +247,7 @@
             "img": "./img/sports_img.jpg",
             "contents": [
                 {
-                    "id": "2d1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d2",
+                    "id": "https://i.postimg.cc/PLG9T9qK/sports-img.jpg",
                     "title": "スポーツ記事タイトル1",
                     "date": "2022-04-13",
                     "comments": [
@@ -333,7 +333,7 @@
         {
             "isInitialDisplay": "false",
             "field": "国内",
-            "img": "./img/domestic_img.jpg",
+            "img": "https://i.postimg.cc/VdV2HdQx/domestic-img.jpg",
             "contents": [
                 {
                     "id": "3e1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6e3",
