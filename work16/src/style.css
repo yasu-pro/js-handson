@@ -136,22 +136,22 @@ section {
   border-radius: 5px;
 }
 
-.tabpanelTopics_wrap .commentIcon_wrap {
+.tabpanelTopics_wrap .commentIcon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-left: 5px;
 }
 
-.tabpanelTopics_wrap .commentIcon_wrap .fa-layers {
+.tabpanelTopics_wrap .commentIcon .fa-layers {
   vertical-align: top;
 }
 
-.tabpanelTopics_wrap .commentIcon_wrap svg {
+.tabpanelTopics_wrap .commentIcon svg {
   vertical-align: middle;
 }
 
-.tabpanelTopics_wrap .commentIcon_wrap .fa-layers-counter {
+.tabpanelTopics_wrap .commentIcon .fa-layers-counter {
   top: -5px;
   right: -5px;
   -webkit-transform: scale(0.55);

@@ -168,7 +168,7 @@ const clickEventChangeTabAttribute = () => {
 }
 
 const removeCommentIcon = () => {
-  const commentIconWrapElements = document.querySelectorAll(".commentIcon_wrap");
+  const commentIconWrapElements = document.querySelectorAll(".commentIcon");
   for (let i = 0; i < commentIconWrapElements.length; i++) {
     commentIconWrapElements[i].remove();
   }
@@ -234,14 +234,20 @@ const renderArticle = (newsContentsData) => {
 
 const createCommentIcon = (commentArray) => {
   const div = document.createElement("div");
+  const spanLayers = document.createElement("span");
+  const i = document.createElement("i");
+  const spanCounter = document.createElement("span");
 
-  div.classList = "commentIcon_wrap";
-  div.insertAdjacentHTML("beforeend",
-    `<span class="fa-layers fa-fw">
-            <i class="fa fa-light fa-comment faa-vertical animated"></i>
-            <span class= "fa-layers-counter" > ${commentArray.length}</span>
-        </span>`
-  );
+  div.classList = "commentIcon";
+  spanLayers.classList = "fa-layers fa-fw";
+  i.classList = "fa fa-light fa-comment faa-vertical animated";
+  spanCounter.classList = "fa-layers-counter";
+
+  spanCounter.textContent = `${commentArray.length}`;
+
+  spanLayers.appendChild(i);
+  spanLayers.appendChild(spanCounter)
+  div.appendChild(spanLayers);
 
   return div;
 }
