@@ -10,19 +10,6 @@ const REQUEST_URL = "https://mocki.io/v1/4ae76d00-4831-47d0-895b-644f5c181061";
 // 503エラーの場合↓
 // const REQUEST_URL = "https://httpstat.us/503";
 
-const request = async () => {
-  const response = await fetch(REQUEST_URL, {
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
-  if (!response.ok) {
-    throw new Error(`${response.status}:${response.statusText}`);
-  } else {
-    return response.json();
-  }
-}
-
 const init = async () => {
   renderLoadingImg();
   let responseJsonData;
@@ -47,6 +34,19 @@ const init = async () => {
   displayNews(responseJsonData.data);
 }
 
+const request = async () => {
+  const response = await fetch(REQUEST_URL, {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+  if (!response.ok) {
+    throw new Error(`${response.status}:${response.statusText}`);
+  } else {
+    return response.json();
+  }
+}
+
 const displayErrorMessage = (error) => {
   const p = document.createElement("p");
   p.textContent = error;
@@ -56,6 +56,19 @@ const displayErrorMessage = (error) => {
 const displayNews = (newsDataArray) => {
   renderNewsTab(newsDataArray);
   renderNewsContent(newsDataArray);
+}
+
+const renderLoadingImg = () => {
+  const div = document.createElement("div");
+  const img = document.createElement("img");
+
+  div.classList = "loading_wrap";
+  div.id = "js_loading_wrap"
+  img.src = "./img/loading-circle.gif";
+  img.alt = "ローディング画像"
+
+  div.appendChild(img);
+  document.body.prepend(div);
 }
 
 const renderNewsTab = (newsDataArray) => {
@@ -134,71 +147,6 @@ const renderNewsContent = (newsDataArray) => {
   })
 }
 
-const createNewIcon = () => {
-  const span = document.createElement("span");
-
-  span.classList = "newIcon";
-  span.textContent = "NEW"
-
-  return span;
-}
-
-const isLatestArticles = (newsArticleData) => {
-  const PERIODOFLATESTARTICLES = 3;
-  const newsArticleDate = newsArticleData.date;
-
-  const nowDate = new Date();
-  const postDate = new Date(newsArticleDate);
-
-  const periodOfDays = differenceInCalendarDays(nowDate, postDate);
-  const result = periodOfDays <= PERIODOFLATESTARTICLES;
-
-  return result;
-}
-
-const clickEventChangeTabAttribute = () => {
-  const tabTopics = document.querySelectorAll(".tabTopics");
-  for (let i = 0; i < tabTopics.length; i++) {
-    tabTopics[i].addEventListener("click", (event) => {
-      const selectedTab = document.querySelector('[aria-selected="true"]');
-      selectedTab.ariaSelected = false;
-      event.currentTarget.ariaSelected = true;
-    });
-  }
-}
-
-const removeCommentIcon = () => {
-  const commentIconWrapElements = document.querySelectorAll(".commentIcon");
-  for (let i = 0; i < commentIconWrapElements.length; i++) {
-    commentIconWrapElements[i].remove();
-  }
-}
-
-const removeNewIcon = () => {
-  const newIconElements = document.querySelectorAll(".newIcon");
-  for (let i = 0; i < newIconElements.length; i++) {
-    newIconElements[i].remove();
-  }
-}
-
-const changeCategoryTitle = (newsArticleData, categoryNewsArticleDataIndex) => {
-  const currentNewsContentAncorElements = document.querySelectorAll(`section[roll="tabpanel"] a`);
-  currentNewsContentAncorElements[categoryNewsArticleDataIndex].textContent = newsArticleData.title;
-}
-
-const changeCategoryImg = (newsCategoryImg) => {
-  const currentNewsContentImgElem = document.querySelector(".tabTopicImg > img");
-  currentNewsContentImgElem.src = newsCategoryImg;
-}
-
-const changeCategoryConetent = (newsCategoryIndex, clickedTabElement) => {
-  const tabTopicIdName = clickedTabElement.id;
-  const currentNewsSectionElem = document.querySelector(`section[roll="tabpanel"]`);
-
-  currentNewsSectionElem.id = `${"tabpanelTopics" + (newsCategoryIndex + 1)}`;
-  currentNewsSectionElem.setAttribute("aria-labelledby", tabTopicIdName);
-}
-
 const renderArticle = (newsContentsData) => {
   const ul = document.createElement("ul");
   const fragment = document.createDocumentFragment();
@@ -230,6 +178,15 @@ const renderArticle = (newsContentsData) => {
   ul.appendChild(fragment);
 
   return ul;
+}
+
+const createNewIcon = () => {
+  const span = document.createElement("span");
+
+  span.classList = "newIcon";
+  span.textContent = "NEW"
+
+  return span;
 }
 
 const createCommentIcon = (commentArray) => {
@@ -278,21 +235,64 @@ const createTopicImg = (imgPath) => {
   return div;
 }
 
-const renderLoadingImg = () => {
-  const div = document.createElement("div");
-  const img = document.createElement("img");
+const changeCategoryTitle = (newsArticleData, categoryNewsArticleDataIndex) => {
+  const currentNewsContentAncorElements = document.querySelectorAll(`section[roll="tabpanel"] a`);
+  currentNewsContentAncorElements[categoryNewsArticleDataIndex].textContent = newsArticleData.title;
+}
 
-  div.classList = "loading_wrap";
-  div.id = "js_loading_wrap"
-  img.src = "./img/loading-circle.gif";
-  img.alt = "ローディング画像"
+const changeCategoryImg = (newsCategoryImg) => {
+  const currentNewsContentImgElem = document.querySelector(".tabTopicImg > img");
+  currentNewsContentImgElem.src = newsCategoryImg;
+}
 
-  div.appendChild(img);
-  document.body.prepend(div);
+const changeCategoryConetent = (newsCategoryIndex, clickedTabElement) => {
+  const tabTopicIdName = clickedTabElement.id;
+  const currentNewsSectionElem = document.querySelector(`section[roll="tabpanel"]`);
+
+  currentNewsSectionElem.id = `${"tabpanelTopics" + (newsCategoryIndex + 1)}`;
+  currentNewsSectionElem.setAttribute("aria-labelledby", tabTopicIdName);
+}
+
+const removeCommentIcon = () => {
+  const commentIconWrapElements = document.querySelectorAll(".commentIcon");
+  for (let i = 0; i < commentIconWrapElements.length; i++) {
+    commentIconWrapElements[i].remove();
+  }
+}
+
+const removeNewIcon = () => {
+  const newIconElements = document.querySelectorAll(".newIcon");
+  for (let i = 0; i < newIconElements.length; i++) {
+    newIconElements[i].remove();
+  }
 }
 
 const hideLoadingImg = () => {
   document.getElementById("js_loading_wrap").remove();
+}
+
+const isLatestArticles = (newsArticleData) => {
+  const PERIODOFLATESTARTICLES = 3;
+  const newsArticleDate = newsArticleData.date;
+
+  const nowDate = new Date();
+  const postDate = new Date(newsArticleDate);
+
+  const periodOfDays = differenceInCalendarDays(nowDate, postDate);
+  const result = periodOfDays <= PERIODOFLATESTARTICLES;
+
+  return result;
+}
+
+const clickEventChangeTabAttribute = () => {
+  const tabTopics = document.querySelectorAll(".tabTopics");
+  for (let i = 0; i < tabTopics.length; i++) {
+    tabTopics[i].addEventListener("click", (event) => {
+      const selectedTab = document.querySelector('[aria-selected="true"]');
+      selectedTab.ariaSelected = false;
+      event.currentTarget.ariaSelected = true;
+    });
+  }
 }
 
 init();
