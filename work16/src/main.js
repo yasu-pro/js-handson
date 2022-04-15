@@ -1,7 +1,7 @@
 import './style.scss';
 import { differenceInCalendarDays } from 'date-fns';
 
-const REQUEST_URL = "https://mocki.io/v1/59f387cd-7c02-46a4-a269-650cbe0a76b2";
+const REQUEST_URL = "https://mocki.io/v1/720cde09-820e-4541-b003-c36cf2f1a414";
 
 // 間違っているURLの場合↓
 // const REQUEST_URL = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
