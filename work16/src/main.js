@@ -80,11 +80,7 @@ const renderNewsTab = (newsDataArray) => {
     const a = document.createElement("a");
     let isInitialDisplay = newsCategoryObj.isInitialDisplay;
 
-    if (isInitialDisplay === "true") {
-      li.setAttribute("aria-selected", true);
-    } else {
-      li.setAttribute("aria-selected", false);
-    }
+    li.ariaSelected = isInitialDisplay;
     li.setAttribute("roll", "tab");
     li.id = `${"js_tabTopics" + ++newsCategoryIndex}`;
     li.classList = "tabTopics";
