@@ -133,7 +133,7 @@ const renderNewsContent = (newsDataArray) => {
         changeCategoryTitle(newsArticleData, categoryNewsArticleDataIndex);
         changeCategoryImg(newsCategoryImg);
 
-        if (commentArray.length !== 0) {
+        if (commentArray.length > 0) {
           liElement.append(createCommentIcon(commentArray));
         }
 
