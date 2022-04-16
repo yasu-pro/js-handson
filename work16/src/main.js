@@ -56,6 +56,7 @@ const displayErrorMessage = (error) => {
 const displayNews = (newsDataArray) => {
   renderNewsTab(newsDataArray);
   renderNewsContent(newsDataArray);
+  clickedTabEvent(newsDataArray);
 }
 
 const renderLoadingImg = () => {
@@ -92,8 +93,6 @@ const renderNewsTab = (newsDataArray) => {
     fragment.appendChild(li);
   });
   tabList.appendChild(fragment);
-
-  clickEventChangeTabAttribute();
 }
 
 const renderNewsContent = (newsDataArray) => {
@@ -115,31 +114,6 @@ const renderNewsContent = (newsDataArray) => {
 
       newsSection.appendChild(div);
     }
-
-    tabTopics[newsCategoryIndex].addEventListener("click", (e) => {
-      removeCommentIcon();
-      removeNewIcon();
-
-      newsContentsData.forEach((newsArticleData, categoryNewsArticleDataIndex) => {
-        const commentArray = newsArticleData.comments;
-        const liElements = document.querySelectorAll(".tabpanelTopics_wrap li");
-        const liElement = liElements[categoryNewsArticleDataIndex];
-
-        changeCategoryConetent(newsCategoryIndex, e.currentTarget);
-        changeCategoryTitle(newsArticleData, categoryNewsArticleDataIndex);
-        changeCategoryImg(newsCategoryImg);
-
-        if (commentArray.length > 0) {
-          liElement.append(createCommentIcon(commentArray));
-        }
-
-        if (isLatestArticles(newsArticleData) === true) {
-          const h1Elements = document.querySelectorAll(".tabpanelTopics_wrap h1");
-          const h1Element = h1Elements[categoryNewsArticleDataIndex];
-          h1Element.insertAdjacentElement("afterend", createNewIcon());
-        }
-      })
-    })
   })
 }
 
@@ -280,15 +254,43 @@ const isLatestArticles = (newsArticleData) => {
   return result;
 }
 
-const clickEventChangeTabAttribute = () => {
+const clickedTabEvent = (newsDataArray) => {
   const tabTopics = document.querySelectorAll(".tabTopics");
-  for (let i = 0; i < tabTopics.length; i++) {
-    tabTopics[i].addEventListener("click", (event) => {
+
+  newsDataArray.forEach((newsCategoryObj, newsCategoryIndex) => {
+    const newsContentsData = newsCategoryObj.contents;
+    const newsCategoryImg = newsCategoryObj.img;
+
+    tabTopics[newsCategoryIndex].addEventListener("click", (event) => {
       const selectedTab = document.querySelector('[aria-selected="true"]');
+
+      removeCommentIcon();
+      removeNewIcon();
+
       selectedTab.ariaSelected = false;
       event.currentTarget.ariaSelected = true;
+
+      newsContentsData.forEach((newsArticleData, categoryNewsArticleDataIndex) => {
+        const commentArray = newsArticleData.comments;
+        const liElements = document.querySelectorAll(".tabpanelTopics_wrap li");
+        const liElement = liElements[categoryNewsArticleDataIndex];
+
+        changeCategoryConetent(newsCategoryIndex, event.currentTarget);
+        changeCategoryTitle(newsArticleData, categoryNewsArticleDataIndex);
+        changeCategoryImg(newsCategoryImg);
+
+        if (commentArray.length > 0) {
+          liElement.append(createCommentIcon(commentArray));
+        }
+
+        if (isLatestArticles(newsArticleData) === true) {
+          const h1Elements = document.querySelectorAll(".tabpanelTopics_wrap h1");
+          const h1Element = h1Elements[categoryNewsArticleDataIndex];
+          h1Element.insertAdjacentElement("afterend", createNewIcon());
+        }
+      })
     });
-  }
+  });
 }
 
 init();
