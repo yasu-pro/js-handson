@@ -165,7 +165,7 @@ const renderArticle = (newsContentsData) => {
       li.append(createCommentIcon(commentArray));
     }
 
-    if (isLatestArticles(newsArticleData) === true) {
+    if (isLatestArticles(newsArticleData)) {
       h1.insertAdjacentElement("afterend", createNewIcon());
     }
 
