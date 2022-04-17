@@ -1,7 +1,7 @@
 {
     "data": [
         {
-            "isInitialDisplay": "true",
+            "isInitialDisplay": false,
             "field": "ニュース",
             "img": "https://i.postimg.cc/67dS3c2K/news-img.jpg",
             "contents": [
@@ -89,7 +89,7 @@
             ]
         },
         {
-            "isInitialDisplay": "false",
+            "isInitialDisplay": false,
             "field": "経済",
             "img": "https://i.postimg.cc/bDp52nkt/economy-img.jpg",
             "contents": [
@@ -159,7 +159,7 @@
             ]
         },
         {
-            "isInitialDisplay": "false",
+            "isInitialDisplay": false,
             "field": "エンタメ",
             "img": "https://i.postimg.cc/0MnBGN0H/entertainment-img.jpg",
             "contents": [
@@ -242,7 +242,7 @@
             ]
         },
         {
-            "isInitialDisplay": "false",
+            "isInitialDisplay": true,
             "field": "スポーツ",
             "img": "https://i.postimg.cc/PLG9T9qK/sports-img.jpg",
             "contents": [
@@ -331,7 +331,7 @@
             ]
         },
         {
-            "isInitialDisplay": "false",
+            "isInitialDisplay": false,
             "field": "国内",
             "img": "https://i.postimg.cc/VdV2HdQx/domestic-img.jpg",
             "contents": [

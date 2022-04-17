@@ -1,7 +1,7 @@
 import './style.scss';
 import { differenceInCalendarDays } from 'date-fns';
 
-const REQUEST_URL = "https://mocki.io/v1/71fc7cba-21ec-4437-a8a4-65a3eaa49321";
+const REQUEST_URL = "https://mocki.io/v1/a9932f2b-87fe-4ac0-b13c-ccc20e883e61";
 
 // 間違っているURLの場合↓
 // const REQUEST_URL = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
@@ -99,7 +99,7 @@ const renderNewsContent = (newsDataArray) => {
     const newsCategoryImg = newsCategoryObj.img;
     let isInitialDisplay = newsCategoryObj.isInitialDisplay;
 
-    if (isInitialDisplay === "true") {
+    if (isInitialDisplay) {
       const div = document.createElement("div");
 
       div.classList = "tabpanelTopics_wrap";
@@ -132,7 +132,7 @@ const createArticle = (newsContentsData) => {
     h1.appendChild(a)
     li.appendChild(h1);
 
-    if (commentArray.length !== 0) {
+    if (commentArray.length > 0) {
       li.append(createCommentIcon(commentArray));
     }
 
