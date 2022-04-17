@@ -1,7 +1,7 @@
 import './style.scss';
 import { differenceInCalendarDays } from 'date-fns';
 
-const REQUEST_URL = "https://mocki.io/v1/720cde09-820e-4541-b003-c36cf2f1a414";
+const REQUEST_URL = "https://mocki.io/v1/71fc7cba-21ec-4437-a8a4-65a3eaa49321";
 
 // 間違っているURLの場合↓
 // const REQUEST_URL = "https://myjson.dit.upm.es/api/bins/ほげほげajy3";
@@ -98,26 +98,27 @@ const renderNewsTab = (newsDataArray) => {
 const renderNewsContent = (newsDataArray) => {
   newsDataArray.forEach((newsCategoryObj, newsCategoryIndex) => {
     const tabTopics = document.querySelectorAll(".tabTopics");
+    const newsSection = createSection(tabTopics, newsCategoryIndex);
     const newsContentsData = newsCategoryObj.contents;
     const newsCategoryImg = newsCategoryObj.img;
     let isInitialDisplay = newsCategoryObj.isInitialDisplay;
 
     if (isInitialDisplay === "true") {
       const div = document.createElement("div");
-      const newsSection = createSection(tabTopics, newsCategoryIndex);
 
       div.classList = "tabpanelTopics_wrap";
+      div.id = "js_tabpanelTopics_wrap";
 
       document.getElementById("js_tabList").after(newsSection);
       div.appendChild(createTopicImg(newsCategoryImg));
-      div.prepend(renderArticle(newsContentsData, newsCategoryIndex));
+      div.prepend(createArticle(newsContentsData));
 
       newsSection.appendChild(div);
     }
   })
 }
 
-const renderArticle = (newsContentsData) => {
+const createArticle = (newsContentsData) => {
   const ul = document.createElement("ul");
   const fragment = document.createDocumentFragment();
 
@@ -205,38 +206,6 @@ const createTopicImg = (imgPath) => {
   return div;
 }
 
-const changeCategoryTitle = (newsArticleData, categoryNewsArticleDataIndex) => {
-  const currentNewsContentAncorElements = document.querySelectorAll(`section[roll="tabpanel"] a`);
-  currentNewsContentAncorElements[categoryNewsArticleDataIndex].textContent = newsArticleData.title;
-}
-
-const changeCategoryImg = (newsCategoryImg) => {
-  const currentNewsContentImgElem = document.querySelector(".tabTopicImg > img");
-  currentNewsContentImgElem.src = newsCategoryImg;
-}
-
-const changeCategoryConetent = (newsCategoryIndex, clickedTabElement) => {
-  const tabTopicIdName = clickedTabElement.id;
-  const currentNewsSectionElem = document.querySelector(`section[roll="tabpanel"]`);
-
-  currentNewsSectionElem.id = `${"tabpanelTopics" + (newsCategoryIndex + 1)}`;
-  currentNewsSectionElem.setAttribute("aria-labelledby", tabTopicIdName);
-}
-
-const removeCommentIcon = () => {
-  const commentIconWrapElements = document.querySelectorAll(".commentIcon");
-  for (let i = 0; i < commentIconWrapElements.length; i++) {
-    commentIconWrapElements[i].remove();
-  }
-}
-
-const removeNewIcon = () => {
-  const newIconElements = document.querySelectorAll(".newIcon");
-  for (let i = 0; i < newIconElements.length; i++) {
-    newIconElements[i].remove();
-  }
-}
-
 const hideLoadingImg = () => {
   document.getElementById("js_loading_wrap").remove();
 }
@@ -254,41 +223,31 @@ const isLatestArticles = (newsArticleData) => {
   return result;
 }
 
+const removeTabPanel = () => {
+  document.getElementById("js_tabpanelTopics_wrap").textContent = "";
+}
+
 const clickedTabEvent = (newsDataArray) => {
-  const tabTopics = document.querySelectorAll(".tabTopics");
-
   newsDataArray.forEach((newsCategoryObj, newsCategoryIndex) => {
-    const newsContentsData = newsCategoryObj.contents;
-    const newsCategoryImg = newsCategoryObj.img;
-
+    const tabTopics = document.querySelectorAll(".tabTopics");
     tabTopics[newsCategoryIndex].addEventListener("click", (event) => {
+
+      removeTabPanel();
+
+      const sectionElem = document.querySelector("section");
+      const tabpanelTopicsWrap = document.querySelector(".tabpanelTopics_wrap");
       const selectedTab = document.querySelector('[aria-selected="true"]');
 
-      removeCommentIcon();
-      removeNewIcon();
+      const clickedArticleContent = newsDataArray[newsCategoryIndex].contents;
+      const clickedTopicImg = newsCategoryObj.img
 
+      sectionElem.id = `tabpanelTopics${newsCategoryIndex + 1}`;
+      sectionElem.setAttribute("aria-labelledby", `js_tabTopics${newsCategoryIndex + 1}`)
       selectedTab.ariaSelected = false;
       event.currentTarget.ariaSelected = true;
 
-      newsContentsData.forEach((newsArticleData, categoryNewsArticleDataIndex) => {
-        const commentArray = newsArticleData.comments;
-        const liElements = document.querySelectorAll(".tabpanelTopics_wrap li");
-        const liElement = liElements[categoryNewsArticleDataIndex];
-
-        changeCategoryConetent(newsCategoryIndex, event.currentTarget);
-        changeCategoryTitle(newsArticleData, categoryNewsArticleDataIndex);
-        changeCategoryImg(newsCategoryImg);
-
-        if (commentArray.length > 0) {
-          liElement.append(createCommentIcon(commentArray));
-        }
-
-        if (isLatestArticles(newsArticleData) === true) {
-          const h1Elements = document.querySelectorAll(".tabpanelTopics_wrap h1");
-          const h1Element = h1Elements[categoryNewsArticleDataIndex];
-          h1Element.insertAdjacentElement("afterend", createNewIcon());
-        }
-      })
+      tabpanelTopicsWrap.prepend(createArticle(clickedArticleContent));
+      tabpanelTopicsWrap.appendChild(createTopicImg(clickedTopicImg))
     });
   });
 }
