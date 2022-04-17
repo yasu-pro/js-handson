@@ -31,9 +31,9 @@ const init = async () => {
     displayErrorMessage("data is empty");
     return;
   }
-  renderNewsTab(newsDataArray);
-  renderNewsContent(newsDataArray);
-  clickedTabEvent(newsDataArray);
+  renderNewsTab(responseJsonData.data);
+  renderNewsContent(responseJsonData.data);
+  clickedTabEvent(responseJsonData.data);
 }
 
 const request = async () => {
