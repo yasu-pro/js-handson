@@ -31,7 +31,9 @@ const init = async () => {
     displayErrorMessage("data is empty");
     return;
   }
-  displayNews(responseJsonData.data);
+  renderNewsTab(newsDataArray);
+  renderNewsContent(newsDataArray);
+  clickedTabEvent(newsDataArray);
 }
 
 const request = async () => {
@@ -51,12 +53,6 @@ const displayErrorMessage = (error) => {
   const p = document.createElement("p");
   p.textContent = error;
   document.body.prepend(p);
-}
-
-const displayNews = (newsDataArray) => {
-  renderNewsTab(newsDataArray);
-  renderNewsContent(newsDataArray);
-  clickedTabEvent(newsDataArray);
 }
 
 const renderLoadingImg = () => {
