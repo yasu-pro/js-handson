@@ -223,26 +223,22 @@ const removeTabPanel = () => {
 }
 
 const clickedTabEvent = (newsDataArray) => {
-  newsDataArray.forEach((newsCategoryObj, newsCategoryIndex) => {
-    const tabTopics = document.querySelectorAll(".tabTopics");
-    tabTopics[newsCategoryIndex].addEventListener("click", (event) => {
-
+  const tabTopics = [...document.querySelectorAll(".tabTopics")];
+  tabTopics.forEach(tab => {
+    tab.addEventListener("click", (event) => {
       removeTabPanel();
-
-      const sectionElem = document.getElementById("tabpanel");
-      const tabpanelTopicsWrap = document.querySelector(".tabpanelTopics_wrap");
       const selectedTab = document.querySelector('[aria-selected="true"]');
-
-      const clickedArticleContent = newsDataArray[newsCategoryIndex].contents;
-      const clickedTopicImg = newsCategoryObj.img
-
-      sectionElem.setAttribute("aria-labelledby", `js_tabTopics${newsCategoryIndex + 1}`)
       selectedTab.ariaSelected = false;
       event.currentTarget.ariaSelected = true;
 
-      tabpanelTopicsWrap.prepend(createArticle(clickedArticleContent));
-      tabpanelTopicsWrap.appendChild(createTopicImg(clickedTopicImg))
-    });
+      const clickedTabIndex = tabTopics.indexOf(event.currentTarget);
+      const tabpanelTopicsWrap = document.querySelector(".tabpanelTopics_wrap");
+      tabpanelTopicsWrap.prepend(createArticle(newsDataArray[clickedTabIndex].contents));
+      tabpanelTopicsWrap.appendChild(createTopicImg(newsDataArray[clickedTabIndex].img));
+
+      const sectionElem = document.getElementById("tabpanel");
+      sectionElem.setAttribute("aria-labelledby", `js_tabTopics${clickedTabIndex + 1}`);
+    })
   });
 }
 
