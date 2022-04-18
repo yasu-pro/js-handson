@@ -92,27 +92,27 @@ const renderNewsTab = (newsDataArray) => {
 }
 
 const renderNewsContent = (newsDataArray) => {
+  const fragment = document.createDocumentFragment();
   newsDataArray.forEach((newsCategoryObj, newsCategoryIndex) => {
-    const tabTopics = document.querySelectorAll(".tabTopics");
     const newsContentsData = newsCategoryObj.contents;
     const newsCategoryImg = newsCategoryObj.img;
     let isInitialDisplay = newsCategoryObj.isInitialDisplay;
 
     if (isInitialDisplay) {
-      const newsSection = createSection(tabTopics, newsCategoryIndex);
       const div = document.createElement("div");
 
       div.classList = "tabpanelTopics_wrap";
       div.id = "js_tabpanelTopics_wrap";
 
-      document.getElementById("js_tabList").after(newsSection);
-      div.appendChild(createTopicImg(newsCategoryImg));
-      div.prepend(createArticle(newsContentsData));
-
-      newsSection.appendChild(div);
+      fragment
+        .appendChild(createSection(newsCategoryIndex))
+        .appendChild(div)
+        .appendChild(createArticle(newsContentsData))
+        .after(createTopicImg(newsCategoryImg))
     }
-  })
-}
+    document.getElementById("js_tabList").after(fragment);
+  });
+};
 
 const createArticle = (newsContentsData) => {
   const ul = document.createElement("ul");
@@ -176,12 +176,11 @@ const createCommentIcon = (commentArray) => {
   return div;
 }
 
-const createSection = (tabTopics, index) => {
+const createSection = (index) => {
   const section = document.createElement("section");
-  const tabIdName = document.getElementById(tabTopics[index].id).id;
 
   section.id = "js-tabpanel";
-  section.setAttribute("aria-labelledby", tabIdName);
+  section.setAttribute("aria-labelledby", `js_tabTopics${index + 1}`);
   section.setAttribute("roll", "tabpanel")
 
   return section;
