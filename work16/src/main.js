@@ -60,7 +60,7 @@ const renderLoadingImg = () => {
   const img = document.createElement("img");
 
   div.classList = "loading_wrap";
-  div.id = "js_loading_wrap"
+  div.id = "js-loading_wrap"
   img.src = "https://i.postimg.cc/k2RLrq7B/loading-circle.gif";
   img.alt = "ローディング画像"
 
@@ -69,7 +69,7 @@ const renderLoadingImg = () => {
 }
 
 const renderNewsTab = (newsDataArray) => {
-  const tabList = document.getElementById("js_tabList");
+  const tabList = document.getElementById("js-tabList");
   const fragment = document.createDocumentFragment();
 
   newsDataArray.forEach((newsCategoryObj, newsCategoryIndex) => {
@@ -79,7 +79,7 @@ const renderNewsTab = (newsDataArray) => {
 
     li.ariaSelected = isInitialDisplay;
     li.setAttribute("roll", "tab");
-    li.id = `${"js_tabTopics" + ++newsCategoryIndex}`;
+    li.id = `${"js-tabTopics" + ++newsCategoryIndex}`;
     li.classList = "tabTopics";
 
     a.textContent = newsCategoryObj.field
@@ -102,7 +102,7 @@ const renderNewsContent = (newsDataArray) => {
       const div = document.createElement("div");
 
       div.classList = "tabpanelTopics_wrap";
-      div.id = "js_tabpanelTopics_wrap";
+      div.id = "js-tabpanelTopics_wrap";
 
       fragment
         .appendChild(createSection(newsCategoryIndex))
@@ -110,7 +110,7 @@ const renderNewsContent = (newsDataArray) => {
         .appendChild(createArticle(newsContentsData))
         .after(createTopicImg(newsCategoryImg))
     }
-    document.getElementById("js_tabList").after(fragment);
+    document.getElementById("js-tabList").after(fragment);
   });
 };
 
@@ -180,7 +180,7 @@ const createSection = (index) => {
   const section = document.createElement("section");
 
   section.id = "js-tabpanel";
-  section.setAttribute("aria-labelledby", `js_tabTopics${index + 1}`);
+  section.setAttribute("aria-labelledby", `js-tabTopics${index + 1}`);
   section.setAttribute("roll", "tabpanel")
 
   return section;
@@ -201,7 +201,7 @@ const createTopicImg = (imgPath) => {
 }
 
 const hideLoadingImg = () => {
-  document.getElementById("js_loading_wrap").remove();
+  document.getElementById("js-loading_wrap").remove();
 }
 
 const isLatestArticles = (newsArticleData) => {
@@ -218,7 +218,7 @@ const isLatestArticles = (newsArticleData) => {
 }
 
 const removeTabPanel = () => {
-  document.getElementById("js_tabpanelTopics_wrap").textContent = "";
+  document.getElementById("js-tabpanelTopics_wrap").textContent = "";
 }
 
 const clickedTabEvent = (newsDataArray) => {
@@ -236,7 +236,7 @@ const clickedTabEvent = (newsDataArray) => {
       tabpanelTopicsWrap.appendChild(createTopicImg(newsDataArray[clickedTabIndex].img));
 
       const sectionElem = document.getElementById("js-tabpanel");
-      sectionElem.setAttribute("aria-labelledby", `js_tabTopics${clickedTabIndex + 1}`);
+      sectionElem.setAttribute("aria-labelledby", `js-tabTopics${clickedTabIndex + 1}`);
     })
   });
 }
