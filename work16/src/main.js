@@ -178,10 +178,9 @@ const createCommentIcon = (commentArray) => {
 
 const createSection = (tabTopics, index) => {
   const section = document.createElement("section");
-  const tabTopicElem = document.getElementById(tabTopics[index].id);
-  const tabIdName = tabTopicElem.id;
+  const tabIdName = document.getElementById(tabTopics[index].id).id;
 
-  section.id = `${"tabpanelTopics" + (index + 1)} `;
+  section.id = "tabpanel";
   section.setAttribute("aria-labelledby", tabIdName);
   section.setAttribute("roll", "tabpanel")
 
@@ -230,14 +229,13 @@ const clickedTabEvent = (newsDataArray) => {
 
       removeTabPanel();
 
-      const sectionElem = document.querySelector("section");
+      const sectionElem = document.getElementById("tabpanel");
       const tabpanelTopicsWrap = document.querySelector(".tabpanelTopics_wrap");
       const selectedTab = document.querySelector('[aria-selected="true"]');
 
       const clickedArticleContent = newsDataArray[newsCategoryIndex].contents;
       const clickedTopicImg = newsCategoryObj.img
 
-      sectionElem.id = `tabpanelTopics${newsCategoryIndex + 1}`;
       sectionElem.setAttribute("aria-labelledby", `js_tabTopics${newsCategoryIndex + 1}`)
       selectedTab.ariaSelected = false;
       event.currentTarget.ariaSelected = true;
