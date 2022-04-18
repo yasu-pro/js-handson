@@ -94,12 +94,12 @@ const renderNewsTab = (newsDataArray) => {
 const renderNewsContent = (newsDataArray) => {
   newsDataArray.forEach((newsCategoryObj, newsCategoryIndex) => {
     const tabTopics = document.querySelectorAll(".tabTopics");
-    const newsSection = createSection(tabTopics, newsCategoryIndex);
     const newsContentsData = newsCategoryObj.contents;
     const newsCategoryImg = newsCategoryObj.img;
     let isInitialDisplay = newsCategoryObj.isInitialDisplay;
 
     if (isInitialDisplay) {
+      const newsSection = createSection(tabTopics, newsCategoryIndex);
       const div = document.createElement("div");
 
       div.classList = "tabpanelTopics_wrap";
