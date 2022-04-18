@@ -180,7 +180,7 @@ const createSection = (tabTopics, index) => {
   const section = document.createElement("section");
   const tabIdName = document.getElementById(tabTopics[index].id).id;
 
-  section.id = "tabpanel";
+  section.id = "js-tabpanel";
   section.setAttribute("aria-labelledby", tabIdName);
   section.setAttribute("roll", "tabpanel")
 
@@ -236,7 +236,7 @@ const clickedTabEvent = (newsDataArray) => {
       tabpanelTopicsWrap.prepend(createArticle(newsDataArray[clickedTabIndex].contents));
       tabpanelTopicsWrap.appendChild(createTopicImg(newsDataArray[clickedTabIndex].img));
 
-      const sectionElem = document.getElementById("tabpanel");
+      const sectionElem = document.getElementById("js-tabpanel");
       sectionElem.setAttribute("aria-labelledby", `js_tabTopics${clickedTabIndex + 1}`);
     })
   });
