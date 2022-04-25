@@ -11,6 +11,9 @@
 - [Mock API for Development and Testing
 ](https://mocki.io/)
 
-### 課題11~15 (404などのサーバーエラーのみを返す。エラーハンドリングの動作確認で便利 )
+### 課題11~ (404などのサーバーエラーのみを返す。エラーハンドリングの動作確認で便利 )
 - https://httpstat.us/ (使用方法 → `fetch(”https://httpstat.us/404"`)
 )
+
+### 課題16 (画像をサーバーに挙げられるサイト→codesandboxで画像のアップロードができなかったため)
+- https://postimages.org/
