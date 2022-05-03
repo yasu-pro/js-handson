@@ -1,0 +1,26 @@
+ul, li, img {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.slider_wrap {
+  top: 50px;
+  text-align: center;
+}
+
+.slider_item {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  width: 800px;
+  height: 600px;
+}
+
+.slider_items {
+  position: absolute;
+}
+/*# sourceMappingURL=style.css.map */

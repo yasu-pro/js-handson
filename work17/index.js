@@ -54,15 +54,21 @@ const renderErrorMessage = (errorMessage) => {
 
 const renderSlideImg = imagesDataArray => {
     const div = document.createElement("div");
-    div.classList = "slide_wrap";
     const ul = document.createElement("ul");
     const fragment = document.createDocumentFragment();
+
+    ul.classList = "slider_item"
+    div.classList = "slider_wrap";
+
     for (let i = 0; i < imagesDataArray.length; i++) {
-        console.log(imagesDataArray[i].src);
         const li = document.createElement("li");
         const img = document.createElement("img");
+
         img.src = imagesDataArray[i].src;
-        img.id = `js-img${i}`;
+        li.classList = "slider_items";
+        li.style.zIndex = `-${i + 1}`;
+        li.id = `js-sliderItems${i + 1}`;
+
         li.appendChild(img);
         fragment.appendChild(li);
     }
