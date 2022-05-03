@@ -12,7 +12,7 @@ const REQUEST_URL = "https://mocki.io/v1/7b2982fb-cf34-4c47-a68f-79fdd1db1b7e";
 const init = async () => {
     let imgJsonData;
     try {
-        imgJsonData = await response();
+        imgJsonData = await getRequestData(REQUEST_URL);
     } catch (error) {
         renderErrorMessage(`${error.message}`)
     }
@@ -23,18 +23,25 @@ const init = async () => {
     return imgJsonData;
 }
 
-const response = async () => {
+const getRequestData = async (REQUEST_URL) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(fetchSlideImgData(REQUEST_URL));
+        }, 3000);
+    })
+}
+
+const fetchSlideImgData = async () => {
     const parameter = {
         headers: {
             'Content-Type': 'application/json'
         }
     }
-    const result = await fetch(REQUEST_URL, parameter);
-    if (!result.ok) {
-        console.log(`${result.status}:${result.statusText}`)
-        renderErrorMessage(`${result.status}:${result.statusText}`);
+    const response = await fetch(REQUEST_URL, parameter);
+    if (!response.ok) {
+        renderErrorMessage(`${response.status}:${response.statusText}`);
     } else {
-        const jsonData = result.json();
+        const jsonData = response.json();
         return jsonData;
     }
 }
