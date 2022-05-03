@@ -19,7 +19,7 @@ const init = async () => {
         renderErrorMessage("JSONデータが空です。");
         return;
     }
-    renderImg(imgJsonData.data);
+    renderSlideImg(imgJsonData.data);
 }
 
 const getRequestData = async (REQUEST_URL) => {
@@ -68,6 +68,7 @@ const renderSlideImg = imagesDataArray => {
     }
     document.body.appendChild(div).appendChild(ul).appendChild(fragment);
 }
+
 
 
 init();
