@@ -26,7 +26,7 @@ const getRequestData = async (REQUEST_URL) => {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(fetchSlideImgData(REQUEST_URL));
-        }, 3000);
+        }, 300);
     })
 }
 
@@ -73,8 +73,26 @@ const renderSlideImg = imagesDataArray => {
         fragment.appendChild(li);
     }
     document.body.appendChild(div).appendChild(ul).appendChild(fragment);
+    renderSlideArrow();
 }
 
+const renderSlideArrow = () => {
+    const ulElement = document.querySelector(".slider_item");
+    const divLeft = document.createElement("div")
+    const divRight = document.createElement("div")
+    const iLeft = document.createElement("i");
+    const iRight = document.createElement("i");
 
+    divLeft.classList = "slider_arrowBox-left slider_arrowBox";
+    divRight.classList = "slider_arrowBox-right slider_arrowBox";
+    iLeft.classList = "fas fa-arrow-circle-left fa-3x";
+    iRight.classList = "fas fa-arrow-circle-right fa-3x";
+
+    divLeft.appendChild(iLeft);
+    divRight.appendChild(iRight);
+
+    ulElement.appendChild(divLeft);
+    ulElement.appendChild(divRight);
+}
 
 init();

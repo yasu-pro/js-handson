@@ -23,4 +23,23 @@ li {
 .slider_items {
   position: absolute;
 }
+
+.slider_arrowBox {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+}
+
+.slider_arrowBox-left {
+  left: -25px;
+}
+
+.slider_arrowBox-right {
+  right: -25px;
+}
 /*# sourceMappingURL=style.css.map */
