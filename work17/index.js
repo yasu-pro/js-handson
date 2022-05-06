@@ -74,6 +74,7 @@ const renderSlideImg = imagesDataArray => {
     }
     document.body.appendChild(div).appendChild(ul).appendChild(fragment);
     renderSlideArrow();
+    clickedSliderEvent();
 }
 
 const renderSlideArrow = () => {
@@ -93,6 +94,37 @@ const renderSlideArrow = () => {
 
     ulElement.appendChild(divLeft);
     ulElement.appendChild(divRight);
+}
+
+const clickedSliderEvent = () => {
+    const arrowLeftDiv = document.querySelector(".slider_arrowBox-left");
+    const arrowRightDiv = document.querySelector(".slider_arrowBox-right");
+
+    arrowLeftDiv.addEventListener("click", () => {
+        const sliderListElements = [...document.querySelectorAll(".slider_items")];
+
+        for (let i = 0; i < sliderListElements.length; i++) {
+            if (sliderListElements[i].style.zIndex === "-5") {
+                sliderListElements[i].style.zIndex = -1;
+            } else {
+                const currentZIndex = parseInt(sliderListElements[i].style.zIndex);
+                sliderListElements[i].style.zIndex = currentZIndex - 1
+            }
+        }
+    })
+
+    arrowRightDiv.addEventListener("click", () => {
+        const sliderListElements = [...document.querySelectorAll(".slider_items")];
+
+        for (let i = 0; i < sliderListElements.length; i++) {
+            if (sliderListElements[i].style.zIndex === "-1") {
+                sliderListElements[i].style.zIndex = -sliderListElements.length;
+            } else {
+                const currentZIndex = parseInt(sliderListElements[i].style.zIndex);
+                sliderListElements[i].style.zIndex = currentZIndex + 1
+            }
+        }
+    })
 }
 
 init();
