@@ -85,8 +85,8 @@ const renderSlideArrow = () => {
 
     divLeft.classList = "slider_arrowBox-left slider_arrowBox";
     divRight.classList = "slider_arrowBox-right slider_arrowBox";
-    iLeft.classList = "fas fa-arrow-circle-left fa-3x";
-    iRight.classList = "fas fa-arrow-circle-right fa-3x";
+    iLeft.classList = "fas fa-angle-left fa-3x";
+    iRight.classList = "fas fa-angle-right fa-3x";
 
     divLeft.appendChild(iLeft);
     divRight.appendChild(iRight);
