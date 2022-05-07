@@ -12,6 +12,22 @@ li {
   text-align: center;
 }
 
+.slider_slide {
+  display: inline-block;
+  position: relative;
+}
+
+.slider_pageNum {
+  display: block;
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 2.3rem;
+  font-weight: bolder;
+}
+
 .slider_item {
   display: inline-block;
   position: relative;
@@ -30,8 +46,6 @@ li {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
   z-index: 10;
 }
 
