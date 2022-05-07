@@ -122,6 +122,31 @@ const renderSlideArrow = () => {
 
     addOrRemoveDisabled();
 }
+
+const addOrRemoveDisabled = () => {
+    const prevButton = document.querySelector(".slider_prev");
+    const nextButton = document.querySelector(".slider_next");
+
+    const sliderListElements = [...document.querySelectorAll(".slider_items")]
+
+    const disabledElem =
+    {
+        firstImage: document.getElementById("js-sliderItems1"),
+        lastImage: document.getElementById(`js-sliderItems${[sliderListElements.length]}`)
+    };
+
+    if (disabledElem.firstImage.style.zIndex === "-1") {
+        prevButton.disabled = "true";
+        prevButton.style.opacity = "0.6";
+    } else if (disabledElem.lastImage.style.zIndex === "-1") {
+        nextButton.disabled = true;
+        nextButton.style.opacity = "0.6";
+    } else {
+        nextButton.disabled = false;
+        prevButton.disabled = false;
+        nextButton.style.opacity = "1";
+        prevButton.style.opacity = "1";
+    }
 }
 
 const clickedSliderEvent = () => {
