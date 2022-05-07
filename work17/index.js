@@ -77,6 +77,20 @@ const renderSlideImg = imagesDataArray => {
     clickedSliderEvent();
 }
 
+const renderPagingNumber = () => {
+    const sliderListElements = [...document.querySelectorAll(".slider_items")];
+    const span = document.createElement("span");
+
+    span.classList = "slider_pageNum";
+
+    for (let i = 0; i < sliderListElements.length; i++) {
+        if (sliderListElements[i].style.zIndex === "-1") {
+            span.textContent = `${i + 1} / ${sliderListElements.length}`;
+        }
+        return span;
+    }
+}
+
 const renderSlideArrow = () => {
     const ulElement = document.querySelector(".slider_item");
     const divLeft = document.createElement("div")
