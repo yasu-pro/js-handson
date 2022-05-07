@@ -150,11 +150,12 @@ const addOrRemoveDisabled = () => {
 }
 
 const clickedSliderEvent = () => {
-    const arrowLeftDiv = document.querySelector(".slider_arrowBox-left");
-    const arrowRightDiv = document.querySelector(".slider_arrowBox-right");
+    const prevButton = document.querySelector(".slider_prev");
+    const nextButton = document.querySelector(".slider_next");
 
-    arrowLeftDiv.addEventListener("click", () => {
+    prevButton.addEventListener("click", () => {
         const sliderListElements = [...document.querySelectorAll(".slider_items")];
+        const pageNumElement = document.querySelector(".slider_pageNum");
 
         for (let i = 0; i < sliderListElements.length; i++) {
             if (sliderListElements[i].style.zIndex === "-5") {
@@ -166,8 +167,9 @@ const clickedSliderEvent = () => {
         }
     })
 
-    arrowRightDiv.addEventListener("click", () => {
+    nextButton.addEventListener("click", () => {
         const sliderListElements = [...document.querySelectorAll(".slider_items")];
+        const pageNumElement = document.querySelector(".slider_pageNum");
 
         for (let i = 0; i < sliderListElements.length; i++) {
             if (sliderListElements[i].style.zIndex === "-1") {
