@@ -158,13 +158,18 @@ const clickedSliderEvent = () => {
         const pageNumElement = document.querySelector(".slider_pageNum");
 
         for (let i = 0; i < sliderListElements.length; i++) {
-            if (sliderListElements[i].style.zIndex === "-5") {
+            if (sliderListElements[i].style.zIndex === `-${sliderListElements.length}`) {
                 sliderListElements[i].style.zIndex = -1;
             } else {
                 const currentZIndex = parseInt(sliderListElements[i].style.zIndex);
-                sliderListElements[i].style.zIndex = currentZIndex - 1
+                sliderListElements[i].style.zIndex = currentZIndex - 1;
+            }
+
+            if (sliderListElements[i].style.zIndex === "-1") {
+                pageNumElement.textContent = `${i + 1} / ${sliderListElements.length}`;
             }
         }
+        addOrRemoveDisabled();
     })
 
     nextButton.addEventListener("click", () => {
@@ -173,12 +178,17 @@ const clickedSliderEvent = () => {
 
         for (let i = 0; i < sliderListElements.length; i++) {
             if (sliderListElements[i].style.zIndex === "-1") {
-                sliderListElements[i].style.zIndex = -sliderListElements.length;
+                sliderListElements[i].style.zIndex = `-${sliderListElements.length}`;
             } else {
                 const currentZIndex = parseInt(sliderListElements[i].style.zIndex);
-                sliderListElements[i].style.zIndex = currentZIndex + 1
+                sliderListElements[i].style.zIndex = currentZIndex + 1;
+            }
+
+            if (sliderListElements[i].style.zIndex === "-1") {
+                pageNumElement.textContent = `${i + 1} / ${sliderListElements.length}`;
             }
         }
+        addOrRemoveDisabled();
     })
 }
 
