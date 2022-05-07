@@ -53,12 +53,14 @@ const renderErrorMessage = (errorMessage) => {
 }
 
 const renderSlideImg = imagesDataArray => {
-    const div = document.createElement("div");
+    const wrapDiv = document.createElement("div");
+    const slideDiv = document.createElement("div");
     const ul = document.createElement("ul");
     const fragment = document.createDocumentFragment();
 
     ul.classList = "slider_item"
-    div.classList = "slider_wrap";
+    wrapDiv.classList = "slider_wrap";
+    slideDiv.classList = "slider_slide";
 
     for (let i = 0; i < imagesDataArray.length; i++) {
         const li = document.createElement("li");
@@ -72,7 +74,10 @@ const renderSlideImg = imagesDataArray => {
         li.appendChild(img);
         fragment.appendChild(li);
     }
-    document.body.appendChild(div).appendChild(ul).appendChild(fragment);
+
+    document.body.appendChild(wrapDiv)
+        .appendChild(slideDiv).appendChild(ul).appendChild(fragment);
+    slideDiv.appendChild(renderPagingNumber());
     renderSlideArrow();
     clickedSliderEvent();
 }
@@ -92,22 +97,31 @@ const renderPagingNumber = () => {
 }
 
 const renderSlideArrow = () => {
-    const ulElement = document.querySelector(".slider_item");
-    const divLeft = document.createElement("div")
-    const divRight = document.createElement("div")
+    const wrapDiv = document.querySelector(".slider_slide");
+    const divLeft = document.createElement("div");
+    const divRight = document.createElement("div");
+    const buttonLeft = document.createElement("button");
+    const buttonRight = document.createElement("button");
     const iLeft = document.createElement("i");
     const iRight = document.createElement("i");
 
     divLeft.classList = "slider_arrowBox-left slider_arrowBox";
     divRight.classList = "slider_arrowBox-right slider_arrowBox";
+    buttonLeft.classList = "slider_prev"
+    buttonRight.classList = "slider_next"
+    buttonLeft.type = "button";
+    buttonRight.type = "button";
     iLeft.classList = "fas fa-angle-left fa-3x";
     iRight.classList = "fas fa-angle-right fa-3x";
 
-    divLeft.appendChild(iLeft);
-    divRight.appendChild(iRight);
+    divLeft.appendChild(buttonLeft).appendChild(iLeft);
+    divRight.appendChild(buttonRight).appendChild(iRight);
 
-    ulElement.appendChild(divLeft);
-    ulElement.appendChild(divRight);
+    wrapDiv.appendChild(divLeft);
+    wrapDiv.appendChild(divRight);
+
+    addOrRemoveDisabled();
+}
 }
 
 const clickedSliderEvent = () => {
