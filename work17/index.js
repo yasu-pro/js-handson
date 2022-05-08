@@ -120,10 +120,10 @@ const renderSlideArrow = () => {
     wrapDiv.appendChild(divLeft);
     wrapDiv.appendChild(divRight);
 
-    addOrRemoveDisabled();
+    addOrRemoveDisabledImg();
 }
 
-const addOrRemoveDisabled = () => {
+const addOrRemoveDisabledImg = () => {
     const prevButton = document.querySelector(".slider_prev");
     const nextButton = document.querySelector(".slider_next");
 
@@ -169,7 +169,7 @@ const clickedSliderEvent = () => {
                 pageNumElement.textContent = `${i + 1} / ${sliderListElements.length}`;
             }
         }
-        addOrRemoveDisabled();
+        addOrRemoveDisabledImg();
     })
 
     nextButton.addEventListener("click", () => {
@@ -188,7 +188,7 @@ const clickedSliderEvent = () => {
                 pageNumElement.textContent = `${i + 1} / ${sliderListElements.length}`;
             }
         }
-        addOrRemoveDisabled();
+        addOrRemoveDisabledImg();
     })
 }
 
