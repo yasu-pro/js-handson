@@ -22,7 +22,7 @@ const init = async () => {
     renderSlideImg(imgJsonData.data);
 }
 
-const getRequestData = async (REQUEST_URL) => {
+const getRequestData = async REQUEST_URL => {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(fetchSlideImgData(REQUEST_URL));
@@ -45,7 +45,7 @@ const fetchSlideImgData = async () => {
     }
 }
 
-const renderErrorMessage = (errorMessage) => {
+const renderErrorMessage = errorMessage => {
     const p = document.createElement("p");
 
     p.textContent = errorMessage;
