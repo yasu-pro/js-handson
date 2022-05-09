@@ -8,13 +8,34 @@ const REQUEST_URL = "https://mocki.io/v1/d4a57e5a-8c84-4fee-aa05-70a1791c0d86";
 // 503エラーの場合↓
 // const REQUEST_URL = "https://httpstat.us/503";
 
+const wrapDiv = document.querySelector(".slider_wrap");
+
+const renderLoading = () => {
+    const div = document.createElement("div");
+    const img = document.createElement("img");
+
+    div.classList = "loading-wrap";
+    img.src = "./img/loading-circle.gif";
+
+    wrapDiv.appendChild(div).appendChild(img);
+    document.body.appendChild(div);
+}
+
+const hideLoadingImg = () => {
+    document.querySelector(".loading-wrap").remove();
+}
+
 const init = async () => {
+    renderLoading();
     let imgJsonData;
     try {
         imgJsonData = await getRequestData(REQUEST_URL);
     } catch (error) {
         renderErrorMessage(`${error.message}`)
+    } finally {
+        hideLoadingImg();
     }
+
     if (!imgJsonData.data.length) {
         renderErrorMessage("JSONデータが空です。");
         return;
@@ -53,13 +74,11 @@ const renderErrorMessage = errorMessage => {
 }
 
 const renderSlideImg = imagesDataArray => {
-    const wrapDiv = document.createElement("div");
     const slideDiv = document.createElement("div");
     const ul = document.createElement("ul");
     const fragment = document.createDocumentFragment();
 
     ul.classList = "slider_item"
-    wrapDiv.classList = "slider_wrap";
     slideDiv.classList = "slider_slide";
 
     for (let i = 0; i < imagesDataArray.length; i++) {

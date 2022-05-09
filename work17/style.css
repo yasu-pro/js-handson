@@ -7,6 +7,10 @@ li {
   list-style: none;
 }
 
+.loading-wrap {
+  position: absolute;
+}
+
 .slider_wrap {
   top: 50px;
   text-align: center;
