@@ -38,6 +38,11 @@ li {
 
 .slider_items {
   position: absolute;
+  z-index: -1;
+}
+
+.slider_items.is-display {
+  z-index: 0;
 }
 
 .slider_arrowBox {

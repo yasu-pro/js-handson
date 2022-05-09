@@ -38,6 +38,10 @@ li {
 
     &_items {
         position: absolute;
+        z-index: -1;
+        &.is-display {
+            z-index: 0;
+        }
     }
 
     &_arrowBox {
