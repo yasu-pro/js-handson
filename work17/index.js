@@ -127,29 +127,18 @@ const renderSlideArrow = () => {
     addOrRemoveDisabledImg();
 }
 
-const addOrRemoveDisabledImg = () => {
-    const prevButton = document.querySelector(".slider_prev");
-    const nextButton = document.querySelector(".slider_next");
+const addOrRemoveDisabled = (index, nextOrPrevButton) => {
+    const sliderListElements = document.querySelector(".slider_item");
+    const targetElem = document.getElementById(`js-sliderItems${index}`);
 
-    const sliderListElements = [...document.querySelectorAll(".slider_items")]
+    const firstElem = sliderListElements.firstElementChild;
+    const lastElem = sliderListElements.lastElementChild;
 
-    const disabledElem =
-    {
-        firstImage: document.getElementById("js-sliderItems1"),
-        lastImage: document.getElementById(`js-sliderItems${[sliderListElements.length]}`)
-    };
-
-    if (disabledElem.firstImage.style.zIndex === "-1") {
-        prevButton.disabled = "true";
-        prevButton.style.opacity = "0.6";
-    } else if (disabledElem.lastImage.style.zIndex === "-1") {
-        nextButton.disabled = true;
-        nextButton.style.opacity = "0.6";
+    if (targetElem === firstElem || targetElem === lastElem) {
+        nextOrPrevButton.disabled = true;
     } else {
-        nextButton.disabled = false;
-        prevButton.disabled = false;
-        nextButton.style.opacity = "1";
-        prevButton.style.opacity = "1";
+        const disabledElem = document.querySelector("[disabled]");
+        disabledElem && disabledElem.removeAttribute("disabled");
     }
 }
 
