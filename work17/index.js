@@ -110,9 +110,10 @@ const renderSlideArrow = () => {
 
     divLeft.classList = "slider_arrowBox-left slider_arrowBox";
     divRight.classList = "slider_arrowBox-right slider_arrowBox";
-    buttonLeft.classList = "slider_prev"
-    buttonRight.classList = "slider_next"
+    buttonLeft.classList = "slider_prev slider_button"
+    buttonRight.classList = "slider_next slider_button"
     buttonLeft.type = "button";
+    buttonLeft.disabled = true;
     buttonRight.type = "button";
     iLeft.classList = "fas fa-angle-left fa-3x";
     iRight.classList = "fas fa-angle-right fa-3x";
