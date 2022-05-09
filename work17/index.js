@@ -154,23 +154,21 @@ const switchImg = index => {
         addOrRemoveDisabledImg();
     })
 
-    nextButton.addEventListener("click", () => {
-        const sliderListElements = [...document.querySelectorAll(".slider_items")];
-        const pageNumElement = document.querySelector(".slider_pageNum");
+const clickedSliderEvent = () => {
+    const buttonElements = [...document.querySelectorAll(".slider_button")];
+    let count = 1;
+    buttonElements.forEach((nextOrPrevButton) => {
+        nextOrPrevButton.addEventListener("click", (e) => {
+            const sliderListElements = [...document.querySelectorAll(".slider_items")];
+            const displayElem = document.querySelector(".is-display");
+            displayElem && displayElem.classList.remove("is-display");
 
-        for (let i = 0; i < sliderListElements.length; i++) {
-            if (sliderListElements[i].style.zIndex === "-1") {
-                sliderListElements[i].style.zIndex = `-${sliderListElements.length}`;
-            } else {
-                const currentZIndex = parseInt(sliderListElements[i].style.zIndex);
-                sliderListElements[i].style.zIndex = currentZIndex + 1;
-            }
+            e.currentTarget.classList.contains("slider_next") ? count++ : count--;
 
-            if (sliderListElements[i].style.zIndex === "-1") {
-                pageNumElement.textContent = `${i + 1} / ${sliderListElements.length}`;
-            }
-        }
-        addOrRemoveDisabledImg();
+            switchImg(count);
+            addOrRemoveDisabled(count, nextOrPrevButton);
+            changePageNum(count, sliderListElements.length);
+        })
     })
 }
 
