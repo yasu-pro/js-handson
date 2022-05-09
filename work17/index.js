@@ -83,18 +83,21 @@ const renderSlideImg = imagesDataArray => {
 }
 
 const renderPagingNumber = () => {
+    let count = 1;
     const sliderListElements = [...document.querySelectorAll(".slider_items")];
     const span = document.createElement("span");
 
+    const span = document.createElement("span");
     span.classList = "slider_pageNum";
 
-    for (let i = 0; i < sliderListElements.length; i++) {
-        if (sliderListElements[i].style.zIndex === "-1") {
-            span.textContent = `${i + 1} / ${sliderListElements.length}`;
+    sliderListElements.forEach(element => {
+        if (element.classList.contains("is-display")) {
+            span.textContent = `${count} / ${sliderListElements.length}`;
+            return span;
         }
-        return span;
-    }
-}
+    });
+    return span;
+};
 
 const renderSlideArrow = () => {
     const wrapDiv = document.querySelector(".slider_slide");
@@ -155,7 +158,7 @@ const clickedSliderEvent = () => {
 
     prevButton.addEventListener("click", () => {
         const sliderListElements = [...document.querySelectorAll(".slider_items")];
-        const pageNumElement = document.querySelector(".slider_pageNum");
+    const pageNumElement = document.querySelector(".slider_pageNum");
 
         for (let i = 0; i < sliderListElements.length; i++) {
             if (sliderListElements[i].style.zIndex === `-${sliderListElements.length}`) {
@@ -163,7 +166,7 @@ const clickedSliderEvent = () => {
             } else {
                 const currentZIndex = parseInt(sliderListElements[i].style.zIndex);
                 sliderListElements[i].style.zIndex = currentZIndex - 1;
-            }
+}
 
             if (sliderListElements[i].style.zIndex === "-1") {
                 pageNumElement.textContent = `${i + 1} / ${sliderListElements.length}`;
