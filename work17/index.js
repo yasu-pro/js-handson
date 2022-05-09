@@ -68,7 +68,9 @@ const renderSlideImg = imagesDataArray => {
 
         img.src = imagesDataArray[i].src;
         li.classList = "slider_items";
-        li.style.zIndex = `-${i + 1}`;
+        if (!i) {
+            li.classList.add("is-display");
+        }
         li.id = `js-sliderItems${i + 1}`;
 
         li.appendChild(img);
@@ -85,7 +87,6 @@ const renderSlideImg = imagesDataArray => {
 const renderPagingNumber = () => {
     let count = 1;
     const sliderListElements = [...document.querySelectorAll(".slider_items")];
-    const span = document.createElement("span");
 
     const span = document.createElement("span");
     span.classList = "slider_pageNum";
@@ -123,8 +124,6 @@ const renderSlideArrow = () => {
 
     wrapDiv.appendChild(divLeft);
     wrapDiv.appendChild(divRight);
-
-    addOrRemoveDisabledImg();
 }
 
 const addOrRemoveDisabled = (index, nextOrPrevButton) => {
@@ -151,8 +150,6 @@ const changePageNum = (currentImgNum, maxImgNum) => {
 const switchImg = index => {
     document.getElementById(`js-sliderItems${index}`).classList.add("is-display");
 }
-        addOrRemoveDisabledImg();
-    })
 
 const clickedSliderEvent = () => {
     const buttonElements = [...document.querySelectorAll(".slider_button")];
