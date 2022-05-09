@@ -26,7 +26,7 @@ const getRequestData = async REQUEST_URL => {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(fetchSlideImgData(REQUEST_URL));
-        }, 300);
+        }, 3000);
     })
 }
 
