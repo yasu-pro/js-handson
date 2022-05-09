@@ -152,26 +152,15 @@ const addOrRemoveDisabledImg = () => {
     }
 }
 
-const clickedSliderEvent = () => {
-    const prevButton = document.querySelector(".slider_prev");
-    const nextButton = document.querySelector(".slider_next");
-
-    prevButton.addEventListener("click", () => {
-        const sliderListElements = [...document.querySelectorAll(".slider_items")];
+const changePageNum = (currentImgNum, maxImgNum) => {
     const pageNumElement = document.querySelector(".slider_pageNum");
-
-        for (let i = 0; i < sliderListElements.length; i++) {
-            if (sliderListElements[i].style.zIndex === `-${sliderListElements.length}`) {
-                sliderListElements[i].style.zIndex = -1;
-            } else {
-                const currentZIndex = parseInt(sliderListElements[i].style.zIndex);
-                sliderListElements[i].style.zIndex = currentZIndex - 1;
+    pageNumElement.textContent = `${currentImgNum} / ${maxImgNum}`;
+    return pageNumElement;
 }
 
-            if (sliderListElements[i].style.zIndex === "-1") {
-                pageNumElement.textContent = `${i + 1} / ${sliderListElements.length}`;
-            }
-        }
+const switchImg = index => {
+    document.getElementById(`js-sliderItems${index}`).classList.add("is-display");
+}
         addOrRemoveDisabledImg();
     })
 
