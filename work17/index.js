@@ -87,9 +87,7 @@ const renderSlideImg = imagesDataArray => {
 
         img.src = imagesDataArray[i].src;
         li.classList = "slider_items";
-        if (!i) {
-            li.classList.add("is-display");
-        }
+        i === 0 && li.classList.add("is-display");
         li.id = `js-sliderItems${i + 1}`;
 
         li.appendChild(img);
@@ -146,7 +144,7 @@ const renderSlideArrow = () => {
 }
 
 const addOrRemoveDisabled = (index, nextOrPrevButton) => {
-    const sliderListElements = document.querySelector(".slider_item");
+    const sliderListElements = document.querySelector(".slider_list");
     const targetElem = document.getElementById(`js-sliderItems${index}`);
 
     const firstElem = sliderListElements.firstElementChild;
