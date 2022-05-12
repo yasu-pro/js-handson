@@ -8,7 +8,7 @@ const REQUEST_URL = "https://mocki.io/v1/d4a57e5a-8c84-4fee-aa05-70a1791c0d86";
 // 503エラーの場合↓
 // const REQUEST_URL = "https://httpstat.us/503";
 
-const wrapDiv = document.querySelector(".slider_wrap");
+const wrapDiv = document.getElementById("js-slider_wrap");
 
 const renderLoading = () => {
     const div = document.createElement("div");
