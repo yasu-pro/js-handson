@@ -78,7 +78,7 @@ const renderSlideImg = imagesDataArray => {
     const ul = document.createElement("ul");
     const fragment = document.createDocumentFragment();
 
-    ul.classList = "slider_item"
+    ul.classList = "slider_list"
     slideDiv.classList = "slider_slide";
 
     for (let i = 0; i < imagesDataArray.length; i++) {
