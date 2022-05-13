@@ -95,12 +95,12 @@ const renderSlideImg = imagesDataArray => {
     }
 
     wrapDiv.appendChild(slideDiv).appendChild(ul).appendChild(fragment);
-    slideDiv.appendChild(renderPagingNumber());
+    slideDiv.appendChild(createPagingNumber());
     renderSlideArrow();
     clickedSliderEvent();
 }
 
-const renderPagingNumber = () => {
+const createPagingNumber = () => {
     let count = 1;
     const sliderListElements = [...document.querySelectorAll(".slider_items")];
 
