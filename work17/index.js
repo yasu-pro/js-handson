@@ -94,8 +94,7 @@ const renderSlideImg = imagesDataArray => {
         fragment.appendChild(li);
     }
 
-    document.body.appendChild(wrapDiv)
-        .appendChild(slideDiv).appendChild(ul).appendChild(fragment);
+    wrapDiv.appendChild(slideDiv).appendChild(ul).appendChild(fragment);
     slideDiv.appendChild(renderPagingNumber());
     renderSlideArrow();
     clickedSliderEvent();
