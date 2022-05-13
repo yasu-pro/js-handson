@@ -107,14 +107,9 @@ const renderPagingNumber = () => {
     const span = document.createElement("span");
     span.classList = "slider_pageNum";
 
-    sliderListElements.forEach(element => {
-        if (element.classList.contains("is-display")) {
-            span.textContent = `${count} / ${sliderListElements.length}`;
-            return span;
-        }
-    });
+    span.textContent = `${count} / ${sliderListElements.length}`;
     return span;
-};
+}
 
 const renderSlideArrow = () => {
     const wrapDiv = document.querySelector(".slider_slide");
