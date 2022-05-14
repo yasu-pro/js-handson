@@ -8,6 +8,7 @@ const REQUEST_URL = "https://mocki.io/v1/d4a57e5a-8c84-4fee-aa05-70a1791c0d86";
 // 503エラーの場合↓
 // const REQUEST_URL = "https://httpstat.us/503";
 
+let currentImgCount = 1;
 const wrapDiv = document.getElementById("js-slider_wrap");
 
 const renderLoading = () => {
@@ -101,13 +102,12 @@ const renderSlideImg = imagesDataArray => {
 }
 
 const createPagingNumber = () => {
-    let count = 1;
     const sliderListElements = [...document.querySelectorAll(".slider_items")];
 
     const span = document.createElement("span");
     span.classList = "slider_pageNum";
 
-    span.textContent = `${count} / ${sliderListElements.length}`;
+    span.textContent = `${currentImgCount} / ${sliderListElements.length}`;
     return span;
 }
 
@@ -164,18 +164,17 @@ const switchImg = index => {
 
 const clickedSliderEvent = () => {
     const buttonElements = [...document.querySelectorAll(".slider_button")];
-    let count = 1;
     buttonElements.forEach((nextOrPrevButton) => {
         nextOrPrevButton.addEventListener("click", (e) => {
             const sliderListElements = [...document.querySelectorAll(".slider_items")];
             const displayElem = document.querySelector(".is-display");
             displayElem && displayElem.classList.remove("is-display");
 
-            e.currentTarget.classList.contains("slider_next") ? count++ : count--;
+            e.currentTarget.classList.contains("slider_next") ? currentImgCount++ : currentImgCount--;
 
-            switchImg(count);
-            addOrRemoveDisabled(count, nextOrPrevButton);
-            changePageNum(count, sliderListElements.length);
+            switchImg(currentImgCount);
+            addOrRemoveDisabled(currentImgCount, nextOrPrevButton);
+            changePageNum(currentImgCount, sliderListElements.length);
         })
     })
 }
