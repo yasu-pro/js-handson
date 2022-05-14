@@ -41,6 +41,8 @@ const init = async () => {
         return;
     }
     renderSlideImg(imgJsonData.data);
+    renderSlideArrow();
+    clickedSliderEvent();
 }
 
 const getRequestData = async REQUEST_URL => {
@@ -96,8 +98,6 @@ const renderSlideImg = imagesDataArray => {
 
     wrapDiv.appendChild(slideDiv).appendChild(ul).appendChild(fragment);
     slideDiv.appendChild(createPagingNumber());
-    renderSlideArrow();
-    clickedSliderEvent();
 }
 
 const createPagingNumber = () => {
