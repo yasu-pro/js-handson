@@ -17,3 +17,6 @@
 
 ### 課題16 (画像をサーバーに挙げられるサイト→codesandboxで画像のアップロードができなかったため)
 - https://postimages.org/
+
+### 課題17 (ダミー画像をランダムで生成してくれるサイト)
+- [Lorem Picsum](https://picsum.photos/)
