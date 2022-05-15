@@ -174,7 +174,6 @@ const clickedSliderEvent = () => {
     const buttonElements = [...document.querySelectorAll(".slider_button")];
     buttonElements.forEach((nextOrPrevButton) => {
         nextOrPrevButton.addEventListener("click", (e) => {
-            const sliderListElements = [...document.querySelectorAll(".slider_items")];
             const displayElem = document.querySelector(".is-display");
             displayElem && displayElem.classList.remove("is-display");
 
