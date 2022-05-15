@@ -160,10 +160,10 @@ const addOrRemoveDisabled = (index, nextOrPrevButton) => {
     }
 }
 
-const changePageNum = (currentImgNum, maxImgNum) => {
-    const pageNumElement = document.querySelector(".slider_pageNum");
-    pageNumElement.textContent = `${currentImgNum} / ${maxImgNum}`;
-    return pageNumElement;
+const changePageNum = (currentImgNum) => {
+    const currentNumElement = document.querySelector(".current-num");
+    currentNumElement.textContent = currentImgNum;
+    return currentNumElement;
 }
 
 const switchImg = index => {
@@ -182,7 +182,7 @@ const clickedSliderEvent = () => {
 
             switchImg(currentImgCount);
             addOrRemoveDisabled(currentImgCount, nextOrPrevButton);
-            changePageNum(currentImgCount, sliderListElements.length);
+            changePageNum(currentImgCount);
         })
     })
 }
