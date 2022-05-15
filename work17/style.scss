@@ -67,5 +67,12 @@ li {
             right: -50px;
         }
     }
+
+    &_button {
+        cursor: pointer;
+        &:disabled {
+            cursor: auto;
+        }
+    }
 }
 

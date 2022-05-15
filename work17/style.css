@@ -70,4 +70,12 @@ li {
 .slider_arrowBox-right {
   right: -50px;
 }
+
+.slider_button {
+  cursor: pointer;
+}
+
+.slider_button:disabled {
+  cursor: auto;
+}
 /*# sourceMappingURL=style.css.map */
