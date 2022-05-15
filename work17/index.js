@@ -104,11 +104,19 @@ const renderSlideImg = imagesDataArray => {
 const createPagingNumber = () => {
     const sliderListElements = [...document.querySelectorAll(".slider_items")];
 
-    const span = document.createElement("span");
-    span.classList = "slider_pageNum";
+    const div = document.createElement("div");
+    const currentNumSpan = document.createElement("span");
+    const totalNumSpan = document.createElement("span");
 
-    span.textContent = `${currentImgCount} / ${sliderListElements.length}`;
-    return span;
+    div.classList = "slider_pageNum";
+    currentNumSpan.classList = "current-num";
+    totalNumSpan.classList = "total-num";
+    currentNumSpan.textContent = currentImgCount
+    totalNumSpan.textContent = sliderListElements.length
+
+    div.appendChild(currentNumSpan).insertAdjacentHTML("afterend", "/");
+    div.appendChild(totalNumSpan);
+    return div;
 }
 
 const renderSlideArrow = () => {
